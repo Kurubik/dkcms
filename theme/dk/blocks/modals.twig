@@ -1,0 +1,140 @@
+<div class="modal-block" data-modal="order-call">
+    <div class="modal-block__container" data-modal-inner="order-call">
+        <div data-modal-close class="modal-block__close">
+            {% include 'svg/close-lightbox.svg' %}
+        </div>
+        <div class="modal-block__text-block">
+            <h4 class="modal-block__title modal-block__title--top50">
+                Заказать звонок
+            </h4>
+            <form action="" class="modal-block__form">
+                <div class="modal-block__form-input-block">
+                    <label class="modal-block__form-input-label" for="name">
+                        Ваше имя
+                    </label>
+                    <input name="name" id="name" class="modal-block__form-input" />
+                </div>
+                <div class="modal-block__form-input-block">
+                    <label class="modal-block__form-input-label" for="phone">
+                        Телефон <span class="modal-block__form-input-label modal-block__form-input-label--c-red">*</span>
+                    </label>
+                    <input name="phone" id="phone" class="modal-block__form-input" />
+                </div>
+                <div class="modal-block__form-input-block">
+                    <label class="modal-block__form-input-label" for="email">
+                        Эл. почта
+                    </label>
+                    <input name="email" id="email" class="modal-block__form-input" />
+                </div>
+                <button class="button button--form" type="submit">
+                    отправить
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-block" data-modal="email">
+    <div class="modal-block__container" data-modal-inner="email">
+        <div data-modal-close class="modal-block__close">
+            {% include 'svg/close-lightbox.svg' %}
+        </div>
+        <div class="modal-block__text-block">
+            <h4 class="modal-block__title">
+                Спасибо!
+            </h4>
+            <p class="modal-block__text">
+                Ваша заявка на обратный звонок
+                успешно передана. Наши менеджеры
+                свяжуться с вами в ближайшее время
+            </p>
+            <a href="" class="modal-block__link">
+                Вернуться на сайт
+            </a>
+        </div>
+    </div>
+</div>
+<div class="modal-block modal-block--gallery" data-modal="gallery">
+    <div class="modal-block__container modal-block__container--gallery" data-modal-inner="gallery">
+        <div data-modal-close class="modal-block__close">
+            {% include 'svg/close-lightbox.svg' %}
+        </div>
+        <div class="modal-block__arrow modal-block__arrow--prev" data-button-gallery="prev">
+            {% include 'svg/arrow.svg' %}
+        </div>
+        <div class="modal-block__arrow modal-block__arrow--next" data-button-gallery="next">
+            {% include 'svg/arrow.svg' %}
+        </div>
+        <div class="modal-block__gallery-block">
+            <div class="swiper-container modal-block__gallery-block-item active" data-gallery-block="vr">
+                <div class="swiper-wrapper modal-block__gallery-block-slides">
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake1.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake2.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake3.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake4.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-container modal-block__gallery-block-item" data-gallery-block="photo">
+                <div class="swiper-wrapper modal-block__gallery-block-slides">
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake1.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake2.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake3.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake4.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-container modal-block__gallery-block-item" data-gallery-block="video">
+                <div class="swiper-wrapper modal-block__gallery-block-slides">
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake1.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake2.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake3.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake4.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-container modal-block__gallery-block-item" data-gallery-block="demo">
+                <div class="swiper-wrapper modal-block__gallery-block-slides">
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake1.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake2.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake3.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ app.request.basepath }}/public/images/test/cake4.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-block__gallery-buttons-block">
+            <div data-gallery-button="vr" class="button button--gallery">виртуальный тур</div>
+            <div data-gallery-button="photo" class="button button--gallery">фотогалерея</div>
+            <div data-gallery-button="video" class="button button--gallery">видео</div>
+            <div data-gallery-button="demo" class="button button--gallery">демо-квартира</div>
+        </div>
+    </div>
+</div>

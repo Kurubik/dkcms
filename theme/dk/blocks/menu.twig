@@ -1,0 +1,11 @@
+<ul class="menu">
+    {% for menu in data.menu %}
+        <li class="menu__item">
+            {% if app.request.attributes.get('_route') == menu.link %}
+                <span class="menu__text menu__text--active">{{ menu.text }}</span>
+            {% else %}
+                <a href="{{ path(menu.link, {_locale: app.request.locale}) }}" class="menu__text">{{ menu.text }}</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

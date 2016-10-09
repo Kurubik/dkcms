@@ -1,0 +1,304 @@
+<div id="map" class="b-map"></div>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript">
+    var mapCategories = [
+        {
+            name: 'рестораны и кафе',
+            cat_id: 'cafe'
+        },
+        {
+            name: 'активный отдых',
+            cat_id: 'rest'
+        },
+        {
+            name: 'парки',
+            cat_id: 'parks'
+        },
+        {
+            name: 'все',
+            cat_id: 'all'
+        }
+    ];
+    var mapMarkers = [
+        {
+            position: {lat: 56.959508, lng: 24.239507},
+            tootltip: '<p><b>Name</b></p>',
+            category: 'parks'
+        },
+        {
+            position: {lat: 56.965229, lng: 24.232238},
+            tootltip: '<p><b>Name 2</b></p>',
+            category: 'rest'
+        },
+        {
+            position: {lat: 56.956894, lng: 24.239550},
+            tootltip: '<p><b>Maxima</b></p>',
+            category: 'parks'
+        },
+        {
+            position: {lat: 56.954656, lng: 23.721450},
+            tootltip: '<p><b>Cafe</b></p>',
+            category: 'cafe'
+        },
+        {
+            position: {lat: 56.954432, lng: 23.779238},
+            tootltip: '<p><b>Rest</b></p>',
+            category: 'rest'
+        },
+        {
+            position: {lat: 56.954622, lng: 23.771388},
+            tootltip: '<p><b>Cafe2</b></p>',
+            category: 'cafe'
+        }
+    ];
+</script>
+<script type="text/javascript">
+
+    google.maps.event.addDomListener(window, 'load', init);
+
+    function init() {
+
+        var mapOptions = {
+            zoom: 12,
+            center: new google.maps.LatLng(56.948333, 23.826804),
+            disableDefaultUI: true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            scrollwheel: false,
+
+            styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#dde6e8"},{"visibility":"on"}]}]
+
+        };
+
+        function isIE() {
+            var ua = window.navigator.userAgent;
+
+            var msie = ua.indexOf('MSIE ');
+            if (msie > 0) {
+                return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+            }
+
+            var trident = ua.indexOf('Trident/');
+            if (trident > 0) {
+                var rv = ua.indexOf('rv:');
+                return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+            }
+
+            var edge = ua.indexOf('Edge/');
+            if (edge > 0) {
+                return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+            }
+
+            return false;
+        }
+
+        var bigMarker = '/public/icons/pin-1.svg';
+        if (isIE()) {
+            bigMarker = '/public/assets/marker_big.png';
+        }
+        var mapElement = document.getElementById('map');
+
+        var map = new google.maps.Map(mapElement, mapOptions);
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+
+        var allMarkers = [];
+        var allCatButtons = [];
+
+        for (i = 0; i < mapMarkers.length; i++) {
+            marker = new google.maps.Marker({
+                position: mapMarkers[i].position,
+                map: map,
+                title: 'Dubultu Krasts',
+                animation: google.maps.Animation.DROP,
+                icon: location.protocol + '//' + location.hostname + bigMarker
+            });
+
+            marker.category = mapMarkers[i].category;
+            marker.setVisible(true);
+
+            allMarkers.push(marker);
+
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infowindow.setContent(mapMarkers[i].tootltip);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+
+        function displayMarkers(button) {
+            var i;
+
+            for (i = 0; i < allCatButtons.length; i++) {
+                allCatButtons[i].style.display = 'block';
+            }
+            button.style.display = 'none';
+
+            for (i = 0; i < allMarkers.length; i++) {
+                if (allMarkers[i].category === button.mapCategory || button.mapCategory === 'all') {
+                    allMarkers[i].setVisible(true);
+                } else {
+                    allMarkers[i].setVisible(false);
+                }
+            }
+        }
+
+        function ZoomControl(controlDiv, map) {
+
+            controlDiv.style.padding = '2.5rem';
+
+            var controlWrapper = document.createElement('div');
+            controlWrapper.style.cursor = 'pointer';
+            controlWrapper.style.textAlign = 'center';
+            controlWrapper.style.width = '2.125rem';
+            controlWrapper.style.height = '4.875rem';
+            controlDiv.appendChild(controlWrapper);
+
+            var zoomInButton = document.createElement('div');
+            zoomInButton.style.width = '2.125rem';
+            zoomInButton.style.height = '2.125rem';
+            zoomInButton.style.backgroundColor = '#5f564f';
+            zoomInButton.style.color = '#ffffff';
+            zoomInButton.style.fontSize = '1.3125rem';
+            zoomInButton.style.lineHeight = '2.1875rem';
+            zoomInButton.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+            zoomInButton.innerHTML = '+';
+            controlWrapper.appendChild(zoomInButton);
+
+            var zoomOutButton = document.createElement('div');
+            zoomOutButton.style.width = '2.125rem';
+            zoomOutButton.style.height = '2.125rem';
+            zoomOutButton.style.marginTop = '0.625rem';
+            zoomOutButton.style.backgroundColor = '#5f564f';
+            zoomOutButton.style.color = '#ffffff';
+            zoomOutButton.style.fontSize = '1.5rem';
+            zoomOutButton.style.lineHeight = '2.1875rem';
+            zoomOutButton.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+            zoomOutButton.innerHTML = '-';
+            controlWrapper.appendChild(zoomOutButton);
+
+
+            google.maps.event.addDomListener(zoomInButton, 'click', function () {
+                map.setZoom(map.getZoom() + 1);
+            });
+            google.maps.event.addDomListener(zoomOutButton, 'click', function () {
+                map.setZoom(map.getZoom() - 1);
+            });
+
+            google.maps.event.addDomListener(zoomInButton, 'mouseover', function () {
+                zoomInButton.style.backgroundColor = 'rgba(95, 86, 79, 0.7)';
+                zoomInButton.style.color = '#ffffff';
+            });
+
+            google.maps.event.addDomListener(zoomInButton, 'mouseout', function () {
+                zoomInButton.style.backgroundColor = '#5f564f';
+                zoomInButton.style.color = '#ffffff';
+            });
+
+            google.maps.event.addDomListener(zoomOutButton, 'mouseover', function () {
+                zoomOutButton.style.backgroundColor = 'rgba(95, 86, 79, 0.7)';
+                zoomOutButton.style.color = '#ffffff';
+            });
+
+            google.maps.event.addDomListener(zoomOutButton, 'mouseout', function () {
+                zoomOutButton.style.backgroundColor = '#5f564f';
+                zoomOutButton.style.color = '#ffffff';
+            });
+
+        }
+
+        function CategoryControl(controlDiv, map) {
+
+            controlDiv.style.padding = '2.5rem';
+
+            var controlWrapper = document.createElement('div');
+            controlWrapper.style.cursor = 'pointer';
+            controlWrapper.style.textAlign = 'center';
+            controlWrapper.style.width = '100%';
+            controlWrapper.style.height = '2rem';
+            controlDiv.appendChild(controlWrapper);
+
+            var i, catButton;
+            for (i = 0; i < mapCategories.length; i++) {
+                catButton = document.createElement('div');
+                catButton.style.width = '11.25rem';
+                catButton.style.height = '2rem';
+                catButton.style.float = 'right';
+                catButton.style.borderRadius = '1.5rem';
+                catButton.style.marginRight = '0.9375rem';
+                catButton.style.backgroundColor = 'rgba(95, 86, 79, 0.7)';
+                catButton.style.color = '#ffffff';
+                catButton.style.fontSize = '0.75rem';
+                catButton.style.textTransform = 'uppercase';
+                catButton.style.fontFamily = '"Circe", sans-serif';
+                catButton.style.fontWeight = '100';
+                catButton.style.letterSpacing = '0.0625rem';
+                catButton.style.lineHeight = '2.1875rem';
+                catButton.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+                catButton.mapCategory = mapCategories[i].cat_id;
+                catButton.innerHTML = mapCategories[i].name;
+                controlWrapper.appendChild(catButton);
+
+                if (catButton.mapCategory === 'all') {
+                    catButton.style.display = 'none';
+                }
+
+                allCatButtons.push(catButton);
+
+                google.maps.event.addDomListener(catButton, 'click', function() {
+                    displayMarkers(this);
+                });
+
+                google.maps.event.addDomListener(catButton, 'mouseover', function() {
+                    this.style.backgroundColor = '#5f564f';
+                    this.style.color = '#ffffff';
+                });
+
+                google.maps.event.addDomListener(catButton, 'mouseout', function() {
+                    this.style.backgroundColor = 'rgba(95, 86, 79, 0.7)';
+                    this.style.color = '#ffffff';
+                });
+
+            }
+
+        }
+
+        var zoomControlDiv = document.createElement('div');
+        var zoomControl = new ZoomControl(zoomControlDiv, map);
+        zoomControlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(zoomControlDiv);
+
+        var catControlDiv = document.createElement('div');
+        var catControl = new CategoryControl(catControlDiv, map);
+        catControlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(catControlDiv);
+
+
+        var airport = new google.maps.Marker({
+            position: new google.maps.LatLng(56.922877, 23.974602),
+            map: map,
+            title: 'Aitrport',
+            animation: google.maps.Animation.DROP,
+            icon: location.protocol + '//' + location.hostname + '/public/assets/marker_plane.png'
+        });
+
+        var useMarker = '/public/icons/pin-2.svg';
+
+        if (isIE())
+        {
+            useMarker = '/public/assets/marker_small.png';
+        }
+
+        var main = new google.maps.Marker({
+            position: new google.maps.LatLng(56.959492, 23.773299),
+            map: map,
+            title: 'Dubultu Krasts',
+            animation: google.maps.Animation.DROP,
+            icon: location.protocol + '//' + location.hostname + useMarker
+        });
+
+    }
+</script>

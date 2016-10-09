@@ -1,0 +1,149 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "eb4ff54e1222017bef4ff3ca2e54a00c",
+    "content-hash": "9ef1f81b1260d9a95ea6432b4030589b",
+    "packages": [
+        {
+            "name": "bacboslab/menueditor",
+            "version": "3.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bacbos/bolt-menu-editor.git",
+                "reference": "35234ee990cf5bcdee2b645dce06e6f5fdf4937b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bacbos/bolt-menu-editor/zipball/35234ee990cf5bcdee2b645dce06e6f5fdf4937b",
+                "reference": "35234ee990cf5bcdee2b645dce06e6f5fdf4937b",
+                "shasum": ""
+            },
+            "require": {
+                "bolt/bolt": "^3.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.7"
+            },
+            "type": "bolt-extension",
+            "extra": {
+                "bolt-icon": "bolt-menu-editor.png",
+                "bolt-assets": "web",
+                "bolt-class": "Bolt\\Extension\\Bacboslab\\Menueditor\\MenueditorExtension"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\Extension\\Bacboslab\\Menueditor\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Bolt\\Extension\\Bacboslab\\Menueditor\\Tests\\": "tests",
+                    "Bolt\\Tests\\": "vendor/bolt/bolt/tests/phpunit/unit/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steven Wüthrich / bacbos lab",
+                    "email": "hello@bacbos.ch",
+                    "homepage": "http://bacbos.ch"
+                },
+                {
+                    "name": "Svante Richter",
+                    "email": "svante.richter@gmail.com"
+                }
+            ],
+            "description": "A visual menu editor for Bolt CMS",
+            "keywords": [
+                "admin",
+                "editor",
+                "menu",
+                "tool",
+                "visual"
+            ],
+            "support": {
+                "source": "https://github.com/bacbos/bolt-menu-editor/tree/3.1.3",
+                "issues": "https://github.com/bacbos/bolt-menu-editor/issues"
+            },
+            "time": "2016-09-17 15:45:32"
+        },
+        {
+            "name": "bolt/labels",
+            "version": "3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bolt/labels.git",
+                "reference": "2603ba254c78161493ac7642ef1cc84ee8db07d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bolt/labels/zipball/2603ba254c78161493ac7642ef1cc84ee8db07d6",
+                "reference": "2603ba254c78161493ac7642ef1cc84ee8db07d6",
+                "shasum": ""
+            },
+            "require": {
+                "bolt/bolt": "^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.7"
+            },
+            "type": "bolt-extension",
+            "extra": {
+                "bolt-assets": "web",
+                "bolt-class": "Bolt\\Extension\\Bolt\\Labels\\LabelsExtension",
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\Extension\\Bolt\\Labels\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Bolt\\Tests\\": {
+                        "Bolt\\Extension\\Bolt\\Labels\\Tests\\": "tests/",
+                        "Bolt\\Tests\\": "vendor/bolt/bolt/tests/phpunit/unit/"
+                    }
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Two Kings",
+                    "email": "info@twokings.nl"
+                },
+                {
+                    "name": "Bob den Otter",
+                    "email": "bob@twokings.nl"
+                },
+                {
+                    "name": "Tobias Dammers",
+                    "email": "tdammers@twokings.nl"
+                }
+            ],
+            "description": "Database-backed translation labels",
+            "support": {
+                "source": "https://github.com/bolt/labels/tree/3.0.2",
+                "issues": "https://github.com/bolt/labels/issues"
+            },
+            "time": "2016-08-19 11:33:19"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

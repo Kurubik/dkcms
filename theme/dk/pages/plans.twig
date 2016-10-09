@@ -1,0 +1,358 @@
+{% extends 'index.twig' %}
+
+{% block page %}
+    {% include 'interface/languages.twig' %}
+    {% include 'interface/inner-header.twig' %}
+
+    <div class="content content--table">
+        <div class="select-container">
+            <div class="select-container__row">
+                <div class="select-container__col">
+                    <div class="select">
+                        <select name="house" id="house">
+                            <option value="1">дом №1</option>
+                            <option value="2">дом №2</option>
+                        </select>
+                        <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
+                    </div>
+                </div>
+                <div class="select-container__col">
+                    <div class="select">
+                        <select name="house" id="house">
+                            <option value="1">дом №1</option>
+                            <option value="2">дом №2</option>
+                        </select>
+                        <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
+                    </div>
+                </div>
+                <div class="select-container__col">
+                    <div class="select">
+                        <select name="house" id="house">
+                            <option value="1">дом №1</option>
+                            <option value="2">дом №2</option>
+                        </select>
+                        <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
+                    </div>
+                </div>
+                <div class="select-container__col">
+                    <div class="select">
+                        <select name="house" id="house">
+                            <option value="1">дом №1</option>
+                            <option value="2">дом №2</option>
+                        </select>
+                        <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
+                    </div>
+                </div>
+                <div class="select-container__col">
+                    <div class="select">
+                        <select name="house" id="house">
+                            <option value="1">дом №1</option>
+                            <option value="2">дом №2</option>
+                        </select>
+                        <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
+                    </div>
+                </div>
+                <div class="select-container__col select-container__col--right">
+                    <div class="clear-filter">
+                        <span class="clear-filter__icon">{% include 'svg/close-small.svg' %}</span>
+                        очистить фильтр
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table" data-sort-table data-url="#">
+            <thead>
+            <tr>
+                <th class="center">этаж
+                    <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
+                </th>
+                <th class="left">квартира №
+                    <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
+                </th>
+                <th class="center">комнат
+                    <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
+                </th>
+                <th class="right">площадь, м<sup>2</sup>
+                    <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
+                </th>
+                <th class="right">терраса, м<sup>2</sup>
+                    <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
+                </th>
+                <th class="right">общая, м<sup>2</sup>
+                    <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
+                </th>
+                <th class="center">цена, €
+                    <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
+                </th>
+                <th class="center no-hover">статус</th>
+                <th class="left no-hover">планировки, pdf</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--tr class="sep"><td class="separator" colspan="9">&nbsp;</td></tr-->
+            <tr>
+                <td class="center">201</td>
+                <td class="left">2</td>
+                <td class="center">13</td>
+                <td class="right">42</td>
+                <td class="right">54</td>
+                <td class="right">35</td>
+                <td class="center">62000</td>
+                <td class="center">Свободна</td>
+                <td class="left">—</td>
+            </tr>
+            <tr class="sold">
+                <td class="center">201</td>
+                <td class="left">12</td>
+                <td class="center">31</td>
+                <td class="right">43</td>
+                <td class="right">410</td>
+                <td class="right">22</td>
+                <td class="center">3000</td>
+                <td class="center">Продана</td>
+                <td class="left">—</td>
+            </tr>
+            <tr>
+                <td class="center">201</td>
+                <td class="left">2</td>
+                <td class="center">13</td>
+                <td class="right">23</td>
+                <td class="right">50</td>
+                <td class="right">65</td>
+                <td class="center">8000</td>
+                <td class="center">Свободна</td>
+                <td class="left">
+                    <div class="button button--table">
+                        <span class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</span>
+                        скачать
+                    </div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="center">201</td>
+                <td class="left">1</td>
+                <td class="center">1</td>
+                <td class="right">33</td>
+                <td class="right">10</td>
+                <td class="right">43</td>
+                <td class="center">68000</td>
+                <td class="center">Свободна</td>
+                <td class="left">—</td>
+            </tr>
+            <tr class="sold">
+                <td class="center">201</td>
+                <td class="left">1</td>
+                <td class="center">1</td>
+                <td class="right">33</td>
+                <td class="right">10</td>
+                <td class="right">43</td>
+                <td class="center">68000</td>
+                <td class="center">Продана</td>
+                <td class="left">—</td>
+            </tr>
+            <tr>
+                <td class="center">201</td>
+                <td class="left">1</td>
+                <td class="center">1</td>
+                <td class="right">33</td>
+                <td class="right">10</td>
+                <td class="right">43</td>
+                <td class="center">68000</td>
+                <td class="center">Свободна</td>
+                <td class="left">
+                    <div class="button button--table">
+                        <span class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</span>
+                        скачать
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="center">201</td>
+                <td class="left">1</td>
+                <td class="center">1</td>
+                <td class="right">33</td>
+                <td class="right">10</td>
+                <td class="right">43</td>
+                <td class="center">68000</td>
+                <td class="center">Свободна</td>
+                <td class="left">—</td>
+            </tr>
+            <tr class="sold">
+                <td class="center">201</td>
+                <td class="left">1</td>
+                <td class="center">1</td>
+                <td class="right">33</td>
+                <td class="right">10</td>
+                <td class="right">43</td>
+                <td class="center">68000</td>
+                <td class="center">Продана</td>
+                <td class="left">—</td>
+            </tr>
+            <tr>
+                <td class="center">201</td>
+                <td class="left">1</td>
+                <td class="center">1</td>
+                <td class="right">33</td>
+                <td class="right">10</td>
+                <td class="right">43</td>
+                <td class="center">68000</td>
+                <td class="center">Свободна</td>
+                <td class="left">
+                    <div class="button button--table">
+                        <span class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</span>
+                        скачать
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="center">201</td>
+                <td class="left">1</td>
+                <td class="center">1</td>
+                <td class="right">33</td>
+                <td class="right">10</td>
+                <td class="right">43</td>
+                <td class="center">68000</td>
+                <td class="center">Свободна</td>
+                <td class="left">—</td>
+            </tr>
+            <!--tr class="sep"><td class="separator" colspan="9">&nbsp;</td></tr-->
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="content content--plans">
+        <div class="content__houses">
+            <ul class="house-circle__list">
+                <li class="house-circle">
+                    <a href="{{ path('plans', {_locale: app.request.locale}) }}" data-house="1">
+                        <div class="house-circle__circle">№1</div>
+                        <div class="house-circle__line"></div>
+                    </a>
+                </li>
+                <li class="house-circle house-circle--h90">
+                    <a href="{{ path('plans', {_locale: app.request.locale}) }}" data-house="2">
+                        <div class="house-circle__circle">№2</div>
+                        <div class="house-circle__line"></div>
+                    </a>
+                </li>
+                <li class="house-circle house-circle--h20">
+                    <a href="{{ path('plans', {_locale: app.request.locale}) }}" data-house="3">
+                        <div class="house-circle__circle">№3</div>
+                        <div class="house-circle__line"></div>
+                    </a>
+                </li>
+                <li class="house-circle house-circle--h120">
+                    <a href="{{ path('plans', {_locale: app.request.locale}) }}" data-house="4">
+                        <div class="house-circle__circle">№4</div>
+                        <div class="house-circle__line"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <img alt="" src="{{ app.request.basepath }}/public/images/render.jpg" title="" usemap="#render">
+
+        <map name="render" id="render">
+            <area data-section="1" alt="" href="{{ path('plans', {_locale: app.request.locale}) }}" title="" shape="poly" coords="321,309,497,314,498,502,322,502" />
+            <area data-section="2" alt="" href="{{ path('plans', {_locale: app.request.locale}) }}" title="" shape="poly" coords="499,263,758,276,759,506,499,507" />
+            <area data-section="3" alt="" href="{{ path('plans', {_locale: app.request.locale}) }}" title="" shape="poly" coords="758,253,797,187,1123,208,1115,513,799,512,762,507" />
+            <area data-section="4" alt="" href="{{ path('plans', {_locale: app.request.locale}) }}" title="" shape="poly" coords="1124,319,1309,300,1311,504,1119,504" />
+        </map>
+    </div>
+
+    <div class="content content--contacts">
+        <div class="section section--info">
+            <div class="content__col">
+                <div class="section section__text">
+                    <div class="content__col-text content__col-text--float_right">
+                        <h2>Коммерческая недвижимость</h2>
+                        <p>
+                            Проект, состоящий из четырёх двенадцатиэтажных
+                            зданий, разработан с учетом особенностей местного
+                            ландшафта под руководством известного латвийского
+                            архитектора Андиса Силиса и командой его
+                            архитектурного бюро szk partners.
+                        </p>
+                        <p>
+                            Dubultu Krasts — это порядка 500 квартир, площадью
+                            от 37 м<sup>2</sup> до 120 м<sup>2</sup>, с полной отделкой из материалов
+                            высокого качества. При необходимости метраж
+                            квартиры может быть увеличен. В каждой квартире
+                            — панорамные окна и террасы — это уникальная
+                            особенность комплекса. | возможно и больше текста возможно и больше текставозможно и больше текставозможно и больше текставозможно и больше текста
+                        </p>
+                    </div>
+                    <div class="content__col-text content__col-text--float_right">
+                        <h2>Условия покупки</h2>
+                        <p>
+                            Проект, состоящий из четырёх двенадцатиэтажных
+                            зданий, разработан с учетом особенностей местного
+                            ландшафта под руководством известного латвийского
+                            архитектора Андиса Силиса и командой его
+                            архитектурного бюро szk partners.
+                        </p>
+                        <p>
+                            Dubultu Krasts — это порядка 500 квартир, площадью
+                            от 37 м<sup>2</sup> до 120 м<sup>2</sup>, с полной отделкой из материалов
+                            высокого качества. При необходимости метраж
+                            квартиры может быть увеличен. В каждой квартире
+                            — панорамные окна и террасы — это уникальная
+                            особенность комплекса. | возможно и больше текста возможно и больше текставозможно и больше текставозможно и больше текставозможно и больше текста
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="section__contacts">
+                <div class="section__contacts-button">
+                    <div class="contact-block">
+                        <div class="button" data-modal-open="order-call">
+                            <span class="button__icon">{% include 'svg/phone-2.svg' %}</span>
+                            заказать звонок
+                        </div>
+                        <ul class="contact-block__list">
+                            <li class="contact-block__list-item">
+                                <div class="contact-block__list-item-title">
+                                    Адрес
+                                </div>
+                                <div class="contact-block__list-item-text">
+                                    Слокас 51, Юрмала
+                                </div>
+                            </li>
+                            <li class="contact-block__list-item">
+                                <div class="contact-block__list-item-title">
+                                    Телефон
+                                </div>
+                                <div class="contact-block__list-item-text">
+                                    <a href="tel:+371 26113355" class="contact-block__list-item-text">
+                                        +371 26113355
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="contact-block__list-item">
+                                <div class="contact-block__list-item-title">
+                                    Эл. почта
+                                </div>
+                                <div class="contact-block__list-item-text">
+                                    <a href="mailto:sales@dubultukrasts.lv">sales@dubultukrasts.lv</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content content--banner">
+        <a href="{{ path('info', {_locale: app.request.locale}) }}" class="content__full-link"></a>
+        <div class="header__button">
+            <a href="{{ path('gallery', {_locale: app.request.locale}) }}" class="button">галерея</a>
+        </div>
+    </div>
+
+
+{% endblock %}
