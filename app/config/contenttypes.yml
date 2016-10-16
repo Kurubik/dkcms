@@ -15,6 +15,39 @@ en-pages:
     name: EN Pages
     singular_name: EN Page
     fields: &pagefields
+        header_image:
+            label: Header Image
+            type: image
+            group: header
+        header_image_opacity:
+            label: Header Image Opacity (0-1)
+            type: text
+            class: small
+            group: header
+        use_order_call:
+            type: checkbox
+            label: "Use Order Call Link"
+            group: header
+        header_right_text:
+            label: Header Right Text
+            type: text
+            class: small
+            group: header
+        header_banner:
+            label: Banner Text
+            type: html
+            height: 150px
+            group: header
+        header_banner_button:
+            label: Banner Button
+            type: text
+            class: small
+            group: header
+        header_baner_button_link:
+            label: Banner Link
+            type: text
+            class: small
+            group: header
         top_title:
             label: Top Title
             type: text
@@ -40,16 +73,60 @@ en-pages:
             type: html
             height: 150px
             group: content
+        bot_button_left:
+            label: Bottom Button Left
+            type: text
+            class: small
+            group: content
+        bot_button_link_Left:
+            label: Bottom Button Left Link
+            type: text
+            class: small
+            group: content
         bot_text_right:
             label: Bottom Text Right
             type: html
             height: 150px
+            group: content
+        bot_button_right:
+            label: Bottom Button Right
+            type: text
+            class: small
+            group: content
+        bot_button_link_right:
+            label: Bottom Button Right Link
+            type: text
+            class: small
             group: content
         bot_photo:
             label: Bottom Photo
             type: image
             attrib: title
             group: content
+        bottom_image:
+            label: Bottom Image
+            type: image
+            group: Bottom Block
+        bottom_image_opacity:
+            label: Bottom Image Opacity (0-1)
+            type: text
+            class: small
+            group: Bottom Block
+        bottom_title:
+            label: Bottom Title
+            type: text
+            class: large
+            group: Bottom Block
+        bottom_button:
+            label: Bottom Button
+            type: text
+            class: small
+            group: header
+        bottom_button_link:
+            label: Bottom Button Link
+            type: text
+            class: small
+            group: Bottom Block
         slug:
             type: slug
             group: options
@@ -267,6 +344,25 @@ infra_svg:
     default_status: publish
     icon_many: "fa:image"
     icon_one: "fa:image"
+
+footer_block:
+    name: Footer Blocks
+    singular_name: Footer Blocks
+    fields:
+        title:
+            label: Title
+            type: text
+            group: content
+        text1:
+            label: Text 1
+            type: html
+            group: content
+        text2:
+            label: Text 2
+            type: html
+            group: content
+    icon_many: "fa:hand-o-down"
+    icon_one: "fa:hand-o-down"
 
 
 

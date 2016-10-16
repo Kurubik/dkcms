@@ -1,0 +1,131 @@
+{% extends 'index.twig' %}
+
+{% block page %}
+    {% include 'interface/languages.twig' %}
+    <header class="header header--big">
+        <div class="header__call">
+            {% include 'interface/call.twig' %}
+        </div>
+
+        <div class="header__menu">
+            {% include 'blocks/menu.twig' %}
+        </div>
+
+        <div class="header__info-block">
+            {% include 'interface/info-price.twig' %}
+        </div>
+
+        <div class="header__logo">
+            {% include 'svg/logo.svg' %}
+        </div>
+
+        <div class="header__button">
+            {% include 'interface/button-text.twig' %}
+        </div>
+    </header>
+
+    <div class="content content--map">
+        <div class="content__title">
+            <h1 class="page-title">
+                В сердце природы,<br>
+                в центре курорта
+            </h1>
+        </div>
+        <div class="content__map">
+            {%  include 'blocks/pin-map.twig' %}
+        </div>
+
+        <div class="header__button">
+            <div class="button-text button-text--c_gray">
+                Город-курорт Юрмала
+                у Балтийского моря
+                находится в 20 минутах
+                езды от центра столицы
+                Латвии — города Риги
+                и в 15 минутах езды от
+                аэропорта.
+            </div>
+            <a href="" class="button">
+                <span>Расположение</span>
+                <span>Расположение</span>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="content content--plans">
+        <div class="header__call">
+            {% include 'interface/call.twig' %}
+        </div>
+
+        <div class="header__info-block">
+            {% include 'interface/info-price.twig' %}
+        </div>
+
+
+        <div class="content__houses">
+            <ul class="house-circle__list">
+                <li class="house-circle">
+                    <a href="{{ path('plans', {_locale: app.request.locale}) }}" data-house="1">
+                        <div class="house-circle__circle">№1</div>
+                        <div class="house-circle__line"></div>
+                    </a>
+                </li>
+                <li class="house-circle house-circle--h90">
+                    <a href="{{ path('plans', {_locale: app.request.locale}) }}" data-house="2">
+                        <div class="house-circle__circle">№2</div>
+                        <div class="house-circle__line"></div>
+                    </a>
+                </li>
+                <li class="house-circle house-circle--h20">
+                    <a href="{{ path('plans', {_locale: app.request.locale}) }}" data-house="3">
+                        <div class="house-circle__circle">№3</div>
+                        <div class="house-circle__line"></div>
+                    </a>
+                </li>
+                <li class="house-circle house-circle--h120">
+                    <a href="{{ path('plans', {_locale: app.request.locale}) }}" data-house="4">
+                        <div class="house-circle__circle">№4</div>
+                        <div class="house-circle__line"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="header__button">
+            <a href="{{ path('plans', {_locale: app.request.locale}) }}" class="button">
+                <span>Планировки</span>
+                <span>Планировки</span>
+            </a>
+        </div>
+
+        <img alt="" src="{{ app.request.basepath }}/public/images/render.jpg" title="" usemap="#render">
+
+        <map name="render" id="render">
+            <area data-section="1" alt="" href="{{ path('plans', {_locale: app.request.locale}) }}" title="" shape="poly" coords="321,309,497,314,498,502,322,502" />
+            <area data-section="2" alt="" href="{{ path('plans', {_locale: app.request.locale}) }}" title="" shape="poly" coords="499,263,758,276,759,506,499,507" />
+            <area data-section="3" alt="" href="{{ path('plans', {_locale: app.request.locale}) }}" title="" shape="poly" coords="758,253,797,187,1123,208,1115,513,799,512,762,507" />
+            <area data-section="4" alt="" href="{{ path('plans', {_locale: app.request.locale}) }}" title="" shape="poly" coords="1124,319,1309,300,1311,504,1119,504" />
+        </map>
+    </div>
+
+
+    <div class="content content--banner">
+        <a href="{{ path('info', {_locale: app.request.locale}) }}" class="content__full-link"></a>
+        <div class="content__banner-title">
+            <h2 class="page-title">
+                Размеренная жизнь<br>
+                и комфорт
+            </h2>
+        </div>
+        <div class="header__button">
+            <a href="{{ path('info', {_locale: app.request.locale}) }}" class="button">
+                <span>инфраструктура</span>
+                <span>инфраструктура</span>
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

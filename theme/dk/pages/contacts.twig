@@ -45,7 +45,7 @@
             </ul>
         </div>
     </div>
-    <div class="content content--contacts-map">
+    <div class="content content--contacts-map" data-map="contacts">
         {% include 'blocks/map.twig' %}
     </div>
 
@@ -58,7 +58,10 @@
             </h2>
         </div>
         <div class="header__button">
-            <a href="{{ path('info', {_locale: app.request.locale}) }}" class="button">инфраструктура</a>
+            <a href="{{ path('info', {_locale: app.request.locale}) }}" class="button">
+                <span>инфраструктура</span>
+                <span>инфраструктура</span>
+            </a>
         </div>
     </div>
 

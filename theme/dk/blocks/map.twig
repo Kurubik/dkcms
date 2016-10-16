@@ -94,58 +94,60 @@
 
         var bigMarker = '/public/icons/pin-1.svg';
         if (isIE()) {
-            bigMarker = '/public/assets/marker_big.png';
+            bigMarker = '/public/assets/marker_small.png';
         }
         var mapElement = document.getElementById('map');
 
         var map = new google.maps.Map(mapElement, mapOptions);
 
-        var infowindow = new google.maps.InfoWindow();
+        if ($('[data-map="contacts"]').length <= 0) {
 
-        var marker, i;
+            var infowindow = new google.maps.InfoWindow();
 
-        var allMarkers = [];
-        var allCatButtons = [];
+            var marker, i;
 
-        for (i = 0; i < mapMarkers.length; i++) {
-            marker = new google.maps.Marker({
-                position: mapMarkers[i].position,
-                map: map,
-                title: 'Dubultu Krasts',
-                animation: google.maps.Animation.DROP,
-                icon: location.protocol + '//' + location.hostname + bigMarker
-            });
+            var allMarkers = [];
+            var allCatButtons = [];
 
-            marker.category = mapMarkers[i].category;
-            marker.setVisible(true);
+            for (i = 0; i < mapMarkers.length; i++) {
+                marker = new google.maps.Marker({
+                    position: mapMarkers[i].position,
+                    map: map,
+                    title: 'Dubultu Krasts',
+                    animation: google.maps.Animation.DROP,
+                    icon: location.protocol + '//' + location.hostname + bigMarker
+                });
 
-            allMarkers.push(marker);
+                marker.category = mapMarkers[i].category;
+                marker.setVisible(true);
 
-            google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                return function() {
-                    infowindow.setContent(mapMarkers[i].tootltip);
-                    infowindow.open(map, marker);
-                }
-            })(marker, i));
-        }
+                allMarkers.push(marker);
 
-        function displayMarkers(button) {
-            var i;
-
-            for (i = 0; i < allCatButtons.length; i++) {
-                allCatButtons[i].style.display = 'block';
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent(mapMarkers[i].tootltip);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
             }
-            button.style.display = 'none';
 
-            for (i = 0; i < allMarkers.length; i++) {
-                if (allMarkers[i].category === button.mapCategory || button.mapCategory === 'all') {
-                    allMarkers[i].setVisible(true);
-                } else {
-                    allMarkers[i].setVisible(false);
+            function displayMarkers(button) {
+                var i;
+
+                for (i = 0; i < allCatButtons.length; i++) {
+                    allCatButtons[i].style.display = 'block';
+                }
+                button.style.display = 'none';
+
+                for (i = 0; i < allMarkers.length; i++) {
+                    if (allMarkers[i].category === button.mapCategory || button.mapCategory === 'all') {
+                        allMarkers[i].setVisible(true);
+                    } else {
+                        allMarkers[i].setVisible(false);
+                    }
                 }
             }
         }
-
         function ZoomControl(controlDiv, map) {
 
             controlDiv.style.padding = '2.5rem';
@@ -271,12 +273,14 @@
         zoomControlDiv.index = 1;
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(zoomControlDiv);
 
-        var catControlDiv = document.createElement('div');
-        var catControl = new CategoryControl(catControlDiv, map);
-        catControlDiv.index = 1;
-        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(catControlDiv);
+        if ($('[data-map="contacts"]').length <= 0) {
 
+            var catControlDiv = document.createElement('div');
+            var catControl = new CategoryControl(catControlDiv, map);
+            catControlDiv.index = 1;
+            map.controls[google.maps.ControlPosition.TOP_RIGHT].push(catControlDiv);
 
+        }
         var airport = new google.maps.Marker({
             position: new google.maps.LatLng(56.922877, 23.974602),
             map: map,
@@ -289,7 +293,7 @@
 
         if (isIE())
         {
-            useMarker = '/public/assets/marker_small.png';
+            useMarker = '/public/assets/marker_big.png';
         }
 
         var main = new google.maps.Marker({

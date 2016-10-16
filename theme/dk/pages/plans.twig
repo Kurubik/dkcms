@@ -123,7 +123,7 @@
                 <td class="center">Свободна</td>
                 <td class="left">
                     <div class="button button--table">
-                        <span class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</span>
+                        <i class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</i>
                         скачать
                     </div>
                 </td>
@@ -163,7 +163,7 @@
                 <td class="center">Свободна</td>
                 <td class="left">
                     <div class="button button--table">
-                        <span class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</span>
+                        <i class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</i>
                         скачать
                     </div>
                 </td>
@@ -201,7 +201,7 @@
                 <td class="center">Свободна</td>
                 <td class="left">
                     <div class="button button--table">
-                        <span class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</span>
+                        <i class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</i>
                         скачать
                     </div>
                 </td>
@@ -309,8 +309,9 @@
                 <div class="section__contacts-button">
                     <div class="contact-block">
                         <div class="button" data-modal-open="order-call">
-                            <span class="button__icon">{% include 'svg/phone-2.svg' %}</span>
-                            заказать звонок
+                            <span class="button__fix">заказать звонок</span>
+                            <span class="button__fix">заказать звонок</span>
+                            <i class="button__icon">{% include 'svg/phone-2.svg' %}</i>
                         </div>
                         <ul class="contact-block__list">
                             <li class="contact-block__list-item">
@@ -350,7 +351,10 @@
     <div class="content content--banner">
         <a href="{{ path('info', {_locale: app.request.locale}) }}" class="content__full-link"></a>
         <div class="header__button">
-            <a href="{{ path('gallery', {_locale: app.request.locale}) }}" class="button">галерея</a>
+            <a href="{{ path('gallery', {_locale: app.request.locale}) }}" class="button">
+                <span>галерея</span>
+                <span>галерея</span>
+            </a>
         </div>
     </div>
 

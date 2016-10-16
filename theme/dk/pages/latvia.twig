@@ -113,9 +113,10 @@
                         с получением ВНЖ.
                     </p>
                     <div class="content__col-button">
-                        <div class="button">
-                            <span class="button__icon">{% include 'svg/phone-2.svg' %}</span>
-                            заказать звонок
+                        <div class="button" data-modal-open="order-call">
+                            <span class="button__fix">заказать звонок</span>
+                            <span class="button__fix">заказать звонок</span>
+                            <i class="button__icon">{% include 'svg/phone-2.svg' %}</i>
                         </div>
                     </div>
                 </div>
@@ -158,7 +159,10 @@
             </h2>
         </div>
         <div class="header__button">
-            <a href="{{ path('location', {_locale: app.request.locale}) }}" class="button">расположение</a>
+            <a href="{{ path('location', {_locale: app.request.locale}) }}" class="button">
+                <span>расположение</span>
+                <span>расположение</span>
+            </a>
         </div>
     </div>
 {% endblock %}
