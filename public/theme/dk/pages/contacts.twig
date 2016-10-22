@@ -1,0 +1,68 @@
+{% extends 'index.twig' %}
+
+{% block page %}
+    {% include 'interface/languages.twig' %}
+    {% include 'interface/inner-header.twig' %}
+
+
+    <div class="content content--contacts_page">
+        <div class="page-contact-block">
+            <div class="page-contact-block__title">
+                Слокас 51, Юрмала <br>
+                LV-2015, Латвия
+            </div>
+            <ul class="page-contact-block__list">
+                <li class="page-contact-block__list-item">
+                    <div class="page-contact-block__list-item-title">
+                        dubultu krasts
+                    </div>
+                    <div class="page-contact-block__list-item-section">
+                        <a href="tel:+371 26113355" class="page-contact-block__list-item-link">
+                            +371 26113355
+                        </a>
+                    </div>
+                    <div class="page-contact-block__list-item-section">
+                        <a href="$" class="page-contact-block__list-item-link">
+                            info@dubultukrasts.lv
+                        </a>
+                    </div>
+                </li>
+                <li class="page-contact-block__list-item">
+                    <div class="page-contact-block__list-item-title">
+                        офис продаж
+                    </div>
+                    <div class="page-contact-block__list-item-section">
+                        <a href="tel:+371 26113355" class="page-contact-block__list-item-link">
+                            +371 26113355
+                        </a>
+                    </div>
+                    <div class="page-contact-block__list-item-section">
+                        <a href="$" class="page-contact-block__list-item-link">
+                            info@dubultukrasts.lv
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content content--contacts-map" data-map="contacts">
+        {% include 'blocks/map.twig' %}
+    </div>
+
+    <div class="content content--banner">
+        <a href="{{ path('info', {_locale: app.request.locale}) }}" class="content__full-link"></a>
+        <div class="content__banner-title">
+            <h2 class="page-title">
+                Размеренная жизнь<br>
+                и комфорт
+            </h2>
+        </div>
+        <div class="header__button">
+            <a href="{{ path('info', {_locale: app.request.locale}) }}" class="button">
+                <span>инфраструктура</span>
+                <span>инфраструктура</span>
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

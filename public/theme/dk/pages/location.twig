@@ -1,0 +1,130 @@
+{% extends 'index.twig' %}
+
+{% block page %}
+    {% include 'interface/languages.twig' %}
+    {% include 'interface/inner-header.twig' %}
+<div class="content content--text">
+    <div class="content__overlay">
+        <img alt="" src="{{ app.request.basepath }}/public/images/overlay.png" title="">
+    </div>
+
+
+    <div class="content__col">
+        <div class="content__right-col">
+            <h1 class="page-title">
+                В сердце природы,<br>
+                в центре курорта
+            </h1>
+            <div class="content__col-text content__col-text--separate-mid">
+                <p>
+                    Комплекс Dubultu Krasts расположен в самом центре
+                    Юрмалы на берегу реки Лиелупе. 900 метров отделяет
+                    вас от моря с его бесконечными песчаными пляжами и
+                    уникальными дюнами с сосновым лесом.
+                </p>
+                <p>
+                    Особое расположение комплекса позволит вам
+                    ощущать себя на курорте в умиротворяющем
+                    спокойствии воды и леса и при этом находиться в
+                    городе с современной инфраструктурой.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content__gallery">
+        <div class="image-block" data-page-slider>
+            <div class="image-block__image">
+                <div class="swiper-container image-block__image-gallery" data-page-slider-container>
+                    <div class="swiper-wrapper image-block__image-gallery-wrapper">
+                        <div class="swiper-slide">
+                            <img src="{{ app.request.basepath }}/public/images/test/cake1.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ app.request.basepath }}/public/images/test/cake2.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ app.request.basepath }}/public/images/test/cake3.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ app.request.basepath }}/public/images/test/cake4.jpg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="image-block__controls">
+                <div class="image-block__comment">
+                    <div class="image-block__comment-item" data-page-slider-comment="0">
+                        Широкие песчаные пляжи
+                        Юрмалы и неглубокое
+                        море привлекают своей
+                        чистотой и спокойствием
+                    </div>
+                    <div class="image-block__comment-item" data-page-slider-comment="1">
+                        Широкие песчаные пляжи
+                        Юрмалы и неглубокое
+                        море привлекают своей
+                        чистотой и спокойствием
+                    </div>
+                    <div class="image-block__comment-item" data-page-slider-comment="2">
+                        Широкие песчаные пляжи
+                        Юрмалы и неглубокое
+                        море привлекают своей
+                        чистотой и спокойствием
+                    </div>
+                    <div class="image-block__comment-item" data-page-slider-comment="3">
+                        Широкие песчаные пляжи
+                        Юрмалы и неглубокое
+                        море привлекают своей
+                        чистотой и спокойствием
+                    </div>
+                </div>
+                <div class="image-block__buttons-block">
+                    <div class="image-block__button image-block__button--prev" data-page-slider-button-prev>{% include 'svg/arrow.svg' %}</div>
+                    <div class="image-block__button image-block__button--next" data-page-slider-button-next>{% include 'svg/arrow.svg' %}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content__col content__col--separate-map">
+        <div class="content__right-col">
+            <div class="content__col-text">
+                <p>
+                    Очаровательный город-курорт Юрмала сегодня
+                    развивается стремительными темпами и может
+                    предложить своим жителям медицинские учреждения,
+                    рестораны, школы, спа и магазины.  А программа
+                    знаменитого концертного зала «Дзинтари» позволит
+                    наполнить вашу жизнь яркими культурными событиями.
+                </p>
+                <p>
+                    Центр Риги расположен в 20 минутах езды на машине,
+                    что делает инфраструктуру столицы Латвии доступной
+                    для жителей Dubultu Krasts.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="map">
+    {% include 'blocks/map.twig' %}
+</div>
+
+<div class="content content--banner">
+    <a href="{{ path('info', {_locale: app.request.locale}) }}" class="content__full-link"></a>
+    <div class="content__banner-title">
+        <h2 class="page-title">
+            Комфорт курорта и<br>
+            размеренная жизнь
+        </h2>
+    </div>
+    <div class="header__button">
+        <a href="{{ path('info', {_locale: app.request.locale}) }}" class="button">
+            <span>инфраструктура</span>
+            <span>инфраструктура</span>
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'index.twig' %}
+
+{% block page %}
+    {% include 'interface/languages.twig' %}
+    {% include 'interface/inner-header.twig' %}
+
+    <div class="content content--text">
+        <div class="content__col">
+            <div class="content__right-col">
+                <h1 class="page-title">
+                    Размеренная жизнь<br>
+                    и комфорт
+                </h1>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <ul class="page-gallery">
+                <li class="page-gallery__item">
+                    <div class="page-gallery__image" data-modal-open="gallery" data-gallery="vr"></div>
+                    <div class="page-gallery__text">
+                        Bus utem quam et is essitatus.
+                        Eribus et ea qui blaut alibusciasi.
+                    </div>
+                    <div class="gallery__button">
+                        <div data-modal-open="gallery" data-gallery="vr" class="button">
+                            <span>виртуальный тур</span>
+                            <span>виртуальный тур</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="page-gallery__item">
+                    <div class="page-gallery__image" data-modal-open="gallery" data-gallery="photo"></div>
+                    <div class="page-gallery__text">
+                        Bus utem quam et is essitatus.
+                        Bus utem quam et is essitatus.
+                        Eribus et ea qui blaut alibusciasi.
+                        Bus utem quam et is essitatus.
+                        Eribus et ea qui blaut alibusciasi.
+                        Eribus et ea qui blaut alibusciasi.
+                    </div>
+                    <div class="gallery__button">
+                        <div data-modal-open="gallery" data-gallery="photo" class="button">
+                            <span>фотогалерея</span>
+                            <span>фотогалерея</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="page-gallery__item">
+                    <div class="page-gallery__image" data-modal-open="gallery" data-gallery="video"></div>
+                    <div class="page-gallery__text">
+                        Bus utem quam et is essitatus.
+                        Eribus et ea qui blaut alibusciasi.
+                    </div>
+                    <div class="gallery__button">
+                        <div data-modal-open="gallery" data-gallery="video" class="button">
+                            <span>видео</span>
+                            <span>видео</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="page-gallery__item">
+                    <div class="page-gallery__image" data-modal-open="gallery" data-gallery="demo"></div>
+                    <div class="page-gallery__text">
+                        Bus utem quam et is essitatus.
+                        Eribus et ea qui blaut alibusciasi.
+                    </div>
+                    <div class="gallery__button">
+                        <div data-modal-open="gallery" data-gallery="demo" class="button">
+                            <span>демо-квартира</span>
+                            <span>демо-квартира</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="content content--banner">
+        <a href="{{ path('info', {_locale: app.request.locale}) }}" class="content__full-link"></a>
+        <div class="content__banner-title">
+            <h2 class="page-title">
+                В сердце природы,<br>
+                в центре курорта
+            </h2>
+        </div>
+        <div class="header__button">
+            <a href="{{ path('plans', {_locale: app.request.locale}) }}" class="button">
+                <span>планировки</span>
+                <span>планировки</span>
+            </a>
+        </div>
+    </div>
+{% endblock %}

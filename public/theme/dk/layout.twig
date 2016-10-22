@@ -1,0 +1,22 @@
+{% macro svg(svgAssetModel, cssClasses) %}
+
+    <svg class="{{ cssClasses }}" title="{{ svgAssetModel.title }}">
+        <use xlink:href="{{ svgAssetModel.url }}#{{ svgAssetModel.symbol }}"></use>
+    </svg>
+
+{% endmacro %}
+
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+{% include 'head.twig' %}
+<body>
+{% spaceless %}
+    {% include 'blocks/modals.twig' %}
+    <div class="wrapper">
+        {% block content %}{% endblock %}
+        {% include 'blocks/footer.twig' %}
+    </div>
+    {% include 'scripts.twig' %}
+{% endspaceless %}
+</body>
+</html>

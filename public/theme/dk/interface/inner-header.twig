@@ -1,0 +1,10 @@
+<header class="header header--small">
+    <div class="header__call">{% include 'interface/call.twig' %}</div>
+    <div class="header__menu header__menu--small">{% include 'blocks/menu.twig' %}</div>
+    <div class="header__info-block">{% include 'interface/info-price.twig' %}</div>
+    <div class="header__logo">
+        <a href="{{ path('page1', {_locale: app.request.locale}) }}">
+            {% include 'svg/logo.svg' %}
+        </a>
+    </div>
+</header>

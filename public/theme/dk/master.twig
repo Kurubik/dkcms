@@ -1,0 +1,22 @@
+{% spaceless %}
+    {# --- attempt to get the language from the URL --- #}
+    {% if app.canonicalpath %}
+        {% set languageslug = app.canonicalpath|split('/')[1] %}
+    {% else %}
+        {% set languageslug = app.paths.current|split('/')[1] %}
+    {% endif %}
+
+    {# --- set the language, otherwise fallback to default language --- #}
+    {% if languageslug in ['en', 'ru', 'lv'] %}
+        {% set language = languageslug %}
+    {% else %}
+        {% set language = 'ru' %}
+    {% endif %}
+
+    {% set pagescontenttype      = language ~ '-pages' %}
+    {# ... more ContentTypes ... #}
+
+    {% set menumain              = language ~ '-main' %}
+    {# ... more menus ... #}
+
+{% endspaceless %}

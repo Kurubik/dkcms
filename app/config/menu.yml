@@ -1,0 +1,71 @@
+# This file defines the menus on the website. See the documentation for
+# details: https://docs.bolt.cm/configuration/menus
+
+ru-main:
+    - label: Проект
+      title: Проект
+      path: ru-project
+    - label: Расположение
+      title: Расположение
+      path: ru-location
+    - label: Инфраструктура
+      title: Инфраструктура
+      path: ru-info
+    - label: Планировки
+      title: Планировки
+      path: ru-plans
+    - label: Галерея
+      title: Галерея
+      path: ru-gallery
+    - label: Латвия
+      title: Латвия
+      path: ru-latvia
+    - label: Контакты
+      title: Контакты
+      path: ru-contacts
+
+lv-main:
+    - label: Проект
+      title: Проект
+      path: lv-project
+    - label: Расположение
+      title: Расположение
+      path: lv-location
+    - label: Инфраструктура
+      title: Инфраструктура
+      path: lv-info
+    - label: Планировки
+      title: Планировки
+      path: lv-plans
+    - label: Галерея
+      title: Галерея
+      path: lv-gallery
+    - label: Латвия
+      title: Латвия
+      path: lv-latvia
+    - label: Контакты
+      title: Контакты
+      path: lv-contacts
+
+en-main:
+    - label: Проект
+      title: Проект
+      path: en-project
+    - label: Расположение
+      title: Расположение
+      path: en-location
+    - label: Инфраструктура
+      title: Инфраструктура
+      path: en-info
+    - label: Планировки
+      title: Планировки
+      path: en-plans
+    - label: Галерея
+      title: Галерея
+      path: en-gallery
+    - label: Латвия
+      title: Латвия
+      path: en-latvia
+    - label: Контакты
+      title: Контакты
+      path: en-contacts

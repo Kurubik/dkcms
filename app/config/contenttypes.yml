@@ -1,0 +1,683 @@
+# This file defines the contenttypes on the website. See the documentation for
+# details: https://docs.bolt.cm/contenttypes/intro
+
+# Pages can be used for the more 'static' pages on your site. Things like
+# 'about us', 'contact' or a 'disclaimer'. This content-type has a 'templateselect'
+# field, which allows you to override the record_template setting for an
+# individual page.
+# The taxonomy for this contenttype is defined as 'groups', which is a so-called
+# "grouping taxonomy". This way you can easily group sets of pages that logically
+# belong together. If your site has a 'services' section, in which you'd like to
+# list the different types of services a company provides, you can group these
+# together.
+
+en_pages:
+    name: EN Pages
+    singular_name: EN Page
+    fields: &pagefields
+        title:
+            label: Page Title
+            type: text
+            group: Title
+        header_image:
+            label: Header Image
+            type: image
+            group: header
+        header_image_opacity:
+            label: Header Image Opacity (0-1)
+            type: text
+            class: small
+            group: header
+        use_order_call:
+            type: checkbox
+            label: "Use Order Call Link"
+            group: header
+        header_right_text:
+            label: Header Right Text
+            type: text
+            class: small
+            group: header
+        header_banner:
+            label: Banner Text
+            type: html
+            height: 150px
+            group: header
+        header_banner_button:
+            label: Banner Button
+            type: text
+            class: small
+            group: header
+        header_baner_button_link:
+            label: Banner Link
+            type: text
+            class: small
+            group: header
+        top_title:
+            label: Top Title
+            type: text
+            class: large
+            group: content
+        top_text:
+            label: Top Text
+            type: html
+            height: 150px
+            group: content
+        mid_text_left:
+            label: Middle Text Left
+            type: html
+            height: 150px
+            group: content
+        mid_text_right:
+            label: Middle Text Right
+            type: html
+            height: 150px
+            group: content
+        bot_text_left:
+            label: Bottom Text Left
+            type: html
+            height: 150px
+            group: content
+        bot_button_left:
+            label: Bottom Button Left
+            type: text
+            class: small
+            group: content
+        bot_button_link_Left:
+            label: Bottom Button Left Link
+            type: text
+            class: small
+            group: content
+        bot_text_right:
+            label: Bottom Text Right
+            type: html
+            height: 150px
+            group: content
+        bot_button_right:
+            label: Bottom Button Right
+            type: text
+            class: small
+            group: content
+        bot_button_link_right:
+            label: Bottom Button Right Link
+            type: text
+            class: small
+            group: content
+        bot_photo:
+            label: Bottom Photo
+            type: image
+            attrib: title
+            group: content
+        bottom_image:
+            label: Bottom Image
+            type: image
+            group: Bottom Block
+        bottom_image_opacity:
+            label: Bottom Image Opacity (0-1)
+            type: text
+            class: small
+            group: Bottom Block
+        bottom_title:
+            label: Bottom Title
+            type: text
+            class: large
+            group: Bottom Block
+        bottom_button:
+            label: Bottom Button
+            type: text
+            class: small
+            group: Bottom Block
+        bottom_button_link:
+            label: Bottom Button Link
+            type: text
+            class: small
+            group: Bottom Block
+        slug:
+            type: slug
+            group: options
+        template:
+            type: templateselect
+            filter: 'pages/*.twig'
+            group: options
+    taxonomy: [ groups ]
+    recordsperpage: 100
+    default_status: publish
+    icon_many: "fa:language"
+    icon_one: "fa:language"
+
+ru_pages:
+    name: RU Pages
+    singular_name: RU Pages
+    fields: *pagefields
+    taxonomy: [ groups ]
+    recordsperpage: 100
+    default_status: publish
+    icon_many: "fa:language"
+    icon_one: "fa:language"
+
+lv_pages:
+    name: LV Pages
+    singular_name: LV Pages
+    fields: *pagefields
+    taxonomy: [ groups ]
+    recordsperpage: 100
+    default_status: publish
+    icon_many: "fa:language"
+    icon_one: "fa:language"
+
+apparmets:
+    name: Appartmens
+    singular_name: Appartmens
+    fields:
+        house:
+            label: House
+            type: select
+            values: [1, 2, 3, 4]
+            group: Properties
+        floor:
+            label: Floor
+            type: integer
+            group: Properties
+        room:
+            label: Room
+            type: integer
+            group: Properties
+        rooms_number:
+            label: Number Of Rooms
+            type: integer
+            group: Properties
+        room_area:
+            label: Room Area (m2)
+            type: float
+            group: Properties
+        terrace_area:
+            label: Terrace Area (m2)
+            type: float
+            group: Properties
+        total_area:
+            label: Total Area (m2)
+            type: float
+            group: Properties
+        price:
+            label: Price
+            type: float
+            group: Properties
+        room_status:
+            label: Status
+            type: select
+            values: ['free', 'sold', 'reserved']
+            group: Properties
+
+map_poi:
+    name: Map POI
+    singular_name: Map POI
+    fields:
+        en_category:
+            label: EN Category Name
+            type: text
+            group: Category
+        ru_category:
+            label: RU Category Name
+            type: text
+            group: Category
+        lv_category:
+            label: LV Category Name
+            type: text
+            group: Category
+        cat_id:
+            label: Category ID
+            type: text
+            uses: [ en_category ]
+            required: true
+            group: Category
+        geolocation:
+            type: geolocation
+            group: POI
+        en_title:
+            label: EN Name
+            type: html
+            group: POI
+        ru_title:
+            label: RU Name
+            type: html
+            group: POI
+        lv_title:
+            label: LV Name
+            type: html
+            group: POI
+    default_status: publish
+    icon_many: "fa:map-marker"
+    icon_one: "fa:map-marker"
+
+map_pin:
+    name: Map Pin
+    singular_name: Map Pin
+    fields:
+        en_title:
+            label: EN Name
+            type: text
+            group: City
+        ru_title:
+            label: RU Name
+            type: text
+            group: City
+        lv_title:
+            label: LV Name
+            type: text
+            group: City
+        city:
+            type: select
+            values: [ London, Paris, Madrid, Berlin, Vienna, Rome, St. Petersburg, Moscow, Stockholm, Helsing, Luxembourg, Brussels, Jurmala]
+        route:
+            type: repeater
+            group: Routes
+            limit: 3
+            fields:
+                en_routetext:
+                    label: EN text
+                    type: text
+                ru_routetext:
+                    label: RU text
+                    type: text
+                lv_routetext:
+                    label: LV text
+                    type: text
+                routeimage:
+                    label: Image
+                    type: image
+    default_status: publish
+    icon_many: "fa:map-o"
+    icon_one: "fa:map-o"
+
+page_gallery:
+    name: Page Gallery
+    singular_name: Page Gallery
+    fields:
+        en_text:
+            label: EN Text
+            type: textarea
+            group: preview
+        ru_text:
+            label: RU Text
+            type: textarea
+            group: preview
+        lv_text:
+            label: LV Text
+            type: textarea
+            group: preview
+        page_link:
+            label: Link
+            type: text
+            group: preview
+        gallery_img:
+            type: repeater
+            group: images
+            fields:
+                image:
+                    label: Image
+                    type: image
+    default_status: publish
+    icon_many: "fa:camera-retro"
+    icon_one: "fa:camera-retro"
+
+slider_gallery:
+    name: Gallery Slider
+    singular_name: Gallery Slider
+    fields:
+        title:
+            label: Sldier Title
+            type: text
+            group: slider
+        slider_img:
+            type: repeater
+            group: images
+            fields:
+                image:
+                    label: Image
+                    type: image
+                en_comment:
+                    label: EN comment
+                    type: html
+                ru_comment:
+                    label: RU comment
+                    type: html
+                lv_comment:
+                    label: LV comment
+                    type: html
+    relations:
+        en_pages:
+            multiple: true
+            order: top_title
+        ru_pages:
+            multiple: true
+            order: top_title
+        lv_pages:
+            multiple: true
+            order: top_title
+    default_status: publish
+    icon_many: "fa:file-image-o"
+    icon_one: "fa:file-image-o"
+
+infra_svg:
+    name: Infrastructure Image
+    singular_name: Infrastructure Image
+    fields:
+        repeater:
+            type: repeater
+            group: images
+            prefix: "<p>This allows you to create multiple sets of fields. Use the add button at the bottom to create a new empty set.</p>"
+            fields:
+                en_title:
+                    label: EN Text
+                    type: text
+                ru_title:
+                    label: RU Text
+                    type: text
+                lv_title:
+                    label: LV Text
+                    type: text
+                repeatimage:
+                    label: Image
+                    type: image
+    relations:
+        en_pages:
+            multiple: true
+            order: top_title
+        ru_pages:
+            multiple: true
+            order: top_title
+        lv_pages:
+            multiple: true
+            order: top_title
+    default_status: publish
+    icon_many: "fa:image"
+    icon_one: "fa:image"
+
+footer_block:
+    name: Footer Blocks
+    singular_name: Footer Blocks
+    fields:
+        title:
+            label: Title
+            type: text
+            group: content
+        text1:
+            label: Text 1
+            type: html
+            group: content
+        text2:
+            label: Text 2
+            type: html
+            group: content
+    icon_many: "fa:hand-o-down"
+    icon_one: "fa:hand-o-down"
+
+
+
+
+# Entries can be used for things like 'news' or 'blogpostings'. They have a 'teaser',
+# which can be used for a short blurb on listing-pages, allowing visitors to
+# click-through to the rest of the entry. It also has fields for an image and an
+# optional video.
+# A relation is defined to the pages contenttype. This way you can refer to a page
+# from your news-item.
+# This contenttype defines 'categories' and 'tags' as taxonomies, allowing the
+# editor to use both to categorize a specific entry.
+# The 'sort' is set to '-datepublish', which means that newer entries will be
+# shown above older entries.
+
+#entries:
+#    name: Entries
+#    singular_name: Entry
+#    fields:
+#        title:
+#            type: text
+#            class: large
+#            group: content
+#        slug:
+#            type: slug
+#            uses: title
+#        teaser:
+#            type: html
+#            height: 150px
+#        body:
+#            type: html
+#            height: 300px
+#        image:
+#            type: image
+#            group: media
+#        video:
+#            type: video
+#    relations:
+#        pages:
+#          multiple: false
+#          order: title
+#          label: Select a page
+#    taxonomy: [ categories, tags ]
+#    record_template: entry.twig
+#    listing_template: listing.twig
+#    listing_records: 10
+#    default_status: publish
+#    sort: -datepublish
+#    recordsperpage: 10
+
+
+# The 'Showcases' is not particularly useful in most cases, but it does a good
+# job of showcasing most of the available fieldtypes. Feel free to delete it, or
+# copy some fields to your own contenttypes.
+# Since no templates are defined for this contenttype, the default record_template,
+# listing_template, and related settings are used from config.yml
+#
+#showcases:
+#    name: Showcases
+#    slug: showcases
+#    singular_name: Showcase
+#    singular_slug: showcase
+#    fields:
+#        title:
+#            type: text
+#            class: large
+#            required: true
+#            pattern: ".{2,255}" # see: http://html5pattern.com/
+#            error: "The Title field is required, and must contain at least 2 characters"
+#            group: Text
+#        slug:
+#            type: slug
+#            uses: [ title ]
+#        html:
+#            type: html
+#            height: 150px
+#        textarea:
+#            type: textarea
+#            postfix: "<p><em>This is a plain text area. the contents will not be processed.</em></p>"
+#        markdown:
+#            type: markdown
+#            postfix: "<p><em>This field gets parsed as <a href='https://help.github.com/articles/markdown-basics'>Markdown</a>, when rendered on the site.</em></p>"
+#        geolocation:
+#            type: geolocation
+#            group: Media
+#        video:
+#            type: video
+#        image:
+#            type: image
+#            attrib: title # Note: retrieve this in your template with {{ record.values.image.title }}
+#            extensions: [ gif, jpg, png ]
+#        imagelist:
+#            type: imagelist
+#        file:
+#            type: file
+#            group: files
+#        filelist:
+#            type: filelist
+#        checkbox:
+#            type: checkbox
+#            label: "This is a checkbox"
+#            group: other
+#        datetime:
+#            type: datetime
+#            default: "2000-01-01"
+#            variant: inline
+#        date:
+#            type: date
+#            default: "first day of last month"
+#            variant: inline
+#        integerfield:
+#            type: integer
+#            index: true
+#        floatfield:
+#            type: float
+#        selectfield:
+#            type: select
+#            values: [ foo, bar, baz ]
+#        multiselect:
+#            type: select
+#            values: [ A-tuin, Donatello, Rafael, Leonardo, Michelangelo, Koopa, Squirtle ]
+#            multiple: true
+#            postfix: "Select your favourite turtle(s)."
+#        selectentry:
+#            type: select
+#            values: entries/id,title
+#            postfix: "Select an entry"
+#            autocomplete: true
+#            sort: title
+#        repeater:
+#            type: repeater
+#            group: repeater
+#            limit: 3
+#            prefix: "<p>This allows you to create multiple sets of fields. Use the add button at the bottom to create a new empty set.</p>"
+#            fields:
+#                repeattitle:
+#                    type: text
+#                repeatimage:
+#                    type: image
+#                    extensions: [ gif, jpg, png ]
+#                repeatcontent:
+#                    type: html
+#    relations:
+#        entries:
+#            multiple: false
+#            label: "Choose an entry"
+#            order: -id
+#            format: "{{ item.title|escape }} (№ {{ item.id }})"
+#            postfix: "By selecting an Entry, you're creating a bi-directional relationship to that Entry."
+#        pages:
+#            multiple: true
+#            order: title
+#            label: Select zero or more pages
+#    taxonomy: [ categories, tags ]
+#    show_on_dashboard: true
+#    default_status: publish
+#    searchable: true
+#    icon_many: "fa:gift"
+#    icon_one: "fa:gift"
+
+
+# The 'Blocks' contenttype is a so-called 'resource contenttype'. This means
+# that it can be used to manage smaller pieces of content, like the 'about us'
+# text, an 'our address' in the footer, or similar short blurbs of text.
+# For more info, see: https://docs.bolt.cm/howto/resource-contenttype
+#
+#blocks:
+#    name: Blocks
+#    singular_name: Block
+#    fields:
+#        title:
+#            type: text
+#            class: large
+#            group: "Block"
+#        slug:
+#            type: slug
+#            uses: [ title ]
+#        content:
+#            type: html
+#            height: 150px
+#        contentlink:
+#            type: text
+#            label: Link
+#            placeholder: 'contenttype/slug or http://example.org/'
+#            postfix: "Use this to add a link for this Block. This could either be an 'internal' link like <tt>page/about</tt>, if you use a contenttype/slug combination. Otherwise use a proper URL, like `http://example.org`."
+#        image:
+#            type: image
+#            attrib: title
+#            extensions: [ gif, jpg, png ]
+#    show_on_dashboard: true
+#    viewless: true
+#    default_status: publish
+#    searchable: false
+#    icon_many: "fa:cubes"
+#    icon_one: "fa:cube"
+
+# Possible field types:
+#
+# text - varchar(256) - input type text.
+# integer - integer - Input field for integer numbers.
+# float - double - Input field for floating numbers, stored as 'Double'.
+# geolocation - text (65kb) - Input field for geolocation. Enter an address, and the location is geocoded to latitude/longitude coordinates
+# imagelist - text (65kb) - Input type for imagelists. Add multiple images with a description. Useful for image sliders, galleries, etcetera.
+# image - varchar(256) - image select/upload widget, stored as filename.
+# file - varchar(256) - file select/upload widget, stored as filename.
+# filelist - text (65kb) - Input type for a list of files. Including a description.
+# video - varchar(256) - Video embed widget, stored as filename.
+# html - text (65kb) - wysiwyg element.
+# textarea - varchar(32768) - Simple, plain < textarea > field.
+# markdown - varchar(32768) - Simple, plain < textarea > field, which is parsed as Markdown text.
+# datetime - datetime - date and time selector widget.
+# date - datetime - date selector widget.
+# select - varchar(256) - select with predefined values
+# templateselect - varchar(256) - select with template filenames
+# checkbox - integer - checkbox-field which is 1 (checked) or 0 (unchecked)
+
+# Using YAML repeated nodes
+#
+# YAML allows the defining of "repeated nodes". These allow you to define a 'node'
+# with a 'key: &name' and referenced later with '<<: *name'
+#
+# Bolt allows you to define this with the special entry of '__nodes:' that itself
+# won't create a Contenttype, but will allow you to use it in actual contenttypes
+# to prevent repeating yourself.
+#
+# To achieve this, first create a key '__nodes:'
+#__nodes:
+#    field_defaults: &field_defaults
+#        title:
+#            type: text
+#            class: large
+#            group: main
+#        slug:
+#            type: slug
+#            uses: title
+#    template_defaults: &template_defaults
+#        template:
+#            type: templateselect
+#            filter: '*.twig'
+#            group: meta
+#
+# Then, as an example, you could create a Contenttype with default fields, with
+# an additional 'image' field.
+#
+#contenttype_abc:
+#    name: Contenttype Abc
+#    fields:
+#        <<: *field_defaults
+#        image:
+#            type: image
+#            attrib: title
+#            extensions: [ gif, jpg, png ]
+#        <<: *template_defaults
+#    taxonomy: [ chapters ]
+#    recordsperpage: 10
+#
+# Alternatively, or additionally, you then can then create a Contenttype with
+# default fields, and a 'select' field, and a different 'templateselect' option.
+#
+#contenttype_xyz:
+#    name: Contenttype Xyz
+#    fields:
+#        <<: *field_defaults
+#        selectfield:
+#            type: select
+#            values: [ none, foo, bar ]
+#        template:
+#            type: templateselect
+#            filter: '*_xyz.twig'
+#    taxonomy: [ tags ]
+#    recordsperpage: 20
