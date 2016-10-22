@@ -11,44 +11,79 @@
 # These are the routes defining the default behaviour of Bolt's frontend.
 # Changing these might give unexpected results or even break your website. If
 # possible, only add NEW routes above or below these.
+#
 
 homepage:
     path: /
     defaults:
         _controller: controller.frontend:homepage
 
-search:
-    path: /search
-    defaults:
-        _controller: controller.frontend:search
+# ------------------------------------------------------------------------------
+# [en] English
+# ------------------------------------------------------------------------------
 
-preview:
-    path: /preview/{contenttypeslug}
-    defaults:
-        _controller: controller.frontend:preview
-    requirements:
-        contenttypeslug: controller.requirement:anyContentType
+en-pages:
+  path:               /en/{slug}
+  defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'en-pages', 'lang': 'en' }
+  contenttype:        en_pages
 
-contentlink:
-    path: /{contenttypeslug}/{slug}
-    defaults:
-        _controller: controller.frontend:record
-    requirements:
-        contenttypeslug: controller.requirement:anyContentType
+# ------------------------------------------------------------------------------
+# [ru] Russian
+# ------------------------------------------------------------------------------
 
-taxonomylink:
-    path: /{taxonomytype}/{slug}
-    defaults:
-        _controller: controller.frontend:taxonomy
-    requirements:
-        taxonomytype: controller.requirement:anyTaxonomyType
+ru-pages:
+  path:               /ru/{slug}
+  defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'ru-pages', 'lang': 'ru' }
+  contenttype:        ru_pages
 
-contentlisting:
-    path: /{contenttypeslug}
-    defaults:
-        _controller: controller.frontend:listing
-    requirements:
-        contenttypeslug: controller.requirement:pluralContentTypes
+# ------------------------------------------------------------------------------
+# [lv] Latvian
+# ------------------------------------------------------------------------------
+
+lv-pages:
+  path:               /lv/{slug}
+  defaults:           { _controller: 'Bolt\Controllers\Frontend::record', 'contenttypeslug': 'lv-pages', 'lang': 'lv' }
+  contenttype:        lv_pages
+
+
+
+#homepage:
+#    path: /
+#    defaults:
+#        _controller: controller.frontend:homepage
+#
+#search:
+#    path: /search
+#    defaults:
+#        _controller: controller.frontend:search
+#
+#preview:
+#    path: /preview/{contenttypeslug}
+#    defaults:
+#        _controller: controller.frontend:preview
+#    requirements:
+#        contenttypeslug: controller.requirement:anyContentType
+#
+#contentlink:
+#    path: /{contenttypeslug}/{slug}
+#    defaults:
+#        _controller: controller.frontend:record
+#    requirements:
+#        contenttypeslug: controller.requirement:anyContentType
+#
+#taxonomylink:
+#    path: /{taxonomytype}/{slug}
+#    defaults:
+#        _controller: controller.frontend:taxonomy
+#    requirements:
+#        taxonomytype: controller.requirement:anyTaxonomyType
+#
+#contentlisting:
+#    path: /{contenttypeslug}
+#    defaults:
+#        _controller: controller.frontend:listing
+#    requirements:
+#        contenttypeslug: controller.requirement:pluralContentTypes
 
 # ------------------------------------------------------------------------------
 # Place your own routes here, that have a LOWER priority than the default routes.

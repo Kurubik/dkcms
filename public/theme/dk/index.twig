@@ -1,3 +1,19 @@
+{% spaceless %}
+
+    {% set languageslug = app.paths.current|split('/')[2] %}
+
+    {% if languageslug in ['en', 'ru', 'lv'] %}
+        {% set language = languageslug %}
+    {% else %}
+        {% set language = 'ru' %}
+    {% endif %}
+
+    {% set pagescontenttype      = language ~ '-pages' %}
+
+    {% set menumain              = language ~ '-main' %}
+
+{% endspaceless %}
+
 {% macro svg(svgAssetModel, cssClasses) %}
 
     <svg class="{{ cssClasses }}" title="{{ svgAssetModel.title }}">
@@ -7,13 +23,13 @@
 {% endmacro %}
 
 <!DOCTYPE html>
-<html lang="{{ app.request.locale }}">
+<html lang="{{ language }}">
 {% include 'head.twig' %}
 <body>
 {% spaceless %}
     {% include 'blocks/modals.twig' %}
     <div class="wrapper">
-        {% block content %}{% endblock %}
+        {% block page %}{% endblock %}
         {% include 'blocks/footer.twig' %}
     </div>
     {% include 'scripts.twig' %}
