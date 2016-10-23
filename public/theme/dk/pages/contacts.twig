@@ -49,20 +49,6 @@
         {% include 'blocks/map.twig' %}
     </div>
 
-    <div class="content content--banner">
-        <a href="{{ path('info', {_locale: app.request.locale}) }}" class="content__full-link"></a>
-        <div class="content__banner-title">
-            <h2 class="page-title">
-                Размеренная жизнь<br>
-                и комфорт
-            </h2>
-        </div>
-        <div class="header__button">
-            <a href="{{ path('info', {_locale: app.request.locale}) }}" class="button">
-                <span>инфраструктура</span>
-                <span>инфраструктура</span>
-            </a>
-        </div>
-    </div>
+    {% include 'blocks/bottom_block.twig' %}
 
 {% endblock %}

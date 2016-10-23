@@ -6,24 +6,10 @@
 
     <div class="content content--text">
         <div class="content__overlay">
-            <img alt="" src="{{ app.request.basepath }}/public/images/overlay.png" title="">
+            <img alt="" src="{{ app.request.basepath }}/images/overlay.png" title="">
         </div>
-        <div class="content__col">
-            <div class="content__right-col">
-                <h1 class="page-title">
-                    В сердце природы,<br>
-                    в центре курорта
-                </h1>
-                <div class="content__col-text content__col-text--separate-mid">
-                    Крупнейший многофункциональный комплекс в центре
-                    Юрмалы на берегу живописной реки Лиелупе, который
-                    отвечает требованиям жильцов с самым взыскательным
-                    вкусом. Dubultu Krasts — это проект, где каждая деталь
-                    продумана до мелочей, чтобы вы и члены вашей семьи
-                    жили и отдыхали комфортно.
-                </div>
-            </div>
-        </div>
+
+        {% include 'blocks/top_text_block.twig'%}
 
         <div class="content__gallery">
             <div class="image-block" data-page-slider>
@@ -31,16 +17,16 @@
                     <div class="swiper-container image-block__image-gallery" data-page-slider-container>
                         <div class="swiper-wrapper image-block__image-gallery-wrapper">
                             <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/public/images/test/cake1.jpg" />
+                                <img src="{{ app.request.basepath }}/images/test/cake1.jpg" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/public/images/test/cake2.jpg" />
+                                <img src="{{ app.request.basepath }}/images/test/cake2.jpg" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/public/images/test/cake3.jpg" />
+                                <img src="{{ app.request.basepath }}/images/test/cake3.jpg" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/public/images/test/cake4.jpg" />
+                                <img src="{{ app.request.basepath }}/images/test/cake4.jpg" />
                             </div>
                         </div>
                     </div>
@@ -69,20 +55,8 @@
         </div>
 
         <div class="content__col content__col--separate-gallery">
-            <div class="content__right-col">
-                <div class="content__col-text">
-                    Dubultu Krasts — это больше, чем просто квартира в
-                    новом доме. Это проживание в одном из самых зеленых
-                    и экологичных городов Европы. Это возможность
-                    дышать чистым сосновым воздухом, сидя на своей
-                    террасе, и любоваться великолепным видом на воду.
-                    Это возможность пришвартовать катер у собственного
-                    причала и не спеша прогуливаться по фруктовому саду,
-                    раскинувшемуся в Dubultu Krasts.
-                </div>
-            </div>
+            {% include 'blocks/middle_text_block.twig'%}
         </div>
-
 
 
         <div class="content__gallery">
@@ -91,16 +65,16 @@
                     <div class="swiper-container image-block__image-gallery" data-page-slider-container>
                         <div class="swiper-wrapper image-block__image-gallery-wrapper">
                             <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/public/images/test/cake1.jpg" />
+                                <img src="{{ app.request.basepath }}/images/test/cake1.jpg" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/public/images/test/cake2.jpg" />
+                                <img src="{{ app.request.basepath }}/images/test/cake2.jpg" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/public/images/test/cake3.jpg" />
+                                <img src="{{ app.request.basepath }}/images/test/cake3.jpg" />
                             </div>
                             <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/public/images/test/cake4.jpg" />
+                                <img src="{{ app.request.basepath }}/images/test/cake4.jpg" />
                             </div>
                         </div>
                     </div>
@@ -144,78 +118,9 @@
             </div>
         </div>
 
-        <div class="content__col content__col--separate-gallery">
-            <div class="content__photo">
-                <div class="text-photo">
-                    <div class="text-photo__photo"></div>
-                    <div class="text-photo__text">Андис Силис,<br>szk partners</div>
-                </div>
-            </div>
-            <div class="content__right-col content__right-col--big content__right-col--button">
-                <div class="content__col-text content__col-text--float_right">
-                    <p>
-                        Проект, состоящий из четырёх двенадцатиэтажных
-                        зданий, разработан с учетом особенностей местного
-                        ландшафта под руководством известного латвийского
-                        архитектора Андиса Силиса и командой его
-                        архитектурного бюро szk partners.
-                    </p>
-                    <p>
-                        Dubultu Krasts — это порядка 500 квартир, площадью
-                        от 37 м2 до 120 м2, с полной отделкой из материалов
-                        высокого качества. При необходимости метраж
-                        квартиры может быть увеличен. В каждой квартире
-                        — панорамные окна и террасы — это уникальная
-                        особенность комплекса. | возможно и больше текста возможно и больше текставозможно и больше текставозможно и больше текставозможно и больше текста
-                    </p>
-                    <div class="content__col-button">
-                        <a href="{{ path('plans', {_locale: app.request.locale}) }}" class="button">
-                            <span>планировки</span>
-                            <span>планировки</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="content__col-text content__col-text--float_right">
-                    <p>
-                        На территории комплекса расположено все
-                        необходимое для комфортной и уютной жизни: бизнес-
-                        центр, детская комната с услугами няни, оборудованное
-                        пространство для игр детей школьного возраста,
-                        современный фитнес клуб. В шаговой доступности
-                        от комплекса находятся — детские сады, школы,
-                        поликлиника и магазины.
-                    </p>
-                    <p>
-                        Здесь есть все, что формирует современную
-                        городскую среду обитания, и при этом вас не будет
-                        покидать чувство спокойствия и наслаждения жизнью,
-                        характерное для курорта.
-                    </p>
-                    <div class="content__col-button">
-                        <a href="{{ path('info', {_locale: app.request.locale}) }}" class="button">
-                            <span>инфроструктура</span>
-                            <span>инфроструктура</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include 'blocks/bottom_text_block.twig' %}
     </div>
 
-    <div class="content content--banner">
-        <a href="{{ path('info', {_locale: app.request.locale}) }}" class="content__full-link"></a>
-        <div class="content__banner-title">
-            <h2 class="page-title">
-                Размеренная жизнь<br>
-                и комфорт
-            </h2>
-        </div>
-        <div class="header__button">
-            <a href="{{ path('info', {_locale: app.request.locale}) }}" class="button">
-                <span>инфраструктура</span>
-                <span>инфраструктура</span>
-            </a>
-        </div>
-    </div>
+    {% include 'blocks/bottom_block.twig' %}
 
 {% endblock %}

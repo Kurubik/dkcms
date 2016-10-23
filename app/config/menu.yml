@@ -4,68 +4,68 @@
 ru-main:
     - label: Проект
       title: Проект
-      path: ru/ru-project
+      path: ru/project
     - label: Расположение
       title: Расположение
-      path: ru/ru-location
+      path: ru/location
     - label: Инфраструктура
       title: Инфраструктура
-      path: ru/ru-info
+      path: ru/info
     - label: Планировки
       title: Планировки
-      path: ru/ru-plans
+      path: ru/plans
     - label: Галерея
       title: Галерея
-      path: ru/ru-gallery
+      path: ru/gallery
     - label: Латвия
       title: Латвия
-      path: ru/ru-latvia
+      path: ru/latvia
     - label: Контакты
       title: Контакты
-      path: ru/ru-contacts
+      path: ru/contacts
 
 lv-main:
     - label: Проект
       title: Проект
-      path: lv/lv-project
+      path: lv/project
     - label: Расположение
       title: Расположение
-      path: lv/lv-location
+      path: lv/location
     - label: Инфраструктура
       title: Инфраструктура
-      path: lv/lv-info
+      path: lv/info
     - label: Планировки
       title: Планировки
-      path: lv/lv-plans
+      path: lv/plans
     - label: Галерея
       title: Галерея
-      path: lv/lv-gallery
+      path: lv/gallery
     - label: Латвия
       title: Латвия
-      path: lv/lv-latvia
+      path: lv/latvia
     - label: Контакты
       title: Контакты
-      path: lv/lv-contacts
+      path: lv/contacts
 
 en-main:
     - label: Проект
       title: Проект
-      path: en/en-project
+      path: en/project
     - label: Расположение
       title: Расположение
-      path: en/en-location
+      path: en/location
     - label: Инфраструктура
       title: Инфраструктура
-      path: en/en-info
+      path: en/info
     - label: Планировки
       title: Планировки
-      path: en/en-plans
+      path: en/plans
     - label: Галерея
       title: Галерея
-      path: en/en-gallery
+      path: en/gallery
     - label: Латвия
       title: Латвия
-      path: en/en-latvia
+      path: en/latvia
     - label: Контакты
       title: Контакты
-      path: en/en-contacts
+      path: en/contacts

@@ -5,14 +5,7 @@
     {% include 'interface/inner-header.twig' %}
 
     <div class="content content--text">
-        <div class="content__col">
-            <div class="content__right-col">
-                <h1 class="page-title">
-                    Размеренная жизнь<br>
-                    и комфорт
-                </h1>
-            </div>
-        </div>
+        {% include 'blocks/top_text_block.twig'%}
 
         <div class="gallery">
             <ul class="page-gallery">
@@ -76,20 +69,5 @@
         </div>
     </div>
 
-
-    <div class="content content--banner">
-        <a href="{{ path('info', {_locale: app.request.locale}) }}" class="content__full-link"></a>
-        <div class="content__banner-title">
-            <h2 class="page-title">
-                В сердце природы,<br>
-                в центре курорта
-            </h2>
-        </div>
-        <div class="header__button">
-            <a href="{{ path('plans', {_locale: app.request.locale}) }}" class="button">
-                <span>планировки</span>
-                <span>планировки</span>
-            </a>
-        </div>
-    </div>
+    {% include 'blocks/bottom_block.twig' %}
 {% endblock %}

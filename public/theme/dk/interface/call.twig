@@ -1,4 +1,6 @@
-<div class="call" data-modal-open="order-call">
-    <i class="ico-call">{% include 'svg/phone-1.svg' %}</i>
-    <span class="call__text">заказать звонок</span>
-</div>
+{% if record.use_order_call %}
+    <div class="call" data-modal-open="order-call">
+        <i class="ico-call">{% include 'svg/phone-1.svg' %}</i>
+        <span class="call__text">заказать звонок</span>
+    </div>
+{% endif %}

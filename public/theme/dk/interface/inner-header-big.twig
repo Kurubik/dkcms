@@ -1,0 +1,43 @@
+<header class="header header--big">
+    <div class="bg" style="position:absolute;top:0;left:0; width:100%; height:100%;
+            {% if record.header_image_opacity %}
+                opacity: {{ record.header_image_opacity }};
+            {% else %}
+                opacity: 1;
+            {% endif %}
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('{{ app.request.basepath }}/files/{{ record.header_image }}')">
+
+    </div>
+    {% if record.use_order_call %}
+        <div class="header__call">
+            {% include 'interface/call.twig' %}
+        </div>
+    {% endif %}
+
+    <div class="header__menu">
+        {{ menu('mainmenu', 'blocks/menu.twig') }}
+    </div>
+
+    {% if record.header_right_text %}
+        <div class="header__info-block">
+            {% include 'interface/info-price.twig' %}
+        </div>
+    {% endif %}
+
+    <div class="header__logo">
+        {% if record.slug != 'home' %}
+            <a href="{{ app.request.basepath }}/{{ language }}/home">
+                {% include 'svg/logo.svg' %}
+            </a>
+        {% else %}
+            {% include 'svg/logo.svg' %}
+        {% endif %}
+    </div>
+
+    <div class="header__button">
+        {% include 'interface/button-text.twig' %}
+    </div>
+</header>

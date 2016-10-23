@@ -1,0 +1,24 @@
+<div class="content content--banner">
+    <div class="bg" style="position:absolute;top:0;left:0; width:100%; height:100%;
+    {% if record.bottom_image_opacity %}
+            opacity: {{ record.bottom_image_opacity }};
+    {% else %}
+            opacity: 1;
+    {% endif %}
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('{{ app.request.basepath }}/files/{{ record.bottom_image }}')"></div>
+    <a href="{{ app.request.basepath }}/{{ language }}/{{ record.bottom_button_link }}" class="content__full-link"></a>
+    <div class="content__banner-title">
+        <h2 class="page-title">
+            {{ record.bottom_title }}
+        </h2>
+    </div>
+    <div class="header__button">
+        <a href="{{ app.request.basepath }}/{{ language }}/{{ record.bottom_button_link }}" class="button">
+            <span>{{ record.bottom_button }}</span>
+            <span>{{ record.bottom_button }}</span>
+        </a>
+    </div>
+</div>

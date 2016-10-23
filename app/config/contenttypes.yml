@@ -138,6 +138,15 @@ en_pages:
             type: templateselect
             filter: 'pages/*.twig'
             group: options
+    relations:
+        infrasvg:
+            multiple: true
+            label: "Choose Images"
+            order: -id
+        slidergallery:
+            multiple: true
+            label: "Choose Sliders"
+            order: -id
     taxonomy: [ groups ]
     recordsperpage: 100
     default_status: publish
@@ -148,6 +157,15 @@ ru_pages:
     name: RU Pages
     singular_name: RU Pages
     fields: *pagefields
+    relations:
+        infrasvg:
+            multiple: true
+            label: "Choose Images"
+            order: -id
+        slidergallery:
+            multiple: true
+            label: "Choose Sliders"
+            order: -id
     taxonomy: [ groups ]
     recordsperpage: 100
     default_status: publish
@@ -158,6 +176,15 @@ lv_pages:
     name: LV Pages
     singular_name: LV Pages
     fields: *pagefields
+    relations:
+        infrasvg:
+            multiple: true
+            label: "Choose Images"
+            order: -id
+        slidergallery:
+            multiple: true
+            label: "Choose Sliders"
+            order: -id
     taxonomy: [ groups ]
     recordsperpage: 100
     default_status: publish
@@ -267,7 +294,8 @@ map_pin:
         city:
             type: select
             values: [ London, Paris, Madrid, Berlin, Vienna, Rome, St. Petersburg, Moscow, Stockholm, Helsing, Luxembourg, Brussels, Jurmala]
-        route:
+        routeg:
+            label: Route
             type: repeater
             group: Routes
             limit: 3
@@ -319,7 +347,7 @@ page_gallery:
     icon_many: "fa:camera-retro"
     icon_one: "fa:camera-retro"
 
-slider_gallery:
+slidergallery:
     name: Gallery Slider
     singular_name: Gallery Slider
     fields:
@@ -336,31 +364,28 @@ slider_gallery:
                     type: image
                 en_comment:
                     label: EN comment
-                    type: html
+                    type: textarea
                 ru_comment:
                     label: RU comment
-                    type: html
+                    type: textarea
                 lv_comment:
                     label: LV comment
-                    type: html
-    relations:
-        en_pages:
-            multiple: true
-            order: top_title
-        ru_pages:
-            multiple: true
-            order: top_title
-        lv_pages:
-            multiple: true
-            order: top_title
+                    type: textarea
+        use_in:
+            label: Use In Page
+            type: select
+            values: ['project', 'location', 'infrastructure', 'latvia']
     default_status: publish
     icon_many: "fa:file-image-o"
     icon_one: "fa:file-image-o"
 
-infra_svg:
+infrasvg:
     name: Infrastructure Image
     singular_name: Infrastructure Image
     fields:
+        title:
+            label: Title
+            type: text
         repeater:
             type: repeater
             group: images
@@ -378,16 +403,6 @@ infra_svg:
                 repeatimage:
                     label: Image
                     type: image
-    relations:
-        en_pages:
-            multiple: true
-            order: top_title
-        ru_pages:
-            multiple: true
-            order: top_title
-        lv_pages:
-            multiple: true
-            order: top_title
     default_status: publish
     icon_many: "fa:image"
     icon_one: "fa:image"

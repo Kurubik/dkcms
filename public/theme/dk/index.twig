@@ -11,7 +11,6 @@
     {% set pagescontenttype      = language ~ '-pages' %}
 
     {% set menumain              = language ~ '-main' %}
-
 {% endspaceless %}
 
 {% macro svg(svgAssetModel, cssClasses) %}
@@ -21,7 +20,7 @@
     </svg>
 
 {% endmacro %}
-
+{{ dump(record) }}
 <!DOCTYPE html>
 <html lang="{{ language }}">
 {% include 'head.twig' %}

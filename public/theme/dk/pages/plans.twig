@@ -227,25 +227,25 @@
         <div class="content__houses">
             <ul class="house-circle__list">
                 <li class="house-circle">
-                    <a href="{{ path('plans', {_locale: app.request.locale}) }}" data-house="1">
+                    <a href="?&house=1" data-house="1">
                         <div class="house-circle__circle">№1</div>
                         <div class="house-circle__line"></div>
                     </a>
                 </li>
                 <li class="house-circle house-circle--h90">
-                    <a href="{{ path('plans', {_locale: app.request.locale}) }}" data-house="2">
+                    <a href="?&house=2" data-house="2">
                         <div class="house-circle__circle">№2</div>
                         <div class="house-circle__line"></div>
                     </a>
                 </li>
                 <li class="house-circle house-circle--h20">
-                    <a href="{{ path('plans', {_locale: app.request.locale}) }}" data-house="3">
+                    <a href="?&house=3" data-house="3">
                         <div class="house-circle__circle">№3</div>
                         <div class="house-circle__line"></div>
                     </a>
                 </li>
                 <li class="house-circle house-circle--h120">
-                    <a href="{{ path('plans', {_locale: app.request.locale}) }}" data-house="4">
+                    <a href="?&house=4" data-house="4">
                         <div class="house-circle__circle">№4</div>
                         <div class="house-circle__line"></div>
                     </a>
@@ -253,13 +253,13 @@
             </ul>
         </div>
 
-        <img alt="" src="{{ app.request.basepath }}/public/images/render.jpg" title="" usemap="#render">
+        <img alt="" src="{{ app.request.basepath }}/images/render.jpg" title="" usemap="#render">
 
         <map name="render" id="render">
-            <area data-section="1" alt="" href="{{ path('plans', {_locale: app.request.locale}) }}" title="" shape="poly" coords="321,309,497,314,498,502,322,502" />
-            <area data-section="2" alt="" href="{{ path('plans', {_locale: app.request.locale}) }}" title="" shape="poly" coords="499,263,758,276,759,506,499,507" />
-            <area data-section="3" alt="" href="{{ path('plans', {_locale: app.request.locale}) }}" title="" shape="poly" coords="758,253,797,187,1123,208,1115,513,799,512,762,507" />
-            <area data-section="4" alt="" href="{{ path('plans', {_locale: app.request.locale}) }}" title="" shape="poly" coords="1124,319,1309,300,1311,504,1119,504" />
+            <area data-section="1" alt="" href="?&house=1" title="" shape="poly" coords="321,309,497,314,498,502,322,502" />
+            <area data-section="2" alt="" href="?&house=2" title="" shape="poly" coords="499,263,758,276,759,506,499,507" />
+            <area data-section="3" alt="" href="?&house=3" title="" shape="poly" coords="758,253,797,187,1123,208,1115,513,799,512,762,507" />
+            <area data-section="4" alt="" href="?&house=4" title="" shape="poly" coords="1124,319,1309,300,1311,504,1119,504" />
         </map>
     </div>
 
@@ -268,40 +268,10 @@
             <div class="content__col">
                 <div class="section section__text">
                     <div class="content__col-text content__col-text--float_right">
-                        <h2>Коммерческая недвижимость</h2>
-                        <p>
-                            Проект, состоящий из четырёх двенадцатиэтажных
-                            зданий, разработан с учетом особенностей местного
-                            ландшафта под руководством известного латвийского
-                            архитектора Андиса Силиса и командой его
-                            архитектурного бюро szk partners.
-                        </p>
-                        <p>
-                            Dubultu Krasts — это порядка 500 квартир, площадью
-                            от 37 м<sup>2</sup> до 120 м<sup>2</sup>, с полной отделкой из материалов
-                            высокого качества. При необходимости метраж
-                            квартиры может быть увеличен. В каждой квартире
-                            — панорамные окна и террасы — это уникальная
-                            особенность комплекса. | возможно и больше текста возможно и больше текставозможно и больше текставозможно и больше текставозможно и больше текста
-                        </p>
+                        {{ record.bot_text_left }}
                     </div>
                     <div class="content__col-text content__col-text--float_right">
-                        <h2>Условия покупки</h2>
-                        <p>
-                            Проект, состоящий из четырёх двенадцатиэтажных
-                            зданий, разработан с учетом особенностей местного
-                            ландшафта под руководством известного латвийского
-                            архитектора Андиса Силиса и командой его
-                            архитектурного бюро szk partners.
-                        </p>
-                        <p>
-                            Dubultu Krasts — это порядка 500 квартир, площадью
-                            от 37 м<sup>2</sup> до 120 м<sup>2</sup>, с полной отделкой из материалов
-                            высокого качества. При необходимости метраж
-                            квартиры может быть увеличен. В каждой квартире
-                            — панорамные окна и террасы — это уникальная
-                            особенность комплекса. | возможно и больше текста возможно и больше текставозможно и больше текставозможно и больше текставозможно и больше текста
-                        </p>
+                        {{ record.bot_text_right }}
                     </div>
                 </div>
             </div>
@@ -348,15 +318,7 @@
     </div>
 
 
-    <div class="content content--banner">
-        <a href="{{ path('info', {_locale: app.request.locale}) }}" class="content__full-link"></a>
-        <div class="header__button">
-            <a href="{{ path('gallery', {_locale: app.request.locale}) }}" class="button">
-                <span>галерея</span>
-                <span>галерея</span>
-            </a>
-        </div>
-    </div>
+    {% include 'blocks/bottom_block.twig' %}
 
 
 {% endblock %}

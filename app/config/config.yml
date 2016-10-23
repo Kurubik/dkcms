@@ -170,13 +170,13 @@ recordsperpage: 10
 #                  enabled. Only if you develop extensions and work with
 #                  translation files you should turn this off.
 caching:
-    config: true
-    templates: true
+    config: false
+    templates: false
     request: false
-    duration: 10
+    duration: 0
     authenticated: false
-    thumbnails: true
-    translations: true
+    thumbnails: false
+    translations: false
 
 # Set 'enabled' to 'true' to log all content changes in the database.
 #
