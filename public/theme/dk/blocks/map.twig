@@ -1,56 +1,39 @@
 <div id="map" class="b-map"></div>
-
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+{% setcontent poi = 'map_poi' %}
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5K3H8XpRcyYt9kXUKqkVpr295OBCvt30"></script>
 <script type="text/javascript">
     var mapCategories = [
+        {% for item in poi %}
         {
-            name: 'рестораны и кафе',
-            cat_id: 'cafe'
+            name: '{{ item["#{language}_category"] }}',
+            cat_id: '{{ item.cat_id }}'
         },
-        {
-            name: 'активный отдых',
-            cat_id: 'rest'
-        },
-        {
-            name: 'парки',
-            cat_id: 'parks'
-        },
+        {% endfor %}
         {
             name: 'все',
             cat_id: 'all'
         }
     ];
-    var mapMarkers = [
-        {
-            position: {lat: 56.959508, lng: 24.239507},
-            tootltip: '<p><b>Name</b></p>',
-            category: 'parks'
-        },
-        {
-            position: {lat: 56.965229, lng: 24.232238},
-            tootltip: '<p><b>Name 2</b></p>',
-            category: 'rest'
-        },
-        {
-            position: {lat: 56.956894, lng: 24.239550},
-            tootltip: '<p><b>Maxima</b></p>',
-            category: 'parks'
-        },
-        {
-            position: {lat: 56.954656, lng: 23.721450},
-            tootltip: '<p><b>Cafe</b></p>',
-            category: 'cafe'
-        },
-        {
-            position: {lat: 56.954432, lng: 23.779238},
-            tootltip: '<p><b>Rest</b></p>',
-            category: 'rest'
-        },
-        {
-            position: {lat: 56.954622, lng: 23.771388},
-            tootltip: '<p><b>Cafe2</b></p>',
-            category: 'cafe'
+
+    noDuplicates = [];
+    noDuplicatesMap = [];
+    for(var i = 0; i < mapCategories.length; i++) {
+        if(noDuplicates.indexOf(mapCategories[i].cat_id) == -1 ) {
+            noDuplicates.push(mapCategories[i].cat_id);
+            noDuplicatesMap.push(mapCategories[i]);
         }
+    }
+
+    mapCategories = noDuplicatesMap;
+
+    var mapMarkers = [
+        {% for item in poi %}
+        {
+            position: {lat: {{ item.geolocation.latitude }}, lng: {{ item.geolocation.longitude }}},
+            tootltip: '{{ item["#{language}_title"]|raw }}',
+            category: '{{ item.cat_id }}'
+        },
+        {% endfor %}
     ];
 </script>
 <script type="text/javascript">
