@@ -416,6 +416,11 @@ footer_block:
             label: Text 2
             type: html
             group: content
+        use_in_lang:
+            label: Use in Language
+            type: select
+            values: ['ru', 'lv', 'en']
+            group: content
     default_status: publish
     icon_many: "fa:hand-o-down"
     icon_one: "fa:hand-o-down"

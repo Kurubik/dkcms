@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="footer__copyright">© 2016 Dubultu Krasts</div>
-    {% setcontent footers = 'footer_block' %}
+    {% setcontent footers = 'footer_block' where { use_in_lang: language } %}
     <ul class="footer-items">
         {% for item in footers|sort %}
             <li class="footer-items__item">
