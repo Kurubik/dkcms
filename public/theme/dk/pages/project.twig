@@ -11,112 +11,71 @@
 
         {% include 'blocks/top_text_block.twig'%}
 
-        <div class="content__gallery">
-            <div class="image-block" data-page-slider>
-                <div class="image-block__image">
-                    <div class="swiper-container image-block__image-gallery" data-page-slider-container>
-                        <div class="swiper-wrapper image-block__image-gallery-wrapper">
-                            <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/images/test/cake1.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/images/test/cake2.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/images/test/cake3.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/images/test/cake4.jpg" />
+        {% if sliders[0] is defined %}
+            <div class="content__gallery">
+                <div class="image-block" data-page-slider>
+                    <div class="image-block__image">
+                        <div class="swiper-container image-block__image-gallery" data-page-slider-container>
+                            <div class="swiper-wrapper image-block__image-gallery-wrapper">
+                                {% for image in sliders[0] %}
+                                    <div class="swiper-slide">
+                                        <img src="{{ app.request.basepath }}/files/{{ image.image.file }}" />
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="image-block__controls">
-                    <div class="image-block__comment">
-                        <div class="image-block__comment-item" data-page-slider-comment="0">
-                            Лиелупе — вторая по значению река Латвии
+                    <div class="image-block__controls">
+                        <div class="image-block__comment">
+                            {% for image in sliders[0] %}
+                                <div class="image-block__comment-item" data-page-slider-comment="{{ loop.index0 }}">
+                                    {{ image[language ~ "_comment"] }}
+                                </div>
+                            {% endfor %}
                         </div>
-                        <div class="image-block__comment-item" data-page-slider-comment="1">
-                            Лиелупе — вторая по значению река Латвии
+                        <div class="image-block__buttons-block">
+                            <div class="image-block__button image-block__button--prev" data-page-slider-button-prev>{% include 'svg/arrow.svg' %}</div>
+                            <div class="image-block__button image-block__button--next" data-page-slider-button-next>{% include 'svg/arrow.svg' %}</div>
                         </div>
-                        <div class="image-block__comment-item" data-page-slider-comment="2">
-                            Лиелупе — вторая по значению река Латвии
-                        </div>
-                        <div class="image-block__comment-item" data-page-slider-comment="3">
-                            Лиелупе — вторая по значению река Латвии
-                        </div>
-                    </div>
-                    <div class="image-block__buttons-block">
-                        <div class="image-block__button image-block__button--prev" data-page-slider-button-prev>{% include 'svg/arrow.svg' %}</div>
-                        <div class="image-block__button image-block__button--next" data-page-slider-button-next>{% include 'svg/arrow.svg' %}</div>
                     </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
 
         <div class="content__col content__col--separate-gallery">
             {% include 'blocks/middle_text_block.twig'%}
         </div>
 
-
-        <div class="content__gallery">
-            <div class="image-block" data-page-slider>
-                <div class="image-block__image">
-                    <div class="swiper-container image-block__image-gallery" data-page-slider-container>
-                        <div class="swiper-wrapper image-block__image-gallery-wrapper">
-                            <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/images/test/cake1.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/images/test/cake2.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/images/test/cake3.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/images/test/cake4.jpg" />
+        {% if sliders[1] is defined %}
+            <div class="content__gallery">
+                <div class="image-block" data-page-slider>
+                    <div class="image-block__image">
+                        <div class="swiper-container image-block__image-gallery" data-page-slider-container>
+                            <div class="swiper-wrapper image-block__image-gallery-wrapper">
+                                {% for image in sliders[1] %}
+                                    <div class="swiper-slide">
+                                        <img src="{{ app.request.basepath }}/files/{{ image.image.file }}" />
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="image-block__controls">
-                    <div class="image-block__comment">
-                        <div class="image-block__comment-item" data-page-slider-comment="0">
-                            Ажурность крон
-                            позволяет проникать под
-                            полог леса большому
-                            количеству тепла, влаги и
-                            света
+                    <div class="image-block__controls">
+                        <div class="image-block__comment">
+                            {% for image in sliders[1] %}
+                                <div class="image-block__comment-item" data-page-slider-comment="{{ loop.index0 }}">
+                                    {{ image[language ~ "_comment"] }}
+                                </div>
+                            {% endfor %}
                         </div>
-                        <div class="image-block__comment-item" data-page-slider-comment="1">
-                            Ажурность крон
-                            позволяет проникать под
-                            полог леса большому
-                            количеству тепла, влаги и
-                            света
+                        <div class="image-block__buttons-block">
+                            <div class="image-block__button image-block__button--prev" data-page-slider-button-prev>{% include 'svg/arrow.svg' %}</div>
+                            <div class="image-block__button image-block__button--next" data-page-slider-button-next>{% include 'svg/arrow.svg' %}</div>
                         </div>
-                        <div class="image-block__comment-item" data-page-slider-comment="2">
-                            Ажурность крон
-                            позволяет проникать под
-                            полог леса большому
-                            количеству тепла, влаги и
-                            света
-                        </div>
-                        <div class="image-block__comment-item" data-page-slider-comment="3">
-                            Ажурность крон
-                            позволяет проникать под
-                            полог леса большому
-                            количеству тепла, влаги и
-                            света
-                        </div>
-                    </div>
-                    <div class="image-block__buttons-block">
-                        <div class="image-block__button image-block__button--prev" data-page-slider-button-prev>{% include 'svg/arrow.svg' %}</div>
-                        <div class="image-block__button image-block__button--next" data-page-slider-button-next>{% include 'svg/arrow.svg' %}</div>
                     </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
 
         {% include 'blocks/bottom_text_block.twig' %}
     </div>

@@ -11,62 +11,36 @@
         </div>
 
         {% include 'blocks/top_text_block.twig'%}
-
-        <div class="content__gallery">
-            <div class="image-block" data-page-slider>
-                <div class="image-block__image">
-                    <div class="swiper-container image-block__image-gallery" data-page-slider-container>
-                        <div class="swiper-wrapper image-block__image-gallery-wrapper">
-                            <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/images/test/cake1.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/images/test/cake2.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/images/test/cake3.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="{{ app.request.basepath }}/images/test/cake4.jpg" />
+        {% if sliders[0] is defined %}
+            <div class="content__gallery">
+                <div class="image-block" data-page-slider>
+                    <div class="image-block__image">
+                        <div class="swiper-container image-block__image-gallery" data-page-slider-container>
+                            <div class="swiper-wrapper image-block__image-gallery-wrapper">
+                                {% for image in sliders[0] %}
+                                    <div class="swiper-slide">
+                                        <img src="{{ app.request.basepath }}/files/{{ image.image.file }}" />
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="image-block__controls">
-                    <div class="image-block__comment">
-                        <div class="image-block__comment-item" data-page-slider-comment="0">
-                            Широкие песчаные пляжи
-                            Юрмалы и неглубокое
-                            море привлекают своей
-                            чистотой и спокойствием
+                    <div class="image-block__controls">
+                        <div class="image-block__comment">
+                            {% for image in sliders[0] %}
+                                <div class="image-block__comment-item" data-page-slider-comment="{{ loop.index0 }}">
+                                    {{ image[language ~ "_comment"] }}
+                                </div>
+                            {% endfor %}
                         </div>
-                        <div class="image-block__comment-item" data-page-slider-comment="1">
-                            Широкие песчаные пляжи
-                            Юрмалы и неглубокое
-                            море привлекают своей
-                            чистотой и спокойствием
+                        <div class="image-block__buttons-block">
+                            <div class="image-block__button image-block__button--prev" data-page-slider-button-prev>{% include 'svg/arrow.svg' %}</div>
+                            <div class="image-block__button image-block__button--next" data-page-slider-button-next>{% include 'svg/arrow.svg' %}</div>
                         </div>
-                        <div class="image-block__comment-item" data-page-slider-comment="2">
-                            Широкие песчаные пляжи
-                            Юрмалы и неглубокое
-                            море привлекают своей
-                            чистотой и спокойствием
-                        </div>
-                        <div class="image-block__comment-item" data-page-slider-comment="3">
-                            Широкие песчаные пляжи
-                            Юрмалы и неглубокое
-                            море привлекают своей
-                            чистотой и спокойствием
-                        </div>
-                    </div>
-                    <div class="image-block__buttons-block">
-                        <div class="image-block__button image-block__button--prev" data-page-slider-button-prev>{% include 'svg/arrow.svg' %}</div>
-                        <div class="image-block__button image-block__button--next" data-page-slider-button-next>{% include 'svg/arrow.svg' %}</div>
                     </div>
                 </div>
             </div>
-        </div>
-
+        {% endif %}
         <div class="content__col">
             <div class="content__right-col content__right-col--button">
                 <div class="content__col-text">

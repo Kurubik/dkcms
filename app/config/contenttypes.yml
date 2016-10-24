@@ -293,7 +293,7 @@ map_pin:
             group: City
         city:
             type: select
-            values: [ London, Paris, Madrid, Berlin, Vienna, Rome, St. Petersburg, Moscow, Stockholm, Helsing, Luxembourg, Brussels, Jurmala]
+            values: [ London, Paris, Madrid, Berlin, Vienna, Rome, St. Petersburg, Moscow, Stockholm, Helsing, Luxembourg, Brussels]
         routeg:
             label: Route
             type: repeater
@@ -351,6 +351,11 @@ slidergallery:
     name: Gallery Slider
     singular_name: Gallery Slider
     fields:
+        use_in:
+            label: Use In Page
+            type: select
+            values: ['project', 'location', 'infrastructure', 'latvia']
+            group: slider
         title:
             label: Sldier Title
             type: text
@@ -371,10 +376,6 @@ slidergallery:
                 lv_comment:
                     label: LV comment
                     type: textarea
-        use_in:
-            label: Use In Page
-            type: select
-            values: ['project', 'location', 'infrastructure', 'latvia']
     default_status: publish
     icon_many: "fa:file-image-o"
     icon_one: "fa:file-image-o"
@@ -383,26 +384,18 @@ infrasvg:
     name: Infrastructure Image
     singular_name: Infrastructure Image
     fields:
-        title:
-            label: Title
+        en_text:
+            label: EN Text
             type: text
-        repeater:
-            type: repeater
-            group: images
-            prefix: "<p>This allows you to create multiple sets of fields. Use the add button at the bottom to create a new empty set.</p>"
-            fields:
-                en_title:
-                    label: EN Text
-                    type: text
-                ru_title:
-                    label: RU Text
-                    type: text
-                lv_title:
-                    label: LV Text
-                    type: text
-                repeatimage:
-                    label: Image
-                    type: image
+        ru_text:
+            label: RU Text
+            type: text
+        lv_text:
+            label: LV Text
+            type: text
+        svgimage:
+            label: Image
+            type: image
     default_status: publish
     icon_many: "fa:image"
     icon_one: "fa:image"
@@ -423,6 +416,7 @@ footer_block:
             label: Text 2
             type: html
             group: content
+    default_status: publish
     icon_many: "fa:hand-o-down"
     icon_one: "fa:hand-o-down"
 
