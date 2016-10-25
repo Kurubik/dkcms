@@ -9,62 +9,35 @@
 
         <div class="gallery">
             <ul class="page-gallery">
-                <li class="page-gallery__item">
-                    <div class="page-gallery__image" data-modal-open="gallery" data-gallery="vr"></div>
-                    <div class="page-gallery__text">
-                        Bus utem quam et is essitatus.
-                        Eribus et ea qui blaut alibusciasi.
-                    </div>
-                    <div class="gallery__button">
-                        <div data-modal-open="gallery" data-gallery="vr" class="button">
-                            <span>виртуальный тур</span>
-                            <span>виртуальный тур</span>
-                        </div>
-                    </div>
-                </li>
-                <li class="page-gallery__item">
-                    <div class="page-gallery__image" data-modal-open="gallery" data-gallery="photo"></div>
-                    <div class="page-gallery__text">
-                        Bus utem quam et is essitatus.
-                        Bus utem quam et is essitatus.
-                        Eribus et ea qui blaut alibusciasi.
-                        Bus utem quam et is essitatus.
-                        Eribus et ea qui blaut alibusciasi.
-                        Eribus et ea qui blaut alibusciasi.
-                    </div>
-                    <div class="gallery__button">
-                        <div data-modal-open="gallery" data-gallery="photo" class="button">
-                            <span>фотогалерея</span>
-                            <span>фотогалерея</span>
-                        </div>
-                    </div>
-                </li>
-                <li class="page-gallery__item">
-                    <div class="page-gallery__image" data-modal-open="gallery" data-gallery="video"></div>
-                    <div class="page-gallery__text">
-                        Bus utem quam et is essitatus.
-                        Eribus et ea qui blaut alibusciasi.
-                    </div>
-                    <div class="gallery__button">
-                        <div data-modal-open="gallery" data-gallery="video" class="button">
-                            <span>видео</span>
-                            <span>видео</span>
-                        </div>
-                    </div>
-                </li>
-                <li class="page-gallery__item">
-                    <div class="page-gallery__image" data-modal-open="gallery" data-gallery="demo"></div>
-                    <div class="page-gallery__text">
-                        Bus utem quam et is essitatus.
-                        Eribus et ea qui blaut alibusciasi.
-                    </div>
-                    <div class="gallery__button">
-                        <div data-modal-open="gallery" data-gallery="demo" class="button">
-                            <span>демо-квартира</span>
-                            <span>демо-квартира</span>
-                        </div>
-                    </div>
-                </li>
+                {% for gallery in galleries %}
+                    {% if gallery.gallery_type == 'link' %}
+                        <a href="{{ gallery.page_link }}" class="page-gallery__item">
+                            <div class="page-gallery__image"  data-gallery="{{ gallery.id }}"></div>
+                            <div class="page-gallery__text">
+                                {{ gallery[language ~ '_text'] }}
+                            </div>
+                            <div class="gallery__button">
+                                <div data-gallery="{{ gallery.id }}" class="button">
+                                    <span>{{ gallery['page_button_' ~ language] }}</span>
+                                    <span>{{ gallery['page_button_' ~ language] }}</span>
+                                </div>
+                            </div>
+                        </a>
+                    {% else %}
+                        <li class="page-gallery__item">
+                            <div class="page-gallery__image" data-modal-open="gallery" data-gallery="{{ gallery.id }}"></div>
+                            <div class="page-gallery__text">
+                                {{ gallery[language ~ '_text'] }}
+                            </div>
+                            <div class="gallery__button">
+                                <div data-modal-open="gallery" data-gallery="{{ gallery.id }}" class="button">
+                                    <span>{{ gallery['page_button_' ~ language] }}</span>
+                                    <span>{{ gallery['page_button_' ~ language] }}</span>
+                                </div>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
             </ul>
         </div>
     </div>

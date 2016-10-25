@@ -174,41 +174,56 @@ $('[data-modal-inner]').click(function (e) {
  *  START Slider Gallery
  */
 
-var vrGallery = new Swiper('[data-gallery-block="vr"]', {
-    loop: true,
-    nextButton: '[data-button-gallery="next"]',
-    prevButton: '[data-button-gallery="prev"]',
-    onClick: function onClick(swiper) {
-        vrGallery.slideNext();
-    }
-});
 
-var photoGallery = new Swiper('[data-gallery-block="photo"]', {
-    loop: true,
-    nextButton: '[data-button-gallery="next"]',
-    prevButton: '[data-button-gallery="prev"]',
-    onClick: function onClick(swiper) {
-        photoGallery.slideNext();
-    }
-});
+    $('[data-gallery-block]').each(function() {
+        var $this = $(this);
+        var galleryType = $this.attr('data-gallery-block');
 
-var videoGallery = new Swiper('[data-gallery-block="video"]', {
-    loop: true,
-    nextButton: '[data-button-gallery="next"]',
-    prevButton: '[data-button-gallery="prev"]',
-    onClick: function onClick(swiper) {
-        videoGallery.slideNext();
-    }
-});
-
-var demoGallery = new Swiper('[data-gallery-block="demo"]', {
-    loop: true,
-    nextButton: '[data-button-gallery="next"]',
-    prevButton: '[data-button-gallery="prev"]',
-    onClick: function onClick(swiper) {
-        demoGallery.slideNext();
-    }
-});
+        var gallery = new Swiper('[data-gallery-block="'+ galleryType +'"]', {
+            loop: true,
+            nextButton: '[data-button-gallery="next"]',
+            prevButton: '[data-button-gallery="prev"]',
+            onClick: function onClick(swiper) {
+                gallery.slideNext();
+            }
+        });
+    });
+//
+// var vrGallery = new Swiper('[data-gallery-block="3"]', {
+//     loop: true,
+//     nextButton: '[data-button-gallery="next"]',
+//     prevButton: '[data-button-gallery="prev"]',
+//     onClick: function onClick(swiper) {
+//         vrGallery.slideNext();
+//     }
+// });
+//
+// var photoGallery = new Swiper('[data-gallery-block="4"]', {
+//     loop: true,
+//     nextButton: '[data-button-gallery="next"]',
+//     prevButton: '[data-button-gallery="prev"]',
+//     onClick: function onClick(swiper) {
+//         photoGallery.slideNext();
+//     }
+// });
+//
+// var videoGallery = new Swiper('[data-gallery-block="5"]', {
+//     loop: true,
+//     nextButton: '[data-button-gallery="next"]',
+//     prevButton: '[data-button-gallery="prev"]',
+//     onClick: function onClick(swiper) {
+//         videoGallery.slideNext();
+//     }
+// });
+//
+// var demoGallery = new Swiper('[data-gallery-block="6"]', {
+//     loop: true,
+//     nextButton: '[data-button-gallery="next"]',
+//     prevButton: '[data-button-gallery="prev"]',
+//     onClick: function onClick(swiper) {
+//         demoGallery.slideNext();
+//     }
+// });
 
 //===========================================================================================
 

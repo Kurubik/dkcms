@@ -206,7 +206,7 @@ apparmets:
             group: Properties
         room:
             label: Room
-            type: integer
+            type: text
             group: Properties
         rooms_number:
             label: Number Of Rooms
@@ -233,6 +233,13 @@ apparmets:
             type: select
             values: ['free', 'sold', 'reserved']
             group: Properties
+        appart_file:
+            label: File
+            type: file
+            group: Properties
+    default_status: publish
+    icon_many: "fa:home"
+    icon_one: "fa:home"
 
 map_poi:
     name: Map POI
@@ -332,17 +339,44 @@ page_gallery:
             label: LV Text
             type: textarea
             group: preview
+        gallery_type:
+            label: Gallery Type
+            type: select
+            values: ['link', 'gallery', 'video']
+            required: true
+            group: preview
         page_link:
             label: Link
             type: text
             group: preview
+        page_button_en:
+            label: Button EN
+            type: text
+            group: preview
+        page_button_ru:
+            label: Button RU
+            type: text
+            group: preview
+        page_button_lv:
+            label: Button LV
+            type: text
+            group: preview
         gallery_img:
+            label: Images
             type: repeater
             group: images
             fields:
                 image:
                     label: Image
                     type: image
+        gvideo:
+            label: Video
+            type: repeater
+            group: video
+            fields:
+                video_link:
+                    label: Video link
+                    type: text
     default_status: publish
     icon_many: "fa:camera-retro"
     icon_one: "fa:camera-retro"
