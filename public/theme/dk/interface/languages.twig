@@ -1,13 +1,16 @@
 <div class="languages">
     <ul class="languages__list">
-        <li class="languages__item">
-            <a href="" class="languages__text">LV</a>
-        </li>
-        <li class="languages__item">
-            <a href="" class="languages__text">EN</a>
-        </li>
-        <li class="languages__item">
-            <span class="languages__text">RU</span>
-        </li>
+        {% set langs = ['lv', 'en', 'ru'] %}
+        {% for item in langs %}
+            {% if item == language %}
+                <li class="languages__item">
+                    <span class="languages__text">RU</span>
+                </li>
+            {% else %}
+                <li class="languages__item">
+                    <a href="{{ app.request.basepath }}/{{ item }}" class="languages__text">{{ item|upper }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
     </ul>
 </div>
