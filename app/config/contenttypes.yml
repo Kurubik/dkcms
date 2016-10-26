@@ -238,6 +238,7 @@ apparmets:
             type: file
             group: Properties
     default_status: publish
+    taxonomy: [ house_number,  floor_number, appartment_status]
     icon_many: "fa:home"
     icon_one: "fa:home"
 

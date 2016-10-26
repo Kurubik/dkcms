@@ -119,7 +119,7 @@ record_template: record.twig
 #         website, be sure to check for a config.yml file in your theme's
 #         folder. If a template is set there, it will override the setting here.
 listing_template: listing.twig
-listing_records: 6
+listing_records: 999999
 listing_sort: datepublish DESC
 
 # Because of limitations on how the underlying database queries work, there are
@@ -134,7 +134,7 @@ taxonomy_sort: DESC
 #       website, be sure to check for a config.yml file in your theme's folder.
 #       If a template is set there, it will override the setting here.
 search_results_template: search.twig
-search_results_records: 10
+search_results_records: 999999
 
 # Add jQuery to the rendered HTML, whether or not it's added by an extension.
 add_jquery: false

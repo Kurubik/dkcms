@@ -1,26 +1,44 @@
 # This file defines the different types of taxonomies in Bolt. See the
 # documentation for details: https://docs.bolt.cm/contenttypes/taxonomies
+#
+#tags:
+#    slug: tags
+#    singular_slug: tag
+#    behaves_like: tags
+#    postfix: "Add some freeform tags. Start a new tag by typing a comma or space."
+#    allow_spaces: false
+#    #listing_template: tag-listing.twig #custom template
+#
+#groups:
+#    slug: groups
+#    singular_slug: group
+#    behaves_like: grouping
+#    options: { main: "The main group", meta: "Meta group", other: "The other stuff" }
+#    has_sortorder: true
+#
+#categories:
+#    name: Categories
+#    slug: categories
+#    singular_name: Category
+#    singular_slug: category
+#    behaves_like: categories
+#    multiple: true
+#    options: [ news, events, movies, music, books, life, love, fun ]
 
-tags:
-    slug: tags
-    singular_slug: tag
-    behaves_like: tags
-    postfix: "Add some freeform tags. Start a new tag by typing a comma or space."
-    allow_spaces: false
-    #listing_template: tag-listing.twig #custom template
-
-groups:
-    slug: groups
-    singular_slug: group
-    behaves_like: grouping
-    options: { main: "The main group", meta: "Meta group", other: "The other stuff" }
-    has_sortorder: true
-
-categories:
-    name: Categories
-    slug: categories
-    singular_name: Category
-    singular_slug: category
+house_number:
+    slug: house_number
+    singular_slug: house_number
     behaves_like: categories
-    multiple: true
-    options: [ news, events, movies, music, books, life, love, fun ]
+    options: [ '1', '2', '3', '4' ]
+
+floor_number:
+    slug: floor_number
+    singular_slug: floor_number
+    behaves_like: categories
+    options: [ '1', '2', '3', '4', '5', '6', '7', '8', '9' ]
+
+appartment_status:
+    slug: appartment_status
+    singular_slug: appartment_status
+    behaves_like: categories
+    options: [ 'free', 'sold', 'reserved' ]
