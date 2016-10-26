@@ -8,12 +8,21 @@
         <td class="right">{{ room.terrace_area }}</td>
         <td class="right">{{ room.total_area }}</td>
         <td class="center">{{ room.price }}</td>
-        <td class="center">{{ room.room_status }}</td>
+        {% set appstat = room.room_status %}
+        <td class="center">
+            {% if appstat == 'free' %}
+                {{ l("свободна") }}
+            {% elseif appstat == 'sold' %}
+                {{ l("продана") }}
+            {% elseif appstat == 'reserved' %}
+                {{ l("зарезервирована") }}
+            {% endif %}
+        </td>
         <td class="left">
             {% if room.appart_file %}
                 <a href="{{ app.request.basepath }}/files/{{ room.appart_file }}" class="button button--table">
                     <i class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</i>
-                    скачать
+                    {{ l('скачать') }}
                 </a>
             {% else %}
                 —

@@ -11,6 +11,7 @@
     {% set pagescontenttype      = language ~ '-pages' %}
 
     {% set menumain              = language ~ '-main' %}
+    {{ setlanguage(language) }}
 {% endspaceless %}
 
 {% macro svg(svgAssetModel, cssClasses) %}

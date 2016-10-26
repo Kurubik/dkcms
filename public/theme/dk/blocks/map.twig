@@ -10,7 +10,7 @@
         },
         {% endfor %}
         {
-            name: 'все',
+            name: '{{ l('все') }}',
             cat_id: 'all'
         }
     ];
@@ -269,7 +269,7 @@
             map: map,
             title: 'Aitrport',
             animation: google.maps.Animation.DROP,
-            icon: location.protocol + '//' + location.hostname + '/public/assets/marker_plane.png'
+            icon: location.protocol + '//' + location.hostname + '/public/images/marker_plane.png'
         });
 
         var useMarker = '/public/icons/pin-2.svg';

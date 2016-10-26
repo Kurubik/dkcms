@@ -137,12 +137,21 @@
                     <td class="right">{{ room.terrace_area }}</td>
                     <td class="right">{{ room.total_area }}</td>
                     <td class="center">{{ room.price }}</td>
-                    <td class="center">{{ room.room_status }}</td>
+                    {% set appstat = room.room_status %}
+                    <td class="center">
+                        {% if appstat == 'free' %}
+                            {{ l("свободна") }}
+                        {% elseif appstat == 'sold' %}
+                            {{ l("продана") }}
+                        {% elseif appstat == 'reserved' %}
+                            {{ l("зарезервирована") }}
+                        {% endif %}
+                    </td>
                     <td class="left">
                         {% if room.appart_file %}
                             <a href="{{ app.request.basepath }}/files/{{ room.appart_file }}" class="button button--table">
                                 <i class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</i>
-                                скачать
+                                {{ l('скачать') }}
                             </a>
                         {% else %}
                             —
@@ -212,35 +221,35 @@
                 <div class="section__contacts-button">
                     <div class="contact-block">
                         <div class="button" data-modal-open="order-call">
-                            <span class="button__fix">заказать звонок</span>
-                            <span class="button__fix">заказать звонок</span>
+                            <span class="button__fix">{{ l('заказать звонок') }}</span>
+                            <span class="button__fix">{{ l('заказать звонок') }}</span>
                             <i class="button__icon">{% include 'svg/phone-2.svg' %}</i>
                         </div>
                         <ul class="contact-block__list">
                             <li class="contact-block__list-item">
                                 <div class="contact-block__list-item-title">
-                                    Адрес
+                                    {{ l('адрес') }}
                                 </div>
                                 <div class="contact-block__list-item-text">
-                                    Слокас 51, Юрмала
+                                    {{ l('contact address small') }}
                                 </div>
                             </li>
                             <li class="contact-block__list-item">
                                 <div class="contact-block__list-item-title">
-                                    Телефон
+                                    {{ l('телефон') }}
                                 </div>
                                 <div class="contact-block__list-item-text">
-                                    <a href="tel:+371 26113355" class="contact-block__list-item-text">
-                                        +371 26113355
+                                    <a href="tel:{{ l('contact phone') }}" class="contact-block__list-item-text">
+                                        {{ l('contact phone') }}
                                     </a>
                                 </div>
                             </li>
                             <li class="contact-block__list-item">
                                 <div class="contact-block__list-item-title">
-                                    Эл. почта
+                                    {{ l('эл. почта') }}
                                 </div>
                                 <div class="contact-block__list-item-text">
-                                    <a href="mailto:sales@dubultukrasts.lv">sales@dubultukrasts.lv</a>
+                                    <a href="mailto:{{ l('contact email') }}">{{ l('contact email') }}</a>
                                 </div>
                             </li>
                         </ul>

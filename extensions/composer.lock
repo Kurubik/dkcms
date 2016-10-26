@@ -1,0 +1,128 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "a12a55a5232678e13e58ce4e864f90ac",
+    "content-hash": "78ad77b0ea9775526b9e7333e9215692",
+    "packages": [
+        {
+            "name": "bolt/labels",
+            "version": "3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bolt/labels.git",
+                "reference": "2603ba254c78161493ac7642ef1cc84ee8db07d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bolt/labels/zipball/2603ba254c78161493ac7642ef1cc84ee8db07d6",
+                "reference": "2603ba254c78161493ac7642ef1cc84ee8db07d6",
+                "shasum": ""
+            },
+            "require": {
+                "bolt/bolt": "^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.7"
+            },
+            "type": "bolt-extension",
+            "extra": {
+                "bolt-assets": "web",
+                "bolt-class": "Bolt\\Extension\\Bolt\\Labels\\LabelsExtension",
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\Extension\\Bolt\\Labels\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Bolt\\Tests\\": {
+                        "Bolt\\Extension\\Bolt\\Labels\\Tests\\": "tests/",
+                        "Bolt\\Tests\\": "vendor/bolt/bolt/tests/phpunit/unit/"
+                    }
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Two Kings",
+                    "email": "info@twokings.nl"
+                },
+                {
+                    "name": "Bob den Otter",
+                    "email": "bob@twokings.nl"
+                },
+                {
+                    "name": "Tobias Dammers",
+                    "email": "tdammers@twokings.nl"
+                }
+            ],
+            "description": "Database-backed translation labels",
+            "support": {
+                "source": "https://github.com/bolt/labels/tree/3.0.2",
+                "issues": "https://github.com/bolt/labels/issues"
+            },
+            "time": "2016-08-19 11:33:19"
+        },
+        {
+            "name": "ntomka/boltslugifyconfig",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ntomka/boltslugifyconfig.git",
+                "reference": "efb870a250de0aea8963fc39c054ebf216aa05fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ntomka/boltslugifyconfig/zipball/efb870a250de0aea8963fc39c054ebf216aa05fe",
+                "reference": "efb870a250de0aea8963fc39c054ebf216aa05fe",
+                "shasum": ""
+            },
+            "require": {
+                "bolt/bolt": "^3.0"
+            },
+            "type": "bolt-extension",
+            "extra": {
+                "bolt-class": "Bolt\\Extension\\Ntomka\\BoltSlugifyConfig\\BoltSlugifyConfigExtension"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\Extension\\Ntomka\\BoltSlugifyConfig\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Tamás Nagy",
+                    "email": "nagy.tomi@gmail.com",
+                    "homepage": "https://github.com/ntomka"
+                }
+            ],
+            "description": "This extension allows users to set custom config for Bolt's slugify service.",
+            "keywords": [
+                "slug",
+                "slugify"
+            ],
+            "support": {
+                "source": "https://github.com/ntomka/boltslugifyconfig/tree/1.0.0",
+                "issues": "https://github.com/ntomka/boltslugifyconfig/issues"
+            },
+            "time": "2016-07-08 11:59:10"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
