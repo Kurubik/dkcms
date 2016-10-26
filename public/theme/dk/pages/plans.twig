@@ -5,49 +5,86 @@
     {% include 'interface/inner-header.twig' %}
 
     <div class="content content--table">
+        <div class="loader" data-loader="loader">
+            <div class="loader__animation">
+                <div class="sk-fading-circle">
+                    <div class="sk-circle1 sk-circle"></div>
+                    <div class="sk-circle2 sk-circle"></div>
+                    <div class="sk-circle3 sk-circle"></div>
+                    <div class="sk-circle4 sk-circle"></div>
+                    <div class="sk-circle5 sk-circle"></div>
+                    <div class="sk-circle6 sk-circle"></div>
+                    <div class="sk-circle7 sk-circle"></div>
+                    <div class="sk-circle8 sk-circle"></div>
+                    <div class="sk-circle9 sk-circle"></div>
+                    <div class="sk-circle10 sk-circle"></div>
+                    <div class="sk-circle11 sk-circle"></div>
+                    <div class="sk-circle12 sk-circle"></div>
+                </div>
+            </div>
+            <div class="loader__text">
+                загрузка
+            </div>
+        </div>
         <div class="select-container">
-            <div class="select-container__row">
+            <div class="select-container__row" data-table-filters>
                 <div class="select-container__col">
                     <div class="select">
                         <select name="house" id="house">
                             <option value="1">дом №1</option>
                             <option value="2">дом №2</option>
+                            <option value="3">дом №3</option>
+                            <option value="4">дом №4</option>
+                        </select>
+                        <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
+                    </div>
+                </div>
+                {% if filterdata.floors is defined %}
+                    <div class="select-container__col">
+                        <div class="select">
+                            <select name="floor" id="floor">
+                                <option value="">Все этажи</option>
+                                {% for item in filterdata.floors %}
+                                    <option value="{{ item.floor }}">{{ item.floor }}</option>
+                                {% endfor %}
+                            </select>
+                            <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if filterdata.rooms_number is defined %}
+                    <div class="select-container__col">
+                        <div class="select">
+                            <select name="rooms_number" id="rooms_number">
+                                <option value="">Комнат</option>
+                                {% for item in filterdata.rooms_number %}
+                                    <option value="{{ item.rooms_number }}">{{ item.rooms_number }}</option>
+                                {% endfor %}
+                            </select>
+                            <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="select-container__col">
+                    <div class="select">
+                        <select name="room_area" id="room_area">
+                            <option value="">Площадь</option>
+                            <option value="1">30 000 - 50 000</option>
+                            <option value="2">50 000 - 80 000</option>
+                            <option value="3">80 000 - 100 000</option>
+                            <option value="4">> 100 000</option>
                         </select>
                         <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
                     </div>
                 </div>
                 <div class="select-container__col">
                     <div class="select">
-                        <select name="house" id="house">
-                            <option value="1">дом №1</option>
-                            <option value="2">дом №2</option>
-                        </select>
-                        <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
-                    </div>
-                </div>
-                <div class="select-container__col">
-                    <div class="select">
-                        <select name="house" id="house">
-                            <option value="1">дом №1</option>
-                            <option value="2">дом №2</option>
-                        </select>
-                        <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
-                    </div>
-                </div>
-                <div class="select-container__col">
-                    <div class="select">
-                        <select name="house" id="house">
-                            <option value="1">дом №1</option>
-                            <option value="2">дом №2</option>
-                        </select>
-                        <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
-                    </div>
-                </div>
-                <div class="select-container__col">
-                    <div class="select">
-                        <select name="house" id="house">
-                            <option value="1">дом №1</option>
-                            <option value="2">дом №2</option>
+                        <select name="price" id="price">
+                            <option value="">Цена</option>
+                            <option value="1">30 000 - 50 000</option>
+                            <option value="2">50 000 - 80 000</option>
+                            <option value="3">80 000 - 100 000</option>
+                            <option value="4">> 100 000</option>
                         </select>
                         <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
                     </div>
@@ -61,7 +98,7 @@
             </div>
         </div>
         {% setcontent appart = 'apparmets' %}
-        <table class="table" data-sort-table data-url="#">
+        <table class="table" data-sort-table data-url="#" data-table-change-by-filters>
             <thead>
             <tr>
                 <th class="center">этаж
@@ -92,7 +129,7 @@
             <tbody>
             <!--tr class="sep"><td class="separator" colspan="9">&nbsp;</td></tr-->
             {% for room in appart %}
-                <tr {% if room.room_status == 'sold' %} class="sold" {% endif %}>
+                <tr class="room-show {% if room.room_status == 'sold' %} sold {% endif %}">
                     <td class="center">{{ room.floor }}</td>
                     <td class="left">{{ room.room }}</td>
                     <td class="center">{{ room.rooms_number }}</td>
@@ -152,10 +189,10 @@
         <img alt="" src="{{ app.request.basepath }}/images/render.jpg" title="" usemap="#render">
 
         <map name="render" id="render">
-            <area data-section="1" alt="" href="?&house=1" title="" shape="poly" coords="321,309,497,314,498,502,322,502" />
-            <area data-section="2" alt="" href="?&house=2" title="" shape="poly" coords="499,263,758,276,759,506,499,507" />
-            <area data-section="3" alt="" href="?&house=3" title="" shape="poly" coords="758,253,797,187,1123,208,1115,513,799,512,762,507" />
-            <area data-section="4" alt="" href="?&house=4" title="" shape="poly" coords="1124,319,1309,300,1311,504,1119,504" />
+            <area data-section="1" alt="" data-render-filter="1" title="" shape="poly" coords="321,309,497,314,498,502,322,502" />
+            <area data-section="2" alt="" data-render-filter="2" title="" shape="poly" coords="499,263,758,276,759,506,499,507" />
+            <area data-section="3" alt="" data-render-filter="3" title="" shape="poly" coords="758,253,797,187,1123,208,1115,513,799,512,762,507" />
+            <area data-section="4" alt="" data-render-filter="4" title="" shape="poly" coords="1124,319,1309,300,1311,504,1119,504" />
         </map>
     </div>
 

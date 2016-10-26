@@ -4,7 +4,7 @@
         {% for item in langs %}
             {% if item == language %}
                 <li class="languages__item">
-                    <span class="languages__text">RU</span>
+                    <span class="languages__text">{{ language|upper }}</span>
                 </li>
             {% else %}
                 <li class="languages__item">

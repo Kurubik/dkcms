@@ -1,0 +1,24 @@
+<tbody>
+{% for room in appart %}
+    <tr class="room-show {% if room.room_status == 'sold' %} sold {% endif %}">
+        <td class="center">{{ room.floor }}</td>
+        <td class="left">{{ room.room }}</td>
+        <td class="center">{{ room.rooms_number }}</td>
+        <td class="right">{{ room.room_area }}</td>
+        <td class="right">{{ room.terrace_area }}</td>
+        <td class="right">{{ room.total_area }}</td>
+        <td class="center">{{ room.price }}</td>
+        <td class="center">{{ room.room_status }}</td>
+        <td class="left">
+            {% if room.appart_file %}
+                <a href="{{ app.request.basepath }}/files/{{ room.appart_file }}" class="button button--table">
+                    <i class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</i>
+                    скачать
+                </a>
+            {% else %}
+                —
+            {% endif %}
+        </td>
+    </tr>
+{% endfor %}
+</tbody>

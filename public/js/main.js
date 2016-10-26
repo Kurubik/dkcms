@@ -251,7 +251,9 @@ $('[data-page-slider]').each(function () {
 
 window.sr = ScrollReveal();
 sr.reveal('.content', { viewFactor: 0.1 });
+sr.reveal('.room-show', { viewFactor: 0.8 });
 
+    
 $("[data-sort-table]").tablesorter({
     sortList: [[0, 0], [1, 0], [2, 0], [3, 0], [4, 0], [5, 0], [6, 0]],
     headers: {
@@ -275,6 +277,76 @@ $("[data-sort-table]").tablesorter({
 //         });
 //     }
 // });
+
+
+    /*
+     *  START Table Plans FILTERS
+     */
+
+    function getSearchParameters() {
+        var prmstr = window.location.search.substr(1);
+        return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+    }
+
+    function transformToAssocArray( prmstr ) {
+        var params = {};
+        var prmarr = prmstr.split("&");
+        for ( var i = 0; i < prmarr.length; i++) {
+            var tmparr = prmarr[i].split("=");
+            params[tmparr[0]] = tmparr[1];
+        }
+        return params;
+    }
+
+    var GETparams = getSearchParameters();
+    if (GETparams.house) {
+        $('[data-table-filters] select[name="house"]').val(GETparams.house);
+        sendSelectFilters();
+    }
+
+    $('[data-table-filters] select').change(function() {
+        sendSelectFilters();
+    });
+
+    $('[data-render-filter]').click(function() {
+        var $this = $(this);
+        var house = $this.attr('data-render-filter');
+        $('[data-table-filters] select[name="house"]').val(house);
+        sendSelectFilters();
+    });
+
+    function sendSelectFilters() {
+        var filterData = '';
+        $('[data-table-filters] select').each(function() {
+            var $this = $(this);
+            var thisName = $this.attr('name');
+            filterData += thisName;
+            filterData += '=';
+            filterData += $this.val();
+            filterData += '&';
+        });
+        
+        $('[data-loader="loader"]').addClass('active');
+        $.ajax({
+            url: 'http://dkcms.dev/public/ajax/getplans',
+            type: 'POST',
+            data: filterData,
+            dataType: 'html',
+            success: function (response) {
+                $('[data-loader="loader"]').removeClass('active');
+                $('[data-table-change-by-filters]').find('tbody').remove();
+                $(response).insertAfter('[data-table-change-by-filters] thead');
+            },
+            error: function (response, err) {
+                console.log(response);
+                console.log(err);
+            }
+        });
+    }
+    /*
+     *  END Table Plans FILTERS
+     */
+
 
 if ($('[data-pin-city="moskva"]').length > 0) {
     $('[data-pin-city="moskva"]').find('[data-pin="click"]').trigger('click');

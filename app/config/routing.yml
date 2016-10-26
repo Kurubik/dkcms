@@ -16,7 +16,14 @@
 homepage:
     path: /
     defaults:
-        _controller: controller.frontend:homepage
+        _controller: 'Bolt\Controllers\Frontend::homepage'
+        lang: 'ru'
+
+homepage2:
+    path: /{lang}
+    defaults:
+        _controller: 'Bolt\Controllers\Frontend::homepage'
+        lang: 'ru'
 
 # ------------------------------------------------------------------------------
 # [en] English
@@ -46,6 +53,16 @@ lv-pages:
   contenttype:        lv_pages
 
 
+
+
+
+# ------------------------------------------------------------------------------
+# AJAX
+# ------------------------------------------------------------------------------
+
+ajax_getplans:
+  path:               /ajax/getplans
+  defaults:           { _controller: 'Bolt\Controllers\Frontend::getPlans' }
 
 #homepage:
 #    path: /
