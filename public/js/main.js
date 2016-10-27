@@ -283,6 +283,15 @@ $("[data-sort-table]").tablesorter({
      *  START Table Plans FILTERS
      */
 
+
+    $('[data-table-filter-clear]').click(function() {
+        $('[data-table-filters] select').each(function() {
+            var $this = $(this);
+            $this[0].selectedIndex = 0;
+            sendSelectFilters();
+        });
+    });
+
     function getSearchParameters() {
         var prmstr = window.location.search.substr(1);
         return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
