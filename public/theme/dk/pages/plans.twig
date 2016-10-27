@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="loader__text">
-                загрузка
+                {{ l('загрузка') }}
             </div>
         </div>
         <div class="select-container">
@@ -31,10 +31,10 @@
                 <div class="select-container__col">
                     <div class="select">
                         <select name="house" id="house">
-                            <option value="1">дом №1</option>
-                            <option value="2">дом №2</option>
-                            <option value="3">дом №3</option>
-                            <option value="4">дом №4</option>
+                            <option value="1">{{ l('дом') }} №1</option>
+                            <option value="2">{{ l('дом') }} №2</option>
+                            <option value="3">{{ l('дом') }} №3</option>
+                            <option value="4">{{ l('дом') }} №4</option>
                         </select>
                         <span class="select__icon">{% include 'svg/small-drop-down.svg' %}</span>
                     </div>
@@ -43,7 +43,7 @@
                     <div class="select-container__col">
                         <div class="select">
                             <select name="floor" id="floor">
-                                <option value="">Все этажи</option>
+                                <option value="">{{ l('все этажи') }}</option>
                                 {% for item in filterdata.floors %}
                                     <option value="{{ item.floor }}">{{ item.floor }}</option>
                                 {% endfor %}
@@ -56,7 +56,7 @@
                     <div class="select-container__col">
                         <div class="select">
                             <select name="rooms_number" id="rooms_number">
-                                <option value="">Комнат</option>
+                                <option value="">{{ l('комнат') }}</option>
                                 {% for item in filterdata.rooms_number %}
                                     <option value="{{ item.rooms_number }}">{{ item.rooms_number }}</option>
                                 {% endfor %}
@@ -68,7 +68,7 @@
                 <div class="select-container__col">
                     <div class="select">
                         <select name="room_area" id="room_area">
-                            <option value="">Площадь</option>
+                            <option value="">{{ l('площадь') }}</option>
                             <option value="1">30 000 - 50 000</option>
                             <option value="2">50 000 - 80 000</option>
                             <option value="3">80 000 - 100 000</option>
@@ -80,7 +80,7 @@
                 <div class="select-container__col">
                     <div class="select">
                         <select name="price" id="price">
-                            <option value="">Цена</option>
+                            <option value="">{{ l('цена') }}</option>
                             <option value="1">30 000 - 50 000</option>
                             <option value="2">50 000 - 80 000</option>
                             <option value="3">80 000 - 100 000</option>
@@ -101,29 +101,29 @@
         <table class="table" data-sort-table data-url="#" data-table-change-by-filters>
             <thead>
             <tr>
-                <th class="center">этаж
+                <th class="center">{{ l('этаж') }}
                     <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
                 </th>
-                <th class="left">квартира №
+                <th class="left">{{ l('квартира') }} №
                     <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
                 </th>
-                <th class="center">комнат
+                <th class="center">{{ l('комнат') }}
                     <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
                 </th>
-                <th class="right">площадь, м<sup>2</sup>
+                <th class="right">{{ l('площадь') }}, {{ l('м') }}<sup>2</sup>
                     <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
                 </th>
-                <th class="right">терраса, м<sup>2</sup>
+                <th class="right">{{ l('терраса') }}, {{ l('м') }}<sup>2</sup>
                     <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
                 </th>
-                <th class="right">общая, м<sup>2</sup>
+                <th class="right">{{ l('общая') }}, {{ l('м') }}<sup>2</sup>
                     <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
                 </th>
-                <th class="center">цена, €
+                <th class="center">{{ l('цена') }}, €
                     <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
                 </th>
-                <th class="center no-hover">статус</th>
-                <th class="left no-hover">планировки, pdf</th>
+                <th class="center no-hover">{{ l('статус') }}</th>
+                <th class="left no-hover">{{ l('планировки') }}, pdf</th>
             </tr>
             </thead>
             <tbody>
