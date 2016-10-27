@@ -345,6 +345,7 @@ $("[data-sort-table]").tablesorter({
                 $('[data-loader="loader"]').removeClass('active');
                 $('[data-table-change-by-filters]').find('tbody').remove();
                 $(response).insertAfter('[data-table-change-by-filters] thead');
+                sr.reveal('.room-show', { viewFactor: 0.8 });
             },
             error: function (response, err) {
                 console.log(response);
