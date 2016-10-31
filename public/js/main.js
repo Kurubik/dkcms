@@ -337,7 +337,7 @@ $("[data-sort-table]").tablesorter({
         
         $('[data-loader="loader"]').addClass('active');
         $.ajax({
-            url: 'http://dkcms.dev/public/ajax/getplans',
+            url: 'http://dk.inv1s.lv/public/ajax/getplans',
             type: 'POST',
             data: filterData,
             dataType: 'html',
