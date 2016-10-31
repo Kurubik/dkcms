@@ -1,7 +1,7 @@
 <ul class="menu">
     {% for item in menu %}
         <li class="menu__item">
-            {% if app.request.attributes.get('_route') == item.link %}
+            {% if app.request.requestUri == item.link %}
                 <span class="menu__text menu__text--active">{{ item.title }}</span>
             {% else %}
                 <a href="{{ item.link }}" class="menu__text">{{ item.title }}</a>

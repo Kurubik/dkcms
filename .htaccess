@@ -1,4 +1,4 @@
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^dkcms.dev$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^http://dkcms.dev/$ [NC,OR]
 RewriteCond %{HTTP_HOST} !public
 RewriteRule ^(.*)$ http://dkcms.dev/public/$1 [L,R=301,NC]
