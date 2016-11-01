@@ -328,6 +328,10 @@ page_gallery:
     name: Page Gallery
     singular_name: Page Gallery
     fields:
+        preview_image:
+            label: preview Image
+            type: image
+            group: preview
         en_text:
             label: EN Text
             type: textarea

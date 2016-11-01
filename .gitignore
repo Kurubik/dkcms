@@ -1,6 +1,5 @@
 cache/
 thumbs/
-vendor/
 
 # NPM, Gulp and Grunt stuff
 node_modules

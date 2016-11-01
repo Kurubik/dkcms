@@ -118,9 +118,9 @@
                 var i;
 
                 for (i = 0; i < allCatButtons.length; i++) {
-                    allCatButtons[i].style.display = 'block';
+                    allCatButtons[i].style.opacity = '1';
                 }
-                button.style.display = 'none';
+                button.style.opacity = '0.7';
 
                 for (i = 0; i < allMarkers.length; i++) {
                     if (allMarkers[i].category === button.mapCategory || button.mapCategory === 'all') {
@@ -228,7 +228,7 @@
                 controlWrapper.appendChild(catButton);
 
                 if (catButton.mapCategory === 'all') {
-                    catButton.style.display = 'none';
+                    catButton.style.opacity = 1;
                 }
 
                 allCatButtons.push(catButton);

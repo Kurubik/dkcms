@@ -253,8 +253,7 @@ window.sr = ScrollReveal();
 sr.reveal('.content', { viewFactor: 0.1 });
 sr.reveal('.room-show', { viewFactor: 0.8 });
 
-    
-$("[data-sort-table]").tablesorter({
+var sorting = {
     sortList: [[0, 0], [1, 0], [2, 0], [3, 0], [4, 0], [5, 0], [6, 0]],
     headers: {
         7: {
@@ -264,7 +263,8 @@ $("[data-sort-table]").tablesorter({
             sorter: false
         }
     }
-});
+}
+    $("[data-sort-table]").tablesorter(sorting);
 
 // AJAX add table content
 // $(window).bind('scroll', function() {
@@ -288,8 +288,8 @@ $("[data-sort-table]").tablesorter({
         $('[data-table-filters] select').each(function() {
             var $this = $(this);
             $this[0].selectedIndex = 0;
-            sendSelectFilters();
         });
+        sendSelectFilters();
     });
 
     function getSearchParameters() {
@@ -324,6 +324,10 @@ $("[data-sort-table]").tablesorter({
         sendSelectFilters();
     });
 
+    if ($('[data-table-change-by-filters]').length > -1) {
+        sendSelectFilters();
+    }
+
     function sendSelectFilters() {
         var filterData = '';
         $('[data-table-filters] select').each(function() {
@@ -337,7 +341,7 @@ $("[data-sort-table]").tablesorter({
         
         $('[data-loader="loader"]').addClass('active');
         $.ajax({
-            url: 'http://dk.inv1s.lv/public/ajax/getplans',
+            url: 'http://'+ location.hostname +'/public/ajax/getplans',
             type: 'POST',
             data: filterData,
             dataType: 'html',
@@ -346,6 +350,7 @@ $("[data-sort-table]").tablesorter({
                 $('[data-table-change-by-filters]').find('tbody').remove();
                 $(response).insertAfter('[data-table-change-by-filters] thead');
                 sr.reveal('.room-show', { viewFactor: 0.8 });
+                $("[data-sort-table]").trigger("update");
             },
             error: function (response, err) {
                 console.log(response);

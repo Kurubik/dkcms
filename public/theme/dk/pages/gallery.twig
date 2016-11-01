@@ -11,21 +11,21 @@
             <ul class="page-gallery">
                 {% for gallery in galleries %}
                     {% if gallery.gallery_type == 'link' %}
-                        <a href="{{ gallery.page_link }}" class="page-gallery__item">
-                            <div class="page-gallery__image"  data-gallery="{{ gallery.id }}"></div>
+                        <li class="page-gallery__item">
+                            <a href="{{ gallery.page_link }}" style="display: block;{% if gallery.preview_image.file is defined %}background-image: url('{{ app.request.basepath }}/files/{{ gallery.preview_image.file }}'){% endif %}" class="page-gallery__image"  data-gallery="{{ gallery.id }}"></a>
                             <div class="page-gallery__text">
                                 {{ gallery[language ~ '_text'] }}
                             </div>
                             <div class="gallery__button">
-                                <div data-gallery="{{ gallery.id }}" class="button">
+                                <a href="{{ gallery.page_link }}" data-gallery="{{ gallery.id }}" class="button">
                                     <span>{{ gallery['page_button_' ~ language] }}</span>
                                     <span>{{ gallery['page_button_' ~ language] }}</span>
-                                </div>
+                                </a>
                             </div>
-                        </a>
+                        </li>
                     {% else %}
                         <li class="page-gallery__item">
-                            <div class="page-gallery__image" data-modal-open="gallery" data-gallery="{{ gallery.id }}"></div>
+                            <div {% if gallery.preview_image.file is defined %}style="background-image: url('{{ app.request.basepath }}/files/{{ gallery.preview_image.file }}')"{% endif %} class="page-gallery__image" data-modal-open="gallery" data-gallery="{{ gallery.id }}"></div>
                             <div class="page-gallery__text">
                                 {{ gallery[language ~ '_text'] }}
                             </div>
