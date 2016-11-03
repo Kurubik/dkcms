@@ -1,0 +1,50 @@
+{% extends 'index_mobile.twig' %}
+
+{% block content %}
+
+    {% if record.header_banner %}
+        {% include 'interface/mobile/header_big.twig' %}
+    {% else %}
+        {% include 'interface/mobile/header_small.twig' %}
+    {% endif %}
+
+
+    <section class="section">
+        <div class="section__image" style="background-image:url('{{ app.request.basepath }}/images/render.jpg')"></div>
+        <div class="content__houses">
+            <ul class="house-circle__list">
+                <li class="house-circle  house-circle--h120">
+                    <a href="{{ app.request.basepath }}/{{ language }}/plans" data-house="1">
+                        <div class="house-circle__circle">№1</div>
+                        <div class="house-circle__line"></div>
+                    </a>
+                </li>
+                <li class="house-circle house-circle--h90">
+                    <a href="{{ app.request.basepath }}/{{ language }}/plans" data-house="2">
+                        <div class="house-circle__circle">№2</div>
+                        <div class="house-circle__line"></div>
+                    </a>
+                </li>
+                <li class="house-circle house-circle--h20">
+                    <a href="{{ app.request.basepath }}/{{ language }}/plans" data-house="3">
+                        <div class="house-circle__circle">№3</div>
+                        <div class="house-circle__line"></div>
+                    </a>
+                </li>
+                <li class="house-circle house-circle--h120">
+                    <a href="{{ app.request.basepath }}/{{ language }}/plans" data-house="4">
+                        <div class="house-circle__circle">№4</div>
+                        <div class="house-circle__line"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="button-text">
+            <a href="{{ app.request.basepath }}/{{ language }}/plans" class="button">
+                {{ l('планировки') }}
+            </a>
+        </div>
+    </section>
+
+    {% include 'blocks/mobile/bottom_block.twig' %}
+{% endblock %}

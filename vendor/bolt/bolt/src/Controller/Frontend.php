@@ -9,6 +9,7 @@ use Bolt\Asset\Target;
 use Bolt\Helpers\Input;
 use Bolt\Response\BoltResponse;
 use Bolt\Translation\Translator as Trans;
+use Mobile_Detect;
 use Silex\ControllerCollection;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -125,6 +126,13 @@ class Frontend extends ConfigurableBase
      */
     public function record(Request $request, $contenttypeslug, $slug = '', $lang = 'ru')
     {
+        require_once __DIR__ . '/Mobile_Detect.php';
+        $detect = new Mobile_Detect;
+        $is_mobile = false;
+        if ($detect->isMobile()) {
+            $is_mobile = true;
+        }
+        $is_mobile = true;
         $contenttype = $this->getContentType($contenttypeslug);
 
         // If the contenttype is 'viewless', don't show the record page.
@@ -137,6 +145,11 @@ class Frontend extends ConfigurableBase
         // Perhaps we don't have a slug. Let's see if we can pick up the 'id', instead.
         if (empty($slug)) {
             $slug = $request->get('id');
+        }
+        if ($is_mobile) {
+            if ($slug === 'project' || $slug === 'location' || $slug === 'info' || $slug === 'latvia') {
+                $slug = 'project';
+            }
         }
 
         $slug = $this->app['slugify']->slugify($slug);
@@ -174,10 +187,18 @@ class Frontend extends ConfigurableBase
         }
 
         if ($slug === 'project' || $slug === 'location' || $slug === 'info' || $slug === 'latvia') {
-            if ($slug === 'info') {
-                $sliders = $this->getSliderGallery('infrastructure');
+            if ($is_mobile) {
+                $sliders = [];
+                $sliders['project'] = $this->getSliderGallery('project');
+                $sliders['location'] = $this->getSliderGallery('location');
+                $sliders['info'] = $this->getSliderGallery('info');
+                $sliders['latvia'] = $this->getSliderGallery('latvia');
             } else {
-                $sliders = $this->getSliderGallery($slug);
+                if ($slug === 'info') {
+                    $sliders = $this->getSliderGallery('infrastructure');
+                } else {
+                    $sliders = $this->getSliderGallery($slug);
+                }
             }
         }
 
@@ -203,8 +224,13 @@ class Frontend extends ConfigurableBase
             'sliders'                     => $sliders,
             'galleries'                   => $galleries,
             'filterdata'                  => $filters_data,
+            'is_mobile'                   => $is_mobile,
             $contenttype['singular_slug'] => $content,
         ];
+
+        if ($is_mobile) {
+            $template = substr_replace($template, '_mobile.twig', -5);
+        }
 
         return $this->render($template, [], $globals);
     }
@@ -683,6 +709,14 @@ class Frontend extends ConfigurableBase
 
     public function getPlans()
     {
+        require_once __DIR__ . '/Mobile_Detect.php';
+        $detect = new Mobile_Detect;
+        $is_mobile = false;
+        if ($detect->isMobile()) {
+            $is_mobile = true;
+        }
+        $is_mobile = true;
+
         $data = $_POST;
 
         $content = $this->app['db']->createQueryBuilder()
@@ -700,6 +734,7 @@ class Frontend extends ConfigurableBase
 
         $globals = [
             'appart'      => $content,
+            'is_mobile'   => $is_mobile
         ];
 
         return $this->render($template, [], $globals);

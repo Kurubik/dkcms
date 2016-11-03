@@ -1,0 +1,15 @@
+{% extends 'index_mobile.twig' %}
+
+{% block content %}
+    {% if record.header_banner != '' %}
+        {% include 'interface/mobile/header_big.twig' %}
+    {% else %}
+        {% include 'interface/mobile/header_small.twig' %}
+    {% endif %}
+
+    <section class="gallery-page">
+        <h2>Контакты</h2>
+    </section>
+
+
+{% endblock %}

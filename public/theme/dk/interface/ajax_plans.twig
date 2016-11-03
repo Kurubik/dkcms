@@ -1,33 +1,90 @@
-<tbody>
-{% for room in appart %}
-    <tr class="room-show {% if room.room_status == 'sold' %} sold {% endif %}">
-        <td class="center">{{ room.floor }}</td>
-        <td class="left">{{ room.room }}</td>
-        <td class="center">{{ room.rooms_number }}</td>
-        <td class="right">{{ room.room_area }}</td>
-        <td class="right">{{ room.terrace_area }}</td>
-        <td class="right">{{ room.total_area }}</td>
-        <td class="center">{{ room.price }}</td>
-        {% set appstat = room.room_status %}
-        <td class="center">
-            {% if appstat == 'free' %}
-                {{ l("свободна") }}
-            {% elseif appstat == 'sold' %}
-                {{ l("продана") }}
-            {% elseif appstat == 'reserved' %}
-                {{ l("зарезервирована") }}
-            {% endif %}
-        </td>
-        <td class="left">
-            {% if room.appart_file %}
-                <a href="{{ app.request.basepath }}/files/{{ room.appart_file }}" class="button button--table">
-                    <i class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</i>
-                    {{ l('скачать') }}
-                </a>
-            {% else %}
-                —
-            {% endif %}
-        </td>
-    </tr>
-{% endfor %}
-</tbody>
+{% if is_mobile %}
+    <div class="plan-list" data-remove-this-plz>
+        {% for room in appart %}
+            <div class="plan-list__item {% if room.room_status == 'sold' %} sold {% endif %}">
+                <div class="plan-list__content">
+                    <div class="plan-list__content-row">
+                        <div class="plan-list__content-left">{{ l('этаж') }}</div>
+                        <div class="plan-list__content-right">{{ room.floor }}</div>
+                    </div>
+                    <div class="plan-list__content-row">
+                        <div class="plan-list__content-left">{{ l('квартира') }} №</div>
+                        <div class="plan-list__content-right">{{ room.room }}</div>
+                    </div>
+                    <div class="plan-list__content-row">
+                        <div class="plan-list__content-left">{{ l('комнат') }}</div>
+                        <div class="plan-list__content-right">{{ room.rooms_number }}</div>
+                    </div>
+                    <div class="plan-list__content-row">
+                        <div class="plan-list__content-left">{{ l('площадь') }}, {{ l('м') }}<sup>2</sup></div>
+                        <div class="plan-list__content-right">{{ room.room_area }}</div>
+                    </div>
+                    <div class="plan-list__content-row">
+                        <div class="plan-list__content-left">{{ l('терраса') }}, {{ l('м') }}<sup>2</sup></div>
+                        <div class="plan-list__content-right">{{ room.terrace_area }}</div>
+                    </div>
+                    <div class="plan-list__content-row">
+                        <div class="plan-list__content-left">{{ l('общая') }}, {{ l('м') }}<sup>2</sup></div>
+                        <div class="plan-list__content-right">{{ room.total_area }}</div>
+                    </div>
+                    <div class="plan-list__content-row">
+                        <div class="plan-list__content-left">{{ l('цена') }}, €</div>
+                        <div class="plan-list__content-right">{{ room.price }}</div>
+                    </div>
+                    <div class="plan-list__content-row">
+                        <div class="plan-list__content-left">{{ l('статус') }}</div>
+                        <div class="plan-list__content-right">
+                            {% set appstat = room.room_status %}
+                            {% if appstat == 'free' %}
+                                {{ l("свободна") }}
+                            {% elseif appstat == 'sold' %}
+                                {{ l("продана") }}
+                            {% elseif appstat == 'reserved' %}
+                                {{ l("зарезервирована") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% if room.appart_file != '' %}
+                <div class="plan-list__download">
+                    <a href="{{ app.request.basepath }}/files/{{ room.appart_file }}" class="plan-list__button">{{ l('планировки') }}, pdf</a>
+                </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <tbody data-remove-this-plz>
+    {% for room in appart %}
+        <tr class="room-show {% if room.room_status == 'sold' %} sold {% endif %}">
+            <td class="center">{{ room.floor }}</td>
+            <td class="left">{{ room.room }}</td>
+            <td class="center">{{ room.rooms_number }}</td>
+            <td class="right">{{ room.room_area }}</td>
+            <td class="right">{{ room.terrace_area }}</td>
+            <td class="right">{{ room.total_area }}</td>
+            <td class="center">{{ room.price }}</td>
+            {% set appstat = room.room_status %}
+            <td class="center">
+                {% if appstat == 'free' %}
+                    {{ l("свободна") }}
+                {% elseif appstat == 'sold' %}
+                    {{ l("продана") }}
+                {% elseif appstat == 'reserved' %}
+                    {{ l("зарезервирована") }}
+                {% endif %}
+            </td>
+            <td class="left">
+                {% if room.appart_file %}
+                    <a href="{{ app.request.basepath }}/files/{{ room.appart_file }}" class="button button--table">
+                        <i class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</i>
+                        {{ l('скачать') }}
+                    </a>
+                {% else %}
+                    —
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+{% endif %}

@@ -1,0 +1,15 @@
+<div class="section section--small">
+    <div class="section__image" style="background-image:url('{{ app.request.basepath }}/files/{{ record.header_image }}')"></div>
+    {% if record.slug != 'home' %}
+        <a href="{{ app.request.basepath }}/{{ language }}/home" class="logo logo--small">
+            {% include 'svg/logo.svg' %}
+        </a>
+    {% else %}
+        <span class="logo logo--small">{% include 'svg/logo.svg' %}</span>
+    {% endif %}
+    <div class="hamburger">
+        <i></i>
+        <i></i>
+        <i></i>
+    </div>
+</div>

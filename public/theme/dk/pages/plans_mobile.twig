@@ -1,0 +1,123 @@
+{% extends 'index_mobile.twig' %}
+
+{% block content %}
+    {% if record.header_banner != '' %}
+        {% include 'interface/mobile/header_big.twig' %}
+    {% else %}
+        {% include 'interface/mobile/header_small.twig' %}
+    {% endif %}
+
+    <section class="section section--text">
+        <h2>Планировки</h2>
+        <form class="form" data-table-filters>
+            <div class="form-row">
+                <div class="form-select">
+                    <select name="house" id="house">
+                        <option value="1">{{ l('дом') }} №1</option>
+                        <option value="2">{{ l('дом') }} №2</option>
+                        <option value="3">{{ l('дом') }} №3</option>
+                        <option value="4">{{ l('дом') }} №4</option>
+                    </select>
+                    <div class="form-select__icon">{% include 'svg/small-drop-down.svg' %}</div>
+                </div>
+            </div>
+            {% if filterdata.floors is defined %}
+                <div class="form-row">
+                    <div class="form-select">
+                        <select name="floor" id="floor">
+                            <option value="">{{ l('все этажи') }}</option>
+                            {% for item in filterdata.floors %}
+                                <option value="{{ item.floor }}">{{ item.floor }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="form-select__icon">{% include 'svg/small-drop-down.svg' %}</div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if filterdata.rooms_number is defined %}
+                <div class="form-row">
+                    <div class="form-select">
+                        <select name="rooms_number" id="rooms_number">
+                            <option value="">{{ l('комнат') }}</option>
+                            {% for item in filterdata.rooms_number %}
+                                <option value="{{ item.rooms_number }}">{{ item.rooms_number }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="form-select__icon">{% include 'svg/small-drop-down.svg' %}</div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-row">
+                <div class="form-select">
+                    <select name="room_area" id="room_area">
+                        <option value="">{{ l('площадь') }}</option>
+                        <option value="1">30 000 - 50 000</option>
+                        <option value="2">50 000 - 80 000</option>
+                        <option value="3">80 000 - 100 000</option>
+                        <option value="4">> 100 000</option>
+                    </select>
+                    <div class="form-select__icon">{% include 'svg/small-drop-down.svg' %}</div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-select">
+                    <select name="price" id="price">
+                        <option value="">{{ l('цена') }}</option>
+                        <option value="1">30 000 - 50 000</option>
+                        <option value="2">50 000 - 80 000</option>
+                        <option value="3">80 000 - 100 000</option>
+                        <option value="4">> 100 000</option>
+                    </select>
+                    <div class="form-select__icon">{% include 'svg/small-drop-down.svg' %}</div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-clear">
+                    <div class="clear-filter">
+                        <span class="clear-filter__icon">{% include 'svg/close-small.svg' %}</span>
+                        {{ l('очистить фильтр') }}
+                    </div>
+                    <button class="button" type="button">смотреть результаты</button>
+                </div>
+            </div>
+        </form>
+        <div class="loader" data-loader="loader">
+            <div class="loader__animation">
+                <div class="sk-fading-circle">
+                    <div class="sk-circle1 sk-circle"></div>
+                    <div class="sk-circle2 sk-circle"></div>
+                    <div class="sk-circle3 sk-circle"></div>
+                    <div class="sk-circle4 sk-circle"></div>
+                    <div class="sk-circle5 sk-circle"></div>
+                    <div class="sk-circle6 sk-circle"></div>
+                    <div class="sk-circle7 sk-circle"></div>
+                    <div class="sk-circle8 sk-circle"></div>
+                    <div class="sk-circle9 sk-circle"></div>
+                    <div class="sk-circle10 sk-circle"></div>
+                    <div class="sk-circle11 sk-circle"></div>
+                    <div class="sk-circle12 sk-circle"></div>
+                </div>
+            </div>
+            <div class="loader__text">
+                {{ l('загрузка') }}
+            </div>
+        </div>
+    </section>
+
+    <section class="section-fixed">
+        <div class="filter-change">
+            <div class="filter-change__icon">
+                <img alt="" src="{{ app.request.basepath }}/images/qq.png" title="">
+            </div>
+            <div class="filter-change__text">Изменить фильтр</div>
+        </div>
+    </section>
+
+    <section class="section section--cart" data-url="#" data-table-change-by-filters>
+        <div style="display: none;" class="lol" data-insert-here-plz></div>
+        <div class="plan-list" data-remove-this-plz>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% spaceless %}
+
+    {% set languageslug = app.paths.current|split('/')[2] %}
+
+    {% if languageslug in ['en', 'ru', 'lv'] %}
+        {% set language = languageslug %}
+    {% else %}
+        {% set language = 'ru' %}
+    {% endif %}
+
+    {% set pagescontenttype      = language ~ '-pages' %}
+
+    {% set menumain              = language ~ '-main' %}
+    {{ setlanguage(language) }}
+{% endspaceless %}
+{% macro svg(svgAssetModel, cssClasses) %}
+
+    <svg class="{{ cssClasses }}" title="{{ svgAssetModel.title }}">
+        <use xlink:href="{{ svgAssetModel.url }}#{{ svgAssetModel.symbol }}"></use>
+    </svg>
+
+{% endmacro %}
+
+<!DOCTYPE html>
+<html lang="{{ language }}">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+    <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/css/index_mobile.css">
+    <title>Dubultu Krasts</title>
+</head>
+<body>
+{% spaceless %}
+    <div class="wrapper">
+
+        <div style="display: none" class="menu">
+
+            <div class="menu__logo">
+                {% include 'svg/logo.svg' %}
+            </div>
+
+            <div class="menu__close"></div>
+            <div class="menu-list">
+                <div class="menu-list__item">О проекте</div>
+                <div class="menu-list__item">Планировки</div>
+                <div class="menu-list__item">Галерея</div>
+                <div class="menu-list__item">Контакты</div>
+            </div>
+
+            <div class="menu__footer">
+                +371 26233311<br>
+                <a href="info@dubultukrasts.lv">info@dubultukrasts.lv</a>
+            </div>
+        </div>
+
+        {% block content %}{% endblock %}
+        {% if app.request.pathInfo != '/' ~ language ~ '/contacts' %}
+            {% include 'interface/mobile/footer.twig' %}
+        {% else  %}
+            {% include 'interface/mobile/footer-contacts.twig' %}
+        {% endif %}
+    </div>
+    {% include 'scripts_mobile.twig' %}
+{% endspaceless %}
+</body>
+</html>

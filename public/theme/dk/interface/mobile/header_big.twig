@@ -1,0 +1,21 @@
+<section class="section section--big">
+    <div class="section__image" style="background-image:url('{{ app.request.basepath }}/files/{{ record.header_image }}')"></div>
+    {% if record.slug != 'home' %}
+        <a href="{{ app.request.basepath }}/{{ language }}/home" class="logo">
+            {% include 'svg/logo.svg' %}
+        </a>
+    {% else %}
+        <span class="logo">{% include 'svg/logo.svg' %}</span>
+    {% endif %}
+    <div class="hamburger">
+        <i></i>
+        <i></i>
+        <i></i>
+    </div>
+    <div class="button-text">
+        <div class="button-text__text">
+            {{ record.header_banner }}
+        </div>
+        <a href="{{ app.request.basepath }}/{{ language }}/{{ record.header_baner_button_link }}" class="button">{{ record.header_banner_button }}</a>
+    </div>
+</section>

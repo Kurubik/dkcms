@@ -97,9 +97,8 @@
                 </div>
             </div>
         </div>
-        {% setcontent appart = 'apparmets' %}
         <table class="table" data-sort-table data-url="#" data-table-change-by-filters>
-            <thead>
+            <thead data-insert-here-plz>
             <tr>
                 <th class="center">{{ l('этаж') }}
                     <span class="table__icon">{% include 'svg/small-arrow-download.svg' %}</span>
@@ -126,40 +125,7 @@
                 <th class="left no-hover">{{ l('планировки') }}, pdf</th>
             </tr>
             </thead>
-            <tbody>
-            <!--tr class="sep"><td class="separator" colspan="9">&nbsp;</td></tr-->
-            {% for room in appart %}
-                <tr class="room-show {% if room.room_status == 'sold' %} sold {% endif %}">
-                    <td class="center">{{ room.floor }}</td>
-                    <td class="left">{{ room.room }}</td>
-                    <td class="center">{{ room.rooms_number }}</td>
-                    <td class="right">{{ room.room_area }}</td>
-                    <td class="right">{{ room.terrace_area }}</td>
-                    <td class="right">{{ room.total_area }}</td>
-                    <td class="center">{{ room.price }}</td>
-                    {% set appstat = room.room_status %}
-                    <td class="center">
-                        {% if appstat == 'free' %}
-                            {{ l("свободна") }}
-                        {% elseif appstat == 'sold' %}
-                            {{ l("продана") }}
-                        {% elseif appstat == 'reserved' %}
-                            {{ l("зарезервирована") }}
-                        {% endif %}
-                    </td>
-                    <td class="left">
-                        {% if room.appart_file %}
-                            <a href="{{ app.request.basepath }}/files/{{ room.appart_file }}" class="button button--table">
-                                <i class="button__icon button__icon--download">{% include 'svg/small-arrow-download.svg' %}</i>
-                                {{ l('скачать') }}
-                            </a>
-                        {% else %}
-                            —
-                        {% endif %}
-                    </td>
-                </tr>
-            {% endfor %}
-            <!--tr class="sep"><td class="separator" colspan="9">&nbsp;</td></tr-->
+            <tbody data-remove-this-plz>
             </tbody>
         </table>
     </div>

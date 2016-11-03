@@ -1,0 +1,63 @@
+{% extends 'index_mobile.twig' %}
+
+{% block content %}
+
+    <div class="modal" style="display:none">
+        <div class="modal__close">
+            <span>{% include 'svg/close-small.svg' %}</span>
+            закрыть
+        </div>
+
+        <div class="modal-gallery">
+            <div class="modal-gallery-list">
+                <div class="modal-gallery-list__item" style="background-image:url('{{ app.request.basepath }}/public/images/home1.png')"></div>
+            </div>
+            <div class="image-block__controls">
+                <div class="image-block__button image-block__button--prev" data-page-slider-button-prev>{% include 'svg/arrow.svg' %}</div>
+                <div class="image-block__button image-block__button--next" data-page-slider-button-next>{% include 'svg/arrow.svg' %}</div>
+            </div>
+        </div>
+
+        <div class="modal-section">
+            <div class="modal-section__button">ФОТО</div>
+            <div class="modal-section__button">ВИДЕО</div>
+            <div class="modal-section__button active">ДЕМО</div>
+        </div>
+    </div>
+
+    <div class="section section--small">
+        <div class="section__image" style="background-image:url('{{ app.request.basepath }}/public/images/home1.png')"></div>
+        <a href="" class="logo logo--small">{% include 'svg/logo.svg' %}</a>
+        <div class="hamburger">
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+    </div>
+
+    <section class="gallery-page">
+        <h2>Галерея</h2>
+    </section>
+
+    <div class="section">
+        <div class="section__image" style="background-image:url('{{ app.request.basepath }}/public/images/home-gallery.png')"></div>
+        <div class="button-text">
+            <div class="button">галерея</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section__image" style="background-image:url('{{ app.request.basepath }}/public/images/home-gallery.png')"></div>
+        <div class="button-text">
+            <div class="button">Видео</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section__image" style="background-image:url('{{ app.request.basepath }}/public/images/home-gallery.png')"></div>
+        <div class="button-text">
+            <div class="button">демо-квартира</div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends 'index_mobile.twig' %}
+
+{% block content %}
+
+    {% if record.header_banner != '' %}
+        {% include 'interface/mobile/header_big.twig' %}
+    {% else %}
+        {% include 'interface/mobile/header_small.twig' %}
+    {% endif %}
+
+    {% setcontent location = language ~ '_pages' where { slug: 'location' }  %}
+    {% setcontent infostr = language ~ '_pages' where { slug: 'info' }  %}
+    {% setcontent latvia = language ~ '_pages' where { slug: 'latvia' }  %}
+
+    <section class="section section--text">
+        <h2>О проекте</h2>
+        {{ record.top_text }}
+    </section>
+    {% if sliders['project'][0] is defined %}
+    <section class="section section--gallery">
+        <div class="image-block" data-page-slider>
+            <div class="image-block__image">
+                <div class="swiper-container image-block__image-gallery" data-page-slider-container>
+                    <div class="swiper-wrapper image-block__image-gallery-wrapper">
+                        {% for image in sliders['project'][0] %}
+                            <div class="swiper-slide" style="">
+                                <img src="{{ app.request.basepath }}/files/{{ image.image.file }}" />
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="image-block__controls">
+                <div class="image-block__button image-block__button--prev" data-page-slider-button-prev>{% include 'svg/arrow.svg' %}</div>
+                <div class="image-block__button image-block__button--next" data-page-slider-button-next>{% include 'svg/arrow.svg' %}</div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+
+    <section class="section section--text">
+        <h2>Расположение</h2>
+        {{ location[3].top_text }}
+    </section>
+
+    {% if sliders['location'][0] is defined %}
+        <section class="section section--gallery">
+            <div class="image-block" data-page-slider>
+                <div class="image-block__image">
+                    <div class="swiper-container image-block__image-gallery" data-page-slider-container>
+                        <div class="swiper-wrapper image-block__image-gallery-wrapper">
+                            {% for image in sliders['location'][0] %}
+                                <div class="swiper-slide" style="">
+                                    <img src="{{ app.request.basepath }}/files/{{ image.image.file }}" />
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="image-block__controls">
+                    <div class="image-block__button image-block__button--prev" data-page-slider-button-prev>{% include 'svg/arrow.svg' %}</div>
+                    <div class="image-block__button image-block__button--next" data-page-slider-button-next>{% include 'svg/arrow.svg' %}</div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+
+    <section class="section section--text">
+        <h2>Инфраструктура</h2>
+        {{ infostr[4].top_text }}
+    </section>
+
+    {% if sliders['info'][0] is defined %}
+        <section class="section section--gallery">
+            <div class="image-block" data-page-slider>
+                <div class="image-block__image">
+                    <div class="swiper-container image-block__image-gallery" data-page-slider-container>
+                        <div class="swiper-wrapper image-block__image-gallery-wrapper">
+                            {% for image in sliders['info'][0] %}
+                                <div class="swiper-slide" style="">
+                                    <img src="{{ app.request.basepath }}/files/{{ image.image.file }}" />
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="image-block__controls">
+                    <div class="image-block__button image-block__button--prev" data-page-slider-button-prev>{% include 'svg/arrow.svg' %}</div>
+                    <div class="image-block__button image-block__button--next" data-page-slider-button-next>{% include 'svg/arrow.svg' %}</div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    <section class="section section--text">
+        <h2>Латвия</h2>
+        {{ latvia[6].top_text }}
+        {{ latvia[6].bot_text_right }}
+    </section>
+
+
+    {% include 'blocks/mobile/bottom_block.twig' %}
+
+{% endblock %}

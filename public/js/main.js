@@ -345,10 +345,10 @@ var sorting = {
             type: 'POST',
             data: filterData,
             dataType: 'html',
-            success: function (response) {
+            success: function (response, err) {
                 $('[data-loader="loader"]').removeClass('active');
-                $('[data-table-change-by-filters]').find('tbody').remove();
-                $(response).insertAfter('[data-table-change-by-filters] thead');
+                $('[data-table-change-by-filters]').find('[data-remove-this-plz]').remove();
+                $(response).insertAfter('[data-table-change-by-filters] [data-insert-here-plz]');
                 sr.reveal('.room-show', { viewFactor: 0.8 });
                 $("[data-sort-table]").trigger("update");
             },

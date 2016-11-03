@@ -435,6 +435,7 @@ infrasvg:
         svgimage:
             label: Image
             type: image
+            extensions: [ gif, jpg, png, svg ]
     default_status: publish
     icon_many: "fa:image"
     icon_one: "fa:image"
