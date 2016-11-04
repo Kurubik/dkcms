@@ -1,10 +1,10 @@
-<div  class="menu">
+<div class="menu hide" data-mobile-menu="menu">
 
     <div class="menu__logo">
         {% include 'svg/logo.svg' %}
     </div>
 
-    <div class="menu__close"></div>
+    <div class="menu__close" data-mobile-menu="close"></div>
     <div class="menu-list">
         {% for item in menu %}
             <a style="display: block" href="{{ item.link }}" class="menu-list__item">{{ item.title }}</a>

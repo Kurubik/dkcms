@@ -35,8 +35,7 @@
 <body>
 {% spaceless %}
     <div class="wrapper">
-
-        {{ menu('menumobile', 'interface/mobile/menu.twig') }}
+        {{ menu(menumobile, 'interface/mobile/menu.twig') }}
 
         {% block content %}{% endblock %}
         {% if app.request.pathInfo != '/' ~ language ~ '/contacts' %}

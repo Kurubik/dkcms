@@ -50,7 +50,7 @@
             <ul class="icons-block">
                 {% for svgimg in svgs %}
                     <li class="icons-block__item">
-                        <div class="icons-block__item-icon" style="background-image: url('{{ app.request.basepath }}/files/{{ svgimg.svgimage }}')"></div>
+                        <div class="icons-block__item-icon" style="background-size:contain;background-image: url('{{ app.request.basepath }}/files/{{ svgimg.svgimage }}')"></div>
                         <div class="icons-block__item-text">
                             {{ svgimg[language ~ "_text"] }}
                         </div>

@@ -7,7 +7,7 @@
         {% include 'interface/mobile/header_small.twig' %}
     {% endif %}
 
-    <section class="section section--text">
+    <section class="section section--text" data-plan-filter-block-filter>
         <h2>Планировки</h2>
         <form class="form" data-table-filters>
             <div class="form-row">
@@ -74,11 +74,11 @@
 
             <div class="form-row">
                 <div class="form-clear">
-                    <div class="clear-filter">
+                    <div style="cursor: pointer;" class="clear-filter" data-table-filter-clear>
                         <span class="clear-filter__icon">{% include 'svg/close-small.svg' %}</span>
                         {{ l('очистить фильтр') }}
                     </div>
-                    <button class="button" type="button">смотреть результаты</button>
+                    <button data-plan-filter-button class="button" type="button">смотреть результаты</button>
                 </div>
             </div>
         </form>
@@ -105,8 +105,8 @@
         </div>
     </section>
 
-    <section class="section-fixed">
-        <div class="filter-change">
+    <section class="section-fixed" data-plan-filter-button-top-edit-block>
+        <div style="cursor: pointer;" class="filter-change" data-plan-filter-button-top-edit>
             <div class="filter-change__icon">
                 <img alt="" src="{{ app.request.basepath }}/images/qq.png" title="">
             </div>

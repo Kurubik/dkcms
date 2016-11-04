@@ -12,7 +12,7 @@
                 {% for gallery in galleries %}
                     {% if gallery.gallery_type == 'link' %}
                         <li class="page-gallery__item">
-                            <a href="{{ gallery.page_link }}" style="display: block;{% if gallery.preview_image.file is defined %}background-image: url('{{ app.request.basepath }}/files/{{ gallery.preview_image.file }}'){% endif %}" class="page-gallery__image"  data-gallery="{{ gallery.id }}"></a>
+                            <a href="{{ gallery.page_link }}" style="display: block;{% if gallery.preview_image.file is defined %}background-size:contain;background-image: url('{{ app.request.basepath }}/files/{{ gallery.preview_image.file }}'){% endif %}" class="page-gallery__image"  data-gallery="{{ gallery.id }}"></a>
                             <div class="page-gallery__text">
                                 {{ gallery[language ~ '_text'] }}
                             </div>
@@ -25,7 +25,7 @@
                         </li>
                     {% else %}
                         <li class="page-gallery__item">
-                            <div {% if gallery.preview_image.file is defined %}style="background-image: url('{{ app.request.basepath }}/files/{{ gallery.preview_image.file }}')"{% endif %} class="page-gallery__image" data-modal-open="gallery" data-gallery="{{ gallery.id }}"></div>
+                            <div {% if gallery.preview_image.file is defined %}style="background-size:contain;background-image: url('{{ app.request.basepath }}/files/{{ gallery.preview_image.file }}')"{% endif %} class="page-gallery__image" data-modal-open="gallery" data-gallery="{{ gallery.id }}"></div>
                             <div class="page-gallery__text">
                                 {{ gallery[language ~ '_text'] }}
                             </div>

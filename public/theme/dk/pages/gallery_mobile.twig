@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <div class="modal" style="display:none">
+    <div class="modal" data-modal="gallery">
         <div class="modal__close">
             <span>{% include 'svg/close-small.svg' %}</span>
             закрыть
@@ -10,54 +10,69 @@
 
         <div class="modal-gallery">
             <div class="modal-gallery-list">
-                <div class="modal-gallery-list__item" style="background-image:url('{{ app.request.basepath }}/public/images/home1.png')"></div>
+                {% for gallery in galleries %}
+                    {% if gallery.gallery_type != 'link' %}
+                        <div class="swiper-container modal-gallery-list__item" data-gallery-block="{{ gallery.id }}">
+                            <div class="swiper-wrapper modal-block__gallery-block-slides">
+                                {% if gallery.gallery_type == 'gallery' %}
+                                    {% for item in gallery.image %}
+                                        <div class="swiper-slide">
+                                            <img src="{{ app.request.basepath }}/files/{{ item.file }}" />
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if gallery.gallery_type == 'video' %}
+                                    {% for item in gallery.video %}
+                                        <div class="swiper-slide">
+                                            <iframe width="100%" height="100%" src="{{ item }}" frameborder="0" allowfullscreen></iframe>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
             <div class="image-block__controls">
-                <div class="image-block__button image-block__button--prev" data-page-slider-button-prev>{% include 'svg/arrow.svg' %}</div>
-                <div class="image-block__button image-block__button--next" data-page-slider-button-next>{% include 'svg/arrow.svg' %}</div>
+                <div class="image-block__button image-block__button--prev" data-button-gallery="prev">{% include 'svg/arrow.svg' %}</div>
+                <div class="image-block__button image-block__button--next" data-button-gallery="next">{% include 'svg/arrow.svg' %}</div>
             </div>
         </div>
 
         <div class="modal-section">
-            <div class="modal-section__button">ФОТО</div>
-            <div class="modal-section__button">ВИДЕО</div>
-            <div class="modal-section__button active">ДЕМО</div>
+            {% for gallery in galleries %}
+                {% if gallery.gallery_type != 'link' %}
+                    <div style="overflow:hidden;text-overflow: ellipsis;" data-gallery-button="{{ gallery.id }}" class="modal-section__button">{{ gallery['page_button_' ~ language] }}</div>
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
 
-    <div class="section section--small">
-        <div class="section__image" style="background-image:url('{{ app.request.basepath }}/public/images/home1.png')"></div>
-        <a href="" class="logo logo--small">{% include 'svg/logo.svg' %}</a>
-        <div class="hamburger">
-            <i></i>
-            <i></i>
-            <i></i>
-        </div>
-    </div>
+    {% if record.header_banner != '' %}
+        {% include 'interface/mobile/header_big.twig' %}
+    {% else %}
+        {% include 'interface/mobile/header_small.twig' %}
+    {% endif %}
 
     <section class="gallery-page">
         <h2>Галерея</h2>
     </section>
-
-    <div class="section">
-        <div class="section__image" style="background-image:url('{{ app.request.basepath }}/public/images/home-gallery.png')"></div>
-        <div class="button-text">
-            <div class="button">галерея</div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section__image" style="background-image:url('{{ app.request.basepath }}/public/images/home-gallery.png')"></div>
-        <div class="button-text">
-            <div class="button">Видео</div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section__image" style="background-image:url('{{ app.request.basepath }}/public/images/home-gallery.png')"></div>
-        <div class="button-text">
-            <div class="button">демо-квартира</div>
-        </div>
-    </div>
+    {% for gallery in galleries %}
+        {% if gallery.gallery_type == 'link' %}
+            <a class="section" data-gallery="{{ gallery.id }}" style="display: block;" href="{{ gallery.page_link }}">
+                <div class="section__image" style="{% if gallery.preview_image.file is defined %}background-size:cover;background-image: url('{{ app.request.basepath }}/files/{{ gallery.preview_image.file }}'){% endif %}"></div>
+                <div class="button-text">
+                    <div data-gallery="{{ gallery.id }}" class="button">{{ gallery['page_button_' ~ language] }}</div>
+                </div>
+            </a>
+        {% else %}
+            <div class="section" data-gallery="{{ gallery.id }}">
+                <div class="section__image" style="{% if gallery.preview_image.file is defined %}background-size:cover;background-image: url('{{ app.request.basepath }}/files/{{ gallery.preview_image.file }}'){% endif %}"></div>
+                <div class="button-text">
+                    <div data-modal-open="gallery" data-gallery="{{ gallery.id }}" class="button">{{ gallery['page_button_' ~ language] }}</div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
 
 {% endblock %}
