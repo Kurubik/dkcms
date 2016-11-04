@@ -10,7 +10,7 @@
 
     {% set pagescontenttype      = language ~ '-pages' %}
 
-    {% set menumain              = language ~ '-main' %}
+    {% set menumobile              = language ~ '-mobile' %}
     {{ setlanguage(language) }}
 {% endspaceless %}
 {% macro svg(svgAssetModel, cssClasses) %}
@@ -36,25 +36,7 @@
 {% spaceless %}
     <div class="wrapper">
 
-        <div style="display: none" class="menu">
-
-            <div class="menu__logo">
-                {% include 'svg/logo.svg' %}
-            </div>
-
-            <div class="menu__close"></div>
-            <div class="menu-list">
-                <div class="menu-list__item">О проекте</div>
-                <div class="menu-list__item">Планировки</div>
-                <div class="menu-list__item">Галерея</div>
-                <div class="menu-list__item">Контакты</div>
-            </div>
-
-            <div class="menu__footer">
-                +371 26233311<br>
-                <a href="info@dubultukrasts.lv">info@dubultukrasts.lv</a>
-            </div>
-        </div>
+        {{ menu('menumobile', 'interface/mobile/menu.twig') }}
 
         {% block content %}{% endblock %}
         {% if app.request.pathInfo != '/' ~ language ~ '/contacts' %}

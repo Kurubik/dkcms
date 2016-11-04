@@ -1,24 +1,17 @@
 <footer class="footer">
+    {% setcontent footers = 'footer_block' where { use_in_lang: language } %}
     <ul class="footer-items">
+        {% for item in footers|sort %}
         <li class="footer-items__item">
-            <div class="footer-items__item-title">офис продаж</div>
+            <div class="footer-items__item-title">{{ item.title }}</div>
             <div class="footer-items__section">
-                <a href="tel:+371 26113355" class="footer-items__item-link">+371 26113355</a>
+                {{ item.text1 }}
             </div>
             <div class="footer-items__section">
-                <a href="mailto:sales@dubultukrasts.lv" class="footer-items__item-link">sales@dubultukrasts.lv</a>
+                {{ item.text2 }}
             </div>
         </li>
-        <li class="footer-items__item">
-            <div class="footer-items__item-title">Адрес</div>
-
-            <div class="footer-items__section">
-                <div class="footer-items__item-text">Слокас 51, Юрмала</div>
-            </div>
-            <div class="footer-items__section">
-                <a href="#" class="footer-items__item-link">Смотреть на карте</a>
-            </div>
-        </li>
+        {% endfor %}
     </ul>
-    <div class="footer__copyright">© 2016 Dubultu Krasts</div>
+    <div class="footer__copyright">{{ l('© 2016 Dubultu Krasts') }}</div>
 </footer>

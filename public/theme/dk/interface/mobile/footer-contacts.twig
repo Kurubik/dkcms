@@ -1,33 +1,26 @@
 <footer class="footer footer--contacts">
+    {% setcontent footers = 'footer_block' where { use_in_lang: language } %}
     <ul class="footer-items">
         <li class="footer-items__item">
-            <div class="footer-items__item-title">dubultu krasta</div>
+            <div class="footer-items__item-title">{{ l('dubultu krasts') }}</div>
             <div class="footer-items__section">
-                <a href="tel:+371 26113355" class="footer-items__item-link">+371 26113355</a>
+                <a href="tel:{{ l('contact phone') }}" class="footer-items__item-link">{{ l('contact phone') }}</a>
             </div>
             <div class="footer-items__section">
-                <a href="mailto:sales@dubultukrasts.lv" class="footer-items__item-link">info@dubultukrasts.lv</a>
-            </div>
-        </li>
-        <li class="footer-items__item">
-            <div class="footer-items__item-title">офис продаж</div>
-            <div class="footer-items__section">
-                <a href="tel:+371 26113355" class="footer-items__item-link">+371 26113355</a>
-            </div>
-            <div class="footer-items__section">
-                <a href="mailto:sales@dubultukrasts.lv" class="footer-items__item-link">sales@dubultukrasts.lv</a>
+                <a href="mailto:{{ l('info email') }}" class="footer-items__item-link">{{ l('info email') }}</a>
             </div>
         </li>
-        <li class="footer-items__item footer-items__item--margin">
-            <div class="footer-items__item-title">Адрес</div>
-
-            <div class="footer-items__section">
-                <div class="footer-items__item-text">Слокас 51, Юрмала</div>
-            </div>
-            <div class="footer-items__section">
-                <a href="#" class="footer-items__item-link">Смотреть на карте</a>
-            </div>
-        </li>
+        {% for item in footers|sort %}
+            <li class="footer-items__item {% if loop.last %} footer-items__item--margin {% endif %}">
+                <div class="footer-items__item-title">{{ item.title }}</div>
+                <div class="footer-items__section">
+                    {{ item.text1 }}
+                </div>
+                <div class="footer-items__section">
+                    {{ item.text2 }}
+                </div>
+            </li>
+        {% endfor %}
     </ul>
-    <div class="footer__copyright">© 2016 Dubultu Krasts</div>
+    <div class="footer__copyright">{{ l('© 2016 Dubultu Krasts') }}</div>
 </footer>

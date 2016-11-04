@@ -69,3 +69,46 @@ en-main:
     - label: Контакты
       title: Контакты
       path: en/contacts
+
+
+ru-mobile:
+    - label: О проекте
+      title: О проекте
+      path: ru/project
+    - label: Планировки
+      title: Планировки
+      path: ru/plans
+    - label: Галерея
+      title: Галерея
+      path: ru/gallery
+    - label: Контакты
+      title: Контакты
+      path: ru/contacts
+
+lv-mobile:
+    - label: О проекте
+      title: О проекте
+      path: lv/project
+    - label: Планировки
+      title: Планировки
+      path: lv/plans
+    - label: Галерея
+      title: Галерея
+      path: lv/gallery
+    - label: Контакты
+      title: Контакты
+      path: lv/contacts
+
+en-mobile:
+    - label: О проекте
+      title: О проекте
+      path: en/project
+    - label: Планировки
+      title: Планировки
+      path: en/plans
+    - label: Галерея
+      title: Галерея
+      path: en/gallery
+    - label: Контакты
+      title: Контакты
+      path: en/contacts
