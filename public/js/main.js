@@ -180,7 +180,6 @@ $('[data-modal-inner]').click(function (e) {
     $('[data-gallery-block]').each(function() {
         var $this = $(this);
         var galleryType = $this.attr('data-gallery-block');
-
         var gallery = new Swiper('[data-gallery-block="'+ galleryType +'"]', {
             loop: true,
             nextButton: '[data-button-gallery="next"]',

@@ -8,7 +8,7 @@
             закрыть
         </div>
 
-        <div class="modal-gallery">
+        <div class="modal-gallery" data-modal-inner="gallery">
             <div class="modal-gallery-list">
                 {% for gallery in galleries %}
                     {% if gallery.gallery_type != 'link' %}
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class="modal-section">
+        <div class="modal-section" data-modal-inner="gallery">
             {% for gallery in galleries %}
                 {% if gallery.gallery_type != 'link' %}
                     <div style="overflow:hidden;text-overflow: ellipsis;" data-gallery-button="{{ gallery.id }}" class="modal-section__button">{{ gallery['page_button_' ~ language] }}</div>

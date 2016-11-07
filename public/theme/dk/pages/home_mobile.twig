@@ -9,8 +9,7 @@
     {% endif %}
 
 
-    <section class="section">
-        <div class="section__image" style="background-image:url('{{ app.request.basepath }}/images/render.jpg')"></div>
+    <section class="section section--auto">
         <div class="content__houses">
             <ul class="house-circle__list">
                 <li class="house-circle  house-circle--h120">
@@ -38,12 +37,22 @@
                     </a>
                 </li>
             </ul>
+
         </div>
         <div class="button-text">
             <a href="{{ app.request.basepath }}/{{ language }}/plans" class="button">
                 {{ l('планировки') }}
             </a>
         </div>
+
+        <img src="{{ app.request.basepath }}/images/plan-m.png" alt="" usemap="#render">
+        <map name="render" id="render">
+            <area data-section="1" alt="" title="" href="{{ app.request.basepath }}/{{ language }}/plans/?&house=1" shape="poly" coords="3,279,95,281,94,416,0,417" />
+            <area data-section="2" alt="" title="" href="{{ app.request.basepath }}/{{ language }}/plans/?&house=2" shape="poly" coords="99,248,281,255,279,416,95,418" />
+            <area data-section="3" alt="" title="" href="{{ app.request.basepath }}/{{ language }}/plans/?&house=3" shape="poly" coords="280,234,309,195,536,206,538,417,316,425,282,420" />
+            <area data-section="4" alt="" title="" href="{{ app.request.basepath }}/{{ language }}/plans/?&house=4" shape="poly" coords="542,283,639,267,640,417,541,419" />
+        </map>
+
     </section>
 
     {% include 'blocks/mobile/bottom_block.twig' %}

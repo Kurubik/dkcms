@@ -23,7 +23,7 @@
                 <div class="swiper-container image-block__image-gallery" data-page-slider-container>
                     <div class="swiper-wrapper image-block__image-gallery-wrapper">
                         {% for image in sliders['project'][0] %}
-                            <div class="swiper-slide" style="">
+                            <div class="swiper-slide" style="background-image:url('{{ app.request.basepath }}/files/{{ image.image.file }}')">
                                 <img src="{{ app.request.basepath }}/files/{{ image.image.file }}" />
                             </div>
                         {% endfor %}
