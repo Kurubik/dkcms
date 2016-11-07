@@ -325,7 +325,7 @@ var sorting = {
         sendSelectFilters();
     });
 
-    if ($('[data-plan-filter-button]')) {
+    if ($('[data-plan-filter-button]').length > 0) {
         $('[data-plan-filter-button-top-edit-block]').fadeOut('fast');
     } else {
         if ($('[data-table-change-by-filters]').length > 0) {
