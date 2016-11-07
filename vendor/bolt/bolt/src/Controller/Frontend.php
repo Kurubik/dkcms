@@ -132,7 +132,7 @@ class Frontend extends ConfigurableBase
         if ($detect->isMobile()) {
             $is_mobile = true;
         }
-        $is_mobile = true;
+        
         $contenttype = $this->getContentType($contenttypeslug);
 
         // If the contenttype is 'viewless', don't show the record page.
@@ -715,7 +715,6 @@ class Frontend extends ConfigurableBase
         if ($detect->isMobile()) {
             $is_mobile = true;
         }
-        $is_mobile = true;
 
         $data = $_POST;
 
