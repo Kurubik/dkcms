@@ -64,6 +64,10 @@ ajax_getplans:
   path:               /ajax/getplans
   defaults:           { _controller: 'Bolt\Controllers\Frontend::getPlans' }
 
+ajax_sendemail:
+  path:               /ajax/sendemail
+  defaults:           { _controller: 'Bolt\Controllers\Frontend::sendemail' }
+
 #homepage:
 #    path: /
 #    defaults:

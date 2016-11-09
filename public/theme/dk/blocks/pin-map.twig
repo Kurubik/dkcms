@@ -14,10 +14,7 @@
                 <div class="pin__route pin__route--london">
                     {% include 'svg/routes/5.svg' %}
                 </div>
-                <div class="pin__modal">
-                    <div class="pin__title">{{ pin[language ~ "_title"] }}</div>
-                    {% include 'interface/pin_list.twig' %}
-                </div>
+                {% include 'interface/pin_list.twig' %}
             </div>
         {% endif %}
         {% if pin['city']|lower == 'paris' %}
@@ -27,10 +24,7 @@
                 <div class="pin__route pin__route--paris">
                     {% include 'svg/routes/8.svg' %}
                 </div>
-                <div class="pin__modal">
-                    <div class="pin__title">{{ pin[language ~ "_title"] }}</div>
-                    {% include 'interface/pin_list.twig' %}
-                </div>
+                {% include 'interface/pin_list.twig' %}
             </div>
         {% endif %}
         {% if pin['city']|lower == 'madrid' %}
@@ -40,10 +34,7 @@
                 <div class="pin__route pin__route--madrid">
                     {% include 'svg/routes/11.svg' %}
                 </div>
-                <div class="pin__modal pin__modal--madrid">
-                    <div class="pin__title">{{ pin[language ~ "_title"] }}</div>
-                    {% include 'interface/pin_list.twig' %}
-                </div>
+                {% include 'interface/pin_list.twig' %}
             </div>
         {% endif %}
         {% if pin['city']|lower == 'berlin' %}
@@ -53,10 +44,7 @@
                 <div class="pin__route pin__route--berlin">
                     {% include 'svg/routes/7.svg' %}
                 </div>
-                <div class="pin__modal">
-                    <div class="pin__title">{{ pin[language ~ "_title"] }}</div>
-                    {% include 'interface/pin_list.twig' %}
-                </div>
+                {% include 'interface/pin_list.twig' %}
             </div>
         {% endif %}
         {% if pin['city']|lower == 'vienna' %}
@@ -66,10 +54,7 @@
                 <div class="pin__route pin__route--vena">
                     {% include 'svg/routes/10.svg' %}
                 </div>
-                <div class="pin__modal">
-                    <div class="pin__title">{{ pin[language ~ "_title"] }}</div>
-                    {% include 'interface/pin_list.twig' %}
-                </div>
+                {% include 'interface/pin_list.twig' %}
             </div>
         {% endif %}
         {% if pin['city']|lower == 'rome' %}
@@ -79,10 +64,7 @@
                 <div class="pin__route pin__route--rim">
                     {% include 'svg/routes/12.svg' %}
                 </div>
-                <div class="pin__modal">
-                    <div class="pin__title">{{ pin[language ~ "_title"] }}</div>
-                    {% include 'interface/pin_list.twig' %}
-                </div>
+                {% include 'interface/pin_list.twig' %}
             </div>
         {% endif %}
         {% if pin['city']|lower == 'st. petersburg' %}
@@ -92,10 +74,7 @@
                 <div class="pin__route pin__route--piter">
                     {% include 'svg/routes/3.svg' %}
                 </div>
-                <div class="pin__modal">
-                    <div class="pin__title">{{ pin[language ~ "_title"] }}</div>
-                    {% include 'interface/pin_list.twig' %}
-                </div>
+                {% include 'interface/pin_list.twig' %}
             </div>
         {% endif %}
         {% if pin['city']|lower == 'moscow' %}
@@ -105,10 +84,7 @@
                 <div class="pin__route pin__route--moskva">
                     {% include 'svg/routes/4.svg' %}
                 </div>
-                <div class="pin__modal">
-                    <div class="pin__title">{{ pin[language ~ "_title"] }}</div>
-                    {% include 'interface/pin_list.twig' %}
-                </div>
+                {% include 'interface/pin_list.twig' %}
             </div>
         {% endif %}
         {% if pin['city']|lower == 'stockholm' %}
@@ -118,10 +94,7 @@
                 <div class="pin__route pin__route--stokgolm">
                     {% include 'svg/routes/1.svg' %}
                 </div>
-                <div class="pin__modal">
-                    <div class="pin__title">{{ pin[language ~ "_title"] }}</div>
-                    {% include 'interface/pin_list.twig' %}
-                </div>
+                {% include 'interface/pin_list.twig' %}
             </div>
         {% endif %}
         {% if pin['city']|lower == 'helsing' %}
@@ -131,10 +104,7 @@
                 <div class="pin__route pin__route--helsing">
                     {% include 'svg/routes/2.svg' %}
                 </div>
-                <div class="pin__modal">
-                    <div class="pin__title">{{ pin[language ~ "_title"] }}</div>
-                    {% include 'interface/pin_list.twig' %}
-                </div>
+                {% include 'interface/pin_list.twig' %}
             </div>
         {% endif %}
         {% if pin['city']|lower == 'luxembourg' %}
@@ -144,10 +114,7 @@
                 <div class="pin__route pin__route--luxemburg">
                     {% include 'svg/routes/9.svg' %}
                 </div>
-                <div class="pin__modal">
-                    <div class="pin__title">{{ pin[language ~ "_title"] }}</div>
-                    {% include 'interface/pin_list.twig' %}
-                </div>
+                {% include 'interface/pin_list.twig' %}
             </div>
         {% endif %}
         {% if pin['city']|lower == 'brussels' %}
@@ -157,10 +124,7 @@
                 <div class="pin__route pin__route--brusel">
                     {% include 'svg/routes/6.svg' %}
                 </div>
-                <div class="pin__modal">
-                    <div class="pin__title">{{ pin[language ~ "_title"] }}</div>
-                    {% include 'interface/pin_list.twig' %}
-                </div>
+                {% include 'interface/pin_list.twig' %}
             </div>
         {% endif %}
     {% endfor %}

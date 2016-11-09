@@ -10,6 +10,7 @@ use Bolt\Helpers\Input;
 use Bolt\Response\BoltResponse;
 use Bolt\Translation\Translator as Trans;
 use Mobile_Detect;
+use Silex\Application;
 use Silex\ControllerCollection;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -738,4 +739,22 @@ class Frontend extends ConfigurableBase
 
         return $this->render($template, [], $globals);
     }
+
+    public function sendemail(Application $app)
+    {
+        $data = $_POST;
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Dubultu Krasts')
+            ->setFrom('benzins@gmail.com', 'Dubultu Krasts')
+            ->setTo(array('benzins@gmail.com'))
+            ->setBody(
+                $app['twig']->render('email.twig', array('data' => $data)),
+                'text/html'
+            );
+
+        return $app['mailer']->send($message);
+
+    }
+
 }

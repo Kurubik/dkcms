@@ -1,22 +1,25 @@
-{% if pin[0] or pin[1] or pin[2] %}
-    <ul class="pin__list">
-        {% if pin[0] is defined %}
-            <li class="pin__list-item">
-                <div class="pin__list-image" style="background-image: url('{{ app.request.basepath }}/files/{{ pin[0].image.file }}')"></div>
-                <div class="pin__list-text">{{ pin[0][language ~ "_routetext"] }}</div>
-            </li>
-        {% endif %}
-        {% if pin[1] is defined %}
-            <li class="pin__list-item">
-                <div class="pin__list-image" style="background-image: url('{{ app.request.basepath }}/files/{{ pin[1].image.file }}')"></div>
-                <div class="pin__list-text">{{ pin[1][language ~ "_routetext"] }}</div>
-            </li>
-        {% endif %}
-        {% if pin[2] is defined %}
-            <li class="pin__list-item">
-                <div class="pin__list-image" style="background-image: url('{{ app.request.basepath }}/files/{{ pin[2].image.file }}')"></div>
-                <div class="pin__list-text">{{ pin[2][language ~ "_routetext"] }}</div>
-            </li>
-        {% endif %}
-    </ul>
+{% if (pin[0] is defined and pin[0][language ~ "_routetext"] != '') or pin[1] is defined or pin[2] is defined %}
+    <div class="pin__modal">
+        <div class="pin__title">{{ pin[language ~ "_title"] }}</div>
+        <ul class="pin__list">
+            {% if pin[0] is defined %}
+                <li class="pin__list-item">
+                    <div class="pin__list-image" style="background-image: url('{{ app.request.basepath }}/files/{{ pin[0].image.file }}')"></div>
+                    <div class="pin__list-text">{{ pin[0][language ~ "_routetext"] }}</div>
+                </li>
+            {% endif %}
+            {% if pin[1] is defined %}
+                <li class="pin__list-item">
+                    <div class="pin__list-image" style="background-image: url('{{ app.request.basepath }}/files/{{ pin[1].image.file }}')"></div>
+                    <div class="pin__list-text">{{ pin[1][language ~ "_routetext"] }}</div>
+                </li>
+            {% endif %}
+            {% if pin[2] is defined %}
+                <li class="pin__list-item">
+                    <div class="pin__list-image" style="background-image: url('{{ app.request.basepath }}/files/{{ pin[2].image.file }}')"></div>
+                    <div class="pin__list-text">{{ pin[2][language ~ "_routetext"] }}</div>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
 {% endif %}

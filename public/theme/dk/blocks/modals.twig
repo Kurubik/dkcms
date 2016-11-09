@@ -7,7 +7,7 @@
             <h4 class="modal-block__title modal-block__title--top50">
                 {{ l('Заказать звонок') }}
             </h4>
-            <form action="" class="modal-block__form">
+            <form data-form="order-call" action="" class="modal-block__form">
                 <div class="modal-block__form-input-block">
                     <label class="modal-block__form-input-label" for="name">
                         {{ l('Ваше имя') }}
@@ -26,10 +26,32 @@
                     </label>
                     <input name="email" id="email" class="modal-block__form-input" />
                 </div>
-                <button class="button button--form" type="submit">
-                    {{ l('отправить') }}
+                <button class="button button--form" type="submit" data-form="order-button">
+                    <span>{{ l('отправить') }}</span>
+                    <span>{{ l('отправить') }}</span>
                 </button>
             </form>
+            <div class="loader" data-loader="loader">
+                <div class="loader__animation">
+                    <div class="sk-fading-circle">
+                        <div class="sk-circle1 sk-circle"></div>
+                        <div class="sk-circle2 sk-circle"></div>
+                        <div class="sk-circle3 sk-circle"></div>
+                        <div class="sk-circle4 sk-circle"></div>
+                        <div class="sk-circle5 sk-circle"></div>
+                        <div class="sk-circle6 sk-circle"></div>
+                        <div class="sk-circle7 sk-circle"></div>
+                        <div class="sk-circle8 sk-circle"></div>
+                        <div class="sk-circle9 sk-circle"></div>
+                        <div class="sk-circle10 sk-circle"></div>
+                        <div class="sk-circle11 sk-circle"></div>
+                        <div class="sk-circle12 sk-circle"></div>
+                    </div>
+                </div>
+                <div class="loader__text">
+                    {{ l('загрузка') }}
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -45,9 +67,9 @@
             <p class="modal-block__text">
                 {{ l('ваша заявка на обратный звонок успешно передана. Наши менеджеры свяжуться с вами в ближайшее время') }}
             </p>
-            <a href="" class="modal-block__link">
+            <span style="cursor: pointer;" class="modal-block__link" data-modal-close>
                 {{ l('Вернуться на сайт') }}
-            </a>
+            </span>
         </div>
     </div>
 </div>

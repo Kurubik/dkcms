@@ -243,7 +243,23 @@ accept_file_types: [ twig, html, js, css, scss, gif, jpg, jpeg, png, ico, zip, t
 # variables here, that determine the name of the backend, and adds a primary
 # support/contact link to the footer.  Add a scheme, like `mailto:` or
 # `https://` to the email or URL.
+
+mailoptions:
+     transport: smtp
+     spool: false
+     host: smtp.gmail.com
+     username: vcgmegamail@gmail.com
+     password: Finger21!
+     port: 465
+     encryption: ssl
+     auth_mode: login
+     senderMail: vcgmegamail@gmail.com
+     senderName: Dubultu Krasts
 #
+#mailoptions:
+#   transport: mail
+#   spool: false
+
 # Additionally you can change the mount point for the backend, either for
 # convenience or to obscure it from prying eyes.
 #

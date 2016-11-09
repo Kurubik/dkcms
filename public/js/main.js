@@ -251,8 +251,8 @@ $('[data-page-slider]').each(function () {
  */
 
 window.sr = ScrollReveal();
-sr.reveal('.content', { viewFactor: 0.1 });
-sr.reveal('.room-show', { viewFactor: 0.8 });
+sr.reveal('.content', { viewFactor: 0.1, scale: 1, distance: '0px' });
+sr.reveal('.room-show', { viewFactor: 0.8, scale: 1, distance: '0px' });
 
 var sorting = {
     sortList: [[0, 0], [1, 0], [2, 0], [3, 0], [4, 0], [5, 0], [6, 0]],
@@ -355,7 +355,7 @@ var sorting = {
                 $('[data-loader="loader"]').removeClass('active');
                 $('[data-table-change-by-filters]').find('[data-remove-this-plz]').remove();
                 $(response).insertAfter('[data-table-change-by-filters] [data-insert-here-plz]');
-                sr.reveal('.room-show', { viewFactor: 0.8 });
+                sr.reveal('.room-show', { viewFactor: 0.8, scale: 1, distance: '0px' });
                 $("[data-sort-table]").trigger("update");
             },
             error: function (response, err) {
@@ -427,6 +427,48 @@ $(window).bind('resize', function () {
         $('img[usemap]').maphilight();
     });
 });
+    
+    /*
+     * FORM STUFF
+     */
+    $('[data-form="order-button"]').click(function (e) {
+        e.preventDefault();
+        var allOK = true;
+        var $form = $('[data-form="order-call"]');
+        var $phone = $form.find('#phone');
+        $phone.parent().removeClass('error');
+
+        if ($phone.val() == '') {
+            $phone.parent().addClass('error');
+            allOK = false;
+        }
+        
+        if (allOK) {
+            $('[data-loader="loader"]').addClass('active');
+            $.ajax({
+                url: 'http://'+ location.hostname +'/public/ajax/sendemail',
+                type: 'POST',
+                data: $form.serialize(),
+                success: function (response, err) {
+                    console.log(response);
+                    console.log(err);
+                    $('[data-modal="email"]').addClass('active');
+                    $('[data-modal="order-call"]').removeClass('active');
+                    $('[data-loader="loader"]').removeClass('active');
+                },
+                error: function (response, err) {
+                    console.log(response);
+                    console.log(err);
+                }
+            });
+        }
+        
+    });
+    
+    
+    
+    
+    
     
     //mobile
     $('[data-mobile-menu="close"]').click(function() {
