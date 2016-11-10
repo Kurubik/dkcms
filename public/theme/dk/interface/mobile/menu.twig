@@ -1,18 +1,34 @@
 <div class="menu hide" data-mobile-menu="menu">
+    <div class="menu__wrapper">
+        {% set languageslug = app.paths.current|split('/')[2] %}
 
-    <div class="menu__logo">
-        {% include 'svg/logo.svg' %}
-    </div>
+        {% if languageslug in ['en', 'ru', 'lv'] %}
+            {% set language = languageslug %}
+        {% else %}
+            {% set language = 'ru' %}
+        {% endif %}
 
-    <div class="menu__close" data-mobile-menu="close"></div>
-    <div class="menu-list">
-        {% for item in menu %}
-            <a style="display: block" href="{{ item.link }}" class="menu-list__item">{{ item.title }}</a>
-        {% endfor %}
-    </div>
+        {{ setlanguage(language) }}
+        {% if record.slug != 'home' %}
+            <a href="{{ app.request.basepath }}/{{ language }}/home" class="menu__logo">
+                {% include 'svg/logo.svg' %}
+            </a>
+        {% else %}
+            <div class="menu__logo">
+                {% include 'svg/logo.svg' %}
+            </div>
+        {% endif %}
 
-    <div class="menu__footer">
-        {{ l('contact phone') }}<br>
-        <a href="{{ l('info email') }}">{{ l('info email') }}</a>
+        <div class="menu__close" data-mobile-menu="close"></div>
+        <div class="menu-list">
+            {% for item in menu %}
+                <a style="display: block" href="{{ item.link }}" class="menu-list__item">{{ item.title }}</a>
+            {% endfor %}
+        </div>
+
+        <div class="menu__footer">
+            {{ l('contact phone') }}<br>
+            <a href="{{ l('info email') }}">{{ l('info email') }}</a>
+        </div>
     </div>
 </div>
