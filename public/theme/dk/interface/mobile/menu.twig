@@ -22,7 +22,7 @@
         <div class="menu__close" data-mobile-menu="close"></div>
         <div class="menu-list">
             {% for item in menu %}
-                <a style="display: block" href="{{ item.link }}" class="menu-list__item">{{ item.title }}</a>
+                <a style="display: block" href="{{ item.link }}" class="menu-list__item {% if app.request.requestUri == item.link %} active{% endif %}">{{ item.title }}</a>
             {% endfor %}
         </div>
 
