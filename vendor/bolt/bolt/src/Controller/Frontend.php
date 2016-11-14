@@ -226,6 +226,7 @@ class Frontend extends ConfigurableBase
             'galleries'                   => $galleries,
             'filterdata'                  => $filters_data,
             'is_mobile'                   => $is_mobile,
+            'sluggg'                      => $slug,
             $contenttype['singular_slug'] => $content,
         ];
 

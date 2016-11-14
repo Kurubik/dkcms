@@ -14,7 +14,7 @@
     {% if record.use_order_call %}
         <div class="header__call">{% include 'interface/call.twig' %}</div>
     {% endif %}
-    <div class="header__menu header__menu--small">{{ menu('mainmenu', 'blocks/menu.twig') }}</div>
+    <div class="header__menu header__menu--small">{{ menu(menumain, 'blocks/menu.twig') }}</div>
     {% if record.header_right_text %}
         <div class="header__info-block">{% include 'interface/info-price.twig' %}</div>
     {% endif %}
